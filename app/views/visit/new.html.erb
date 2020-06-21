@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Start a visit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <%= stylesheet_link_tag('ol.css') %>
+    <%= stylesheet_link_tag('new.css') %>
+
+    <script type="text/javascript">
+        
+        var art1 = '<%= @artworks[0].nome %>'
+        var aut1 = '<%= @artworks[0].autore %>'
+        var lng1 = <%= @artworks[0].longitudine %>
+        var lat1 = <%= @artworks[0].latitudine %>
+    
+        var art2 = '<%= @artworks[1].nome %>'
+        var aut2 = '<%= @artworks[1].autore %>'
+        var lng2 = <%= @artworks[1].longitudine %>
+        var lat2 = <%= @artworks[1].latitudine %>
+    
+        var art3 = '<%= @artworks[2].nome %>'
+        var aut3 = '<%= @artworks[2].autore %>'
+        var lng3 = <%= @artworks[2].longitudine %>
+        var lat3 = <%= @artworks[2].latitudine %>
+    
+        var art4 = '<%= @artworks[3].nome %>'
+        var aut4 = '<%= @artworks[3].autore %>'
+        var lng4 = <%= @artworks[3].longitudine %>
+        var lat4 = <%= @artworks[3].latitudine %>
+        
+        var art5 = '<%= @artworks[4].nome %>'
+        var aut5 = '<%= @artworks[4].autore %>'
+        var lng5 = <%= @artworks[4].longitudine %>
+        var lat5 = <%= @artworks[4].latitudine %>
+        
+        var art6 = '<%= @artworks[5].nome %>'
+        var aut6 = '<%= @artworks[5].autore %>'
+        var lng6 = <%= @artworks[5].longitudine %>
+        var lat6 = <%= @artworks[5].latitudine %>
+        
+        var art7 = '<%= @artworks[6].nome %>'
+        var aut7 = '<%= @artworks[6].autore %>'
+        var lng7 = <%= @artworks[6].longitudine %>
+        var lat7 = <%= @artworks[6].latitudine %>
+    </script>
+
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" %>
+
+  </head>
+    <body>
+
+    <%= javascript_include_tag "new.js" %>
+    <%= javascript_include_tag "ol.js" %>
+
+    <div class="w3-bar">
+        <div class="element">
+            <div id='divAccount' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
+                <div class="dropdown-content">
+                    <a href="../EditAccount/editAccount.php"> Edit Account </a>
+                    <a href="../EditPassword/editPassword.php"> Edit Password</a>
+                </div>  
+            </div>
+        </div>     
+        <input type="button" class="logo" id='btnHome' onclick='return back_to_home();'>
+                
+        <div id='menu' class="menu">
+            <a href="../Start visit/visit.php" class="element">Start visit or come back to your tour! 🗺️ </a>
+            <a href ="../FindArtwork/findArtwork.html" class="element" >Look for an artwork 🔎</a>
+            <a href ="../AddArtwork/addArtwork.php" class="element">Add an artwork 🖼️</a> 
+        </div>
+    </div>
+
+        <span class="text1" align="center">
+            Enjoy your tour!
+        </span>
+        <br>
+        <div class="text3">
+            Select time to spend to wander 
+        </div>
+        <!-- <div class="custom-select" style="width:200px;"> -->
+            <div class="timeperiod">
+            <select class="time" name="time" id="time" onchange="return reduce_visit()">
+                <option value="allday"> All day </option>
+                <option value="halfday"> Half day </option>
+                <option value="couplehours"> Couple hours </option>
+            </select>
+        </div>
+        <br>
+
+    <div class="show" style="display: flex;flex-direction: row">
+      <input type="checkbox" id="checkbox" checked> Show suggestions on Map </input>
+    </div>
+    <div id="map" class="map"><div id="popup"></div></div>
+
+    <!-- Caricamento dinamico delle opere -->
+    <span class="text2" align="center">
+            According to your preferences you would like to visit...
+        </span>
+    <div class="suggestions">
+        <br> <br>
+
+        <div id='link1'>
+            <%= link_to @artworks[0].nome , artwork_path(:id => @artworks[0].id )%>
+        </div> <br> 
+        
+        <div id='link2'>
+            <%= link_to @artworks[1].nome , artwork_path(:id => @artworks[1].id )%>
+        </div> <br>
+
+        <div id='link3'>
+            <%= link_to @artworks[2].nome , artwork_path(:id => @artworks[2].id )%>
+        </div> <br>
+
+        <div id='link4'>
+            <%= link_to @artworks[3].nome , artwork_path(:id => @artworks[3].id )%>
+        </div> <br>
+
+        <div id='link5'>
+            <%= link_to @artworks[4].nome , artwork_path(:id => @artworks[4].id )%>
+        </div> <br>
+
+        <div id='link6'>
+            <%= link_to @artworks[5].nome , artwork_path(:id => @artworks[5].id )%>
+        </div> <br>
+
+        <div id='link7'>
+            <%= link_to @artworks[6].nome , artwork_path(:id => @artworks[6].id )%>
+        </div>    
+    </div>
+
+    <!-- Bottoni di navigazione -->
+    <div class='map-navigator'>
+        <div class='map-navigator-text' align="center">
+            <h4><b> Navigate around <br> the map to <br> locate our suggestions! <b></h4>
+        </div>
+        <button class='button' id="button1" onclick="move(lng1,lat1);"> <%= @artworks[0].nome %> </button> <br> <br>
+        <button class='button' id="button2" onclick="move(lng2,lat2);"> <%= @artworks[1].nome %> </button> <br> <br>
+        <button class='button' id="button3" onclick="move(lng3,lat3);"> <%= @artworks[2].nome %> </button> <br> <br>
+        <button class='button' id="button4" onclick="move(lng4,lat4);"> <%= @artworks[3].nome %> </button> <br> <br>
+        <button class='button' id="button5" onclick="move(lng5,lat5);"> <%= @artworks[4].nome %> </button> <br> <br>
+        <button class='button' id="button6" onclick="move(lng6,lat6);"> <%= @artworks[5].nome %> </button> <br> <br>
+        <button class='button' id="button7" onclick="move(lng7,lat7);"> <%= @artworks[6].nome %> </button> <br> <br>
+        <button class='tourbutton' onclick="tour();"> 📸 Bring me on itinerary </button>
+
+    </div>
+
+    <div class='overlay-container'>
+        <span class='overlay-text' id='artworkname'></span><br>
+        <span class='overlay-text' id='authorname'></span><br>
+    </div>
+
+    
+    <div class="w3-footer_bar">
+      <div id="social_sez" class="social_sez" text-align="center">
+        <h5>Follow us on:</h5>
+          <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+          <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-youtube-play"></a>
+      </div>
+
+      <div class="logo_sez" align="left">
+        <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+      </div>
+      <div id='dev' class="developers">
+        <a href="../AboutUs/aboutUs.php" id='fe1' class="footer_element" style="margin-left: 30px;">About Us</a>
+        <a href="../ContactUs/contact_us.html" id='fe2' class="footer_element" style="margin-left: 30px";>Contact Us</a>
+      </div>       
+    </div>
+    <!-- Animazioni in JQuery -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+        load_map(art1,aut1,lng1,lat1,art2,aut2,lng2,lat2,art3,aut3,lng3,lat3,art4,aut4,lng4,lat4,art5,aut5,lng5,lat5,art6,aut6,lng6,lat6,art7,aut7,lng7,lat7);
+        $(".button").click(function(event){
+            $(event.target).addClass("active");
+    
+            // La classe diventa successo dopo 3.7 sec
+            setTimeout(function(){
+                $(event.target).addClass("success")
+            }, 3700);
+    
+            // Rimuovo la classe successo dopo 5 sec
+            setTimeout(function(){
+                $(event.target).removeClass("active");
+                $(event.target).removeClass("success");
+                $(event.target).removeClass("failure");
+            }, 5000);
+        });
+    });
+    </script>
+  </body>
+</div>
+</html>
