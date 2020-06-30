@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'high_voltage', '~> 3.1'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem 'lightbox-bootstrap-rails', '5.1.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

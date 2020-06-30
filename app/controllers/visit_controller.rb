@@ -1,4 +1,5 @@
 class VisitController < ApplicationController
+    layout false
     def new
         @artworks = Artwork.all
     end

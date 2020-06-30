@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+
+    <%= stylesheet_link_tag ('details.css') %>
+    <%= stylesheet_link_tag ('lightbox.min') %>
+    <%= stylesheet_link_tag ('star_style.css') %>
+
+    <%= javascript_include_tag "lightbox-plus-jquery.min.js" %>
+    <%= javascript_include_tag "vue.min.js" %>
+
+    <script> 
+        var valutations = <%= @artwork.valutazioni %>
+        var mark = <%= @artwork.voto %>
+    </script>
+
+   </head>
+
+   <body>
+        <div class="w3-bar">
+                <div class="element">
+                    <div id='account' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
+
+                        <div class="dropdown-content">
+                            <a href="#"> Edit Account </a>
+                            <a href="#"> Edit Password</a>
+                        </div>  
+                    </div>
+                </div>
+
+                <input type="button" class="logo" id='btnHome' onclick="return back_to_home()">
+
+                <div id='back'>
+                    <a href="#" class="element">Start visit or come back to your tour! 🗺️ </a>
+                </div> 
+                
+                <div id='menu' class="menu">
+                    <a href ="#" class="element" >Look for an artwork 🔎</a>
+                    <a href ="#" class="element">Add an artwork 🖼️</a>
+                </div>
+        </div>
+       
+
+        <div class="tutto">
+            <div class='gallery'>
+              
+                <div class="divText">
+                    <div class="nome"> <%= @artwork.nome %> Details </div>
+                    <br> <br>
+                    <h3>Name:</h3> <p style="display:inline"> <%= @artwork.nome %> <p>
+                    <h3>Author:</h3> <p style="display:inline"> <%= @artwork.autore %> <p>
+                    <h3>TimePeriod:</h3> <p style="display:inline"> <%= @artwork.periodo %> <p>
+                    <h3>Dimensions:</h3> <p style="display:inline"> <%= @artwork.dimensioni %> <p>
+                    <h3>Category:</h3> <p style="display:inline"> <%= @artwork.categoria %> <p>
+                    <div id='val1'>
+                        <h3>Vote:</h3> <p style="display:inline"> {{vote}} <p>
+                        <h3>Valutations:</h3> <p style="display:inline"> {{val}} <p>
+                        <h3>Place and address:</h3> <p style="display:inline"> <%= @artwork.indirizzo %> </p>
+                        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                        <div class="rating"> 
+                            <input type="radio" class="star" id="star1" v-on:click="incrementVal(); updateMark(5)" 
+                                value='5'> <label for="star1"></label>
+                            <input type="radio" class="star" id="star2" v-on:click="incrementVal(); updateMark(4)" 
+                                value='4'> <label for="star2"></label>
+                            <input type="radio" class="star" id="star3" v-on:click="incrementVal(); updateMark(3)" 
+                                value='3'> <label for="star3"></label>
+                            <input type="radio" class="star" id="star4" v-on:click="incrementVal(); updateMark(2)" 
+                                value='2'> <label for="star4"></label>
+                            <input type="radio" class="star" id="star5" v-on:click="incrementVal(); updateMark(1)" 
+                                value='1'> <label for="star5"></label>
+                        </div>
+                    </div>         
+                </div>  
+            <br>
+            
+            <a href= '<%= @artwork.foto1 %>' data-lightbox='mygallery' data-title='<%= @artwork.nome %>' > 
+                <img class="artwork_image" alt='<%= @artwork.nome %>' src= '<%= @artwork.foto1 %>' > 
+            </a>
+
+            <a href= '<%= @artwork.foto2 %>' data-lightbox='mygallery' data-title='<%= @artwork.nome %>'> 
+                <img class="artwork_snapshots" alt='<%= @artwork.nome %>' src= '<%= @artwork.foto2 %>' > 
+            </a>
+                
+            <a href= '<%= @artwork.foto3 %>' data-lightbox='mygallery' data-title='<%= @artwork.nome %>' > 
+                <img class="artwork_snapshots" alt='<%= @artwork.nome %>' src= '<%= @artwork.foto3 %>' > 
+            </a>
+
+            <a href= '<%= @artwork.foto4 %>' data-lightbox='mygallery' data-title='<%= @artwork.nome %>'> 
+                <img class="artwork_snapshots" alt='<%= @artwork.nome %>' src= '<%= @artwork.foto4 %>' > 
+            </a>
+
+            <a href= '<%= @artwork.foto5 %>' data-lightbox='mygallery' data-title='<%= @artwork.nome %>'> 
+                <img class="artwork_snapshots" alt='<%= @artwork.nome %>' src= '<%= @artwork.foto5 %>' > 
+            </a>
+
+                <div class="container">
+                    <div class="rate" id="val1">
+                                <div class="valutation"> 
+                                    <h4>   How was it?<img class="stella" src="../Images/stella.gif"></h4>
+                                <br>
+                                </div>  
+                    </div>
+                </div> 
+
+            <%= link_to '<input type="button" id="edit_btn" value="Edit artwork">'.html_safe , edit_artwork_path(:id => @artwork.id) %>
+
+            <div class='infos'>
+                <button type="button" id='btninfo' class="show">
+                    Give me more informations about this artwork
+                </button>
+                <div class='more_infos' id='more_infos'>  </div>
+            </div>
+
+           
+            <div class="footer">
+            <div id="social_sez" class="social_sez">
+                <h5>Follow us on:</h5>
+                <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-youtube-play"></a>
+            </div>
+
+            
+                <div class="logo_sez" align="left">
+                    <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+                </div>
+            <div class="developers">
+                    <a href=".#" class="footer_element">About Us</a>
+                    <a href="#" class="footer_element">Contact Us</a>
+            </div>
+           
+        </div>
+    </div>
+    </body>
+    
+    <script>
+        var val = new Vue({
+            el: '#val1',
+            data: {
+                val: valutations,
+                vote: mark
+            },
+            methods: {
+                incrementVal: function () {
+                    this.val += 1
+                } ,
+                updateMark: function(mark) {
+                    this.vote = Math.ceil((this.vote + mark) / 2)
+                }
+            }
+        })        
+    </script>
+
+    <script>
+        $('.star').click(function() {
+            var mark = $(event.target).val()
+            $.ajax ({
+                method: "PUT",
+                url: "/artwork_mark_update",
+                data: { "id" : + <%= @artwork.id %> , "mark" : mark } 
+            }).done(function(result) {
+                alert(result)
+            })
+        })
+    </script>
+
+   <script>
+        $(document).ready(function() { 
+            $('#btninfo').click(function() {
+                if ($('#btninfo').attr("class") === "show") {
+                    $('#btninfo').text('Hide informations about this artwork')
+                    $('#more_infos').fadeIn(3000)
+                    $("#btninfo").removeClass("show")
+                    $("#btninfo").addClass("hide")
+                } else {
+                    $('#btninfo').text('Give me more informations about this artwork')
+                    $('#more_infos').fadeOut(3000)
+                    $("#btninfo").removeClass("hide")
+                    $("#btninfo").addClass("show")
+                }
+
+                $.ajax ({
+                    url: "/artwork_more_infos",
+                    data: { "id" : + <%= @artwork.id %> } 
+                }).done(function(result) {
+                    $("#more_infos").html(result)
+                })                
+            })
+        })
+   </script>
+</html>
