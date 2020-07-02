@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   put '/artwork_mark_update' => 'artworks#update_mark'
   get '/artwork_more_infos'  => 'artworks#more_infos'
-  post '/contact_us_email'   => 'mail#contact_us'
+  post '/contact_us_email'   => 'mail#send_email'
 end
