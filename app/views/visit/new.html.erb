@@ -66,10 +66,10 @@
                 </div>  
             </div>
         </div>     
-        <input type="button" class="logo" id='btnHome' onclick='return back_to_home();'>
+        <a href='/homepage'> <input type="button" class="logo" id='btnHome'> </a>
                 
         <div id='menu' class="menu">
-            <a href="../Start visit/visit.php" class="element">Start visit or come back to your tour! 🗺️ </a>
+            <a href="/visit/new" class="element">Start visit or come back to your tour! 🗺️ </a>
             <a href ="../FindArtwork/findArtwork.html" class="element" >Look for an artwork 🔎</a>
             <a href ="../AddArtwork/addArtwork.php" class="element">Add an artwork 🖼️</a> 
         </div>
@@ -174,28 +174,24 @@
       </div>
       <div id='dev' class="developers">
         <a href="../AboutUs/aboutUs.php" id='fe1' class="footer_element" style="margin-left: 30px;">About Us</a>
-        <a href="../ContactUs/contact_us.html" id='fe2' class="footer_element" style="margin-left: 30px";>Contact Us</a>
+        <a href="/contact_us" id='fe2' class="footer_element" style="margin-left: 30px";>Contact Us</a>
       </div>       
     </div>
     <!-- Animazioni in JQuery -->
     <script type="text/javascript">
     $(document).ready(function(){
         load_map(art1,aut1,lng1,lat1,art2,aut2,lng2,lat2,art3,aut3,lng3,lat3,art4,aut4,lng4,lat4,art5,aut5,lng5,lat5,art6,aut6,lng6,lat6,art7,aut7,lng7,lat7);
-        $(".button").click(function(event){
-            $(event.target).addClass("active");
-    
-            // La classe diventa successo dopo 3.7 sec
-            setTimeout(function(){
-                $(event.target).addClass("success")
-            }, 3700);
-    
-            // Rimuovo la classe successo dopo 5 sec
-            setTimeout(function(){
-                $(event.target).removeClass("active");
-                $(event.target).removeClass("success");
-                $(event.target).removeClass("failure");
-            }, 5000);
-        });
+        $('.button').click(function(event){
+            $('#button1').css("color", "blue")
+            $('#button2').css("color", "blue")
+            $('#button3').css("color", "blue")
+            $('#button4').css("color", "blue")
+            $('#button5').css("color", "blue")
+            $('#button6').css("color", "blue")
+
+            var id = '#' + event.target.id 
+            $(id).css("color", "red")
+        })
     });
     </script>
   </body>

@@ -199,7 +199,7 @@ a:hover {
     display: inline-block;
     width: 235px;
     height: 40px;
-    border: 2px solid #1521c2;;
+    border: 2px solid #1521c2;
     color: #1521c2;
     font-family: "Avenir";
     font-size: 16px;
@@ -217,45 +217,6 @@ a:hover {
 button:disabled {
     border: 2px solid #3a363d;
     color: #3a363d;
-}
-
-.active{
-    margin-left: 46%;
-    font-size: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border-left-color: transparent;
-    animation: rotate 1.4s ease 0.5s infinite;
-}
-@keyframes rotate{
-    0%{
-        transform: rotate(360deg);
-    }
-}
-
-.success{
-    position: absolute;
-    border: steelblue;
-    background-color: #fff;
-    animation: bounce .3s ease-in;
-}
-@keyframes bounce{
-    0%{
-        transform: scale(0.9);
-    }
-}
-.success:before{
-    content: '';
-    position: absolute;
-    background: url("../Images/ok-jpeg.svg") no-repeat;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 31px;
-    height: 31px;
-    line-height: 31px;
-    top: 8px;
 }
 
 .tourbutton{

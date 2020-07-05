@@ -9,11 +9,6 @@
 
         <%= stylesheet_link_tag ('contact_us.css') %>
         <title>Contact Us</title>
-
-        <script>
-            var sended = false;
-        </script>
-
     </head>
     <body>
         <!-- menu bar -->
@@ -26,10 +21,10 @@
                     </div>  
                 </div>
             </div>     
-            <input type="button" class="logo" id='btnHome' onclick='return back_to_home()'>
+            <a href='/homepage'> <input type="button" class="logo" id='btnHome'> </a>
                     
             <div class="menu">
-                <a href="#" class="element">Start visit or come back to your tour! 🗺️ </a>
+                <a href="/visit/new" class="element">Start visit or come back to your tour! 🗺️ </a>
                 <a href ="#" class="element" >Look for an artwork 🔎</a>
                 <a href ="#" class="element">Add an artwork 🖼️</a>
             </div>
@@ -63,7 +58,7 @@
               <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
             </div>
             <div id='dev' class="developers">
-              <a href="#" id='fe1' class="footer_element" style="margin-left: 30px;">About Us</a>
+              <a href="/aboutus" id='fe1' class="footer_element" style="margin-left: 30px;">About Us</a>
             </div>       
           </div>
 
@@ -76,6 +71,10 @@
                 $(".button").click(function(){
 
                 var message = $('#contact_area').val()
+                if (message == '') {
+                    alert ('Insert a message to send!')
+                    return;
+                }
                 $.ajax ({
                     method: "POST",
                     url: "/contact_us_email",
@@ -83,25 +82,6 @@
                 }).done(function(result) {
                     alert(result)
                 })
-
-
-                $(this).addClass("active");
-                setTimeout(function(){
-                    if (sended) {
-                        $(".button").addClass("success")
-                        sended = false
-                    }  
-                    else {
-                        $(".button").addClass("failure")
-                        
-                    }         
-                }, 3700);
-            
-                setTimeout(function(){
-                    $(".button").removeClass("active");
-                    $(".button").removeClass("success");
-                    $(".button").removeClass("failure");
-                }, 5000);
             });
         });
             
