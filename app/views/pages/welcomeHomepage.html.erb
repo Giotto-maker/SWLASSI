@@ -43,14 +43,14 @@
                     <div class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
 
                     <div class="dropdown-content">
-                        <a href="../EditAccount/editAccount.php"> Edit Account </a>
+                        <a href="../EditAccount/editAccount.php"> Edit Account</a>
                         <a href="../EditPassword/editPassword.php"> Edit Password</a>
                     </div>  
                     </div>
                 </div>
 
                 <div class="logout_button">
-                    <a href=logout.php  class="element">Log Out</a>
+                    <%= link_to "Log out", logout_path, method: "delete" %>
                 </div>
                 
                 <input type="button" class="logo" id='btnHome'>

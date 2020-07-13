@@ -18,8 +18,8 @@
         </div>
        
         <div class="buttons" align="center">
-            <a href="../Login/login.html"> <input type="button" id="login" value="Log In"> </a> 
-            <a href="../SignUp/signup.html"> <input type="button" id="signup" value="Sign Up"> </a>
+            <%= link_to '<input type="button" id="login" value="Login">'.html_safe, login_path %> 
+            <%= link_to '<input type="button" id="signup" value="Sign Up">'.html_safe, signup_path %> 
             <%= link_to '<input type="button" id="visit" value="Start a visit">'.html_safe , new_visit_path %> 
          </div>
         <div class="image">
