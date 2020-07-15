@@ -8,7 +8,7 @@
     </head>
 
     <script> 
-        var category = <%= @user.category %>
+        var category = '<%= current_user.category %>' 
     </script>
     <div class="prova">
     <body onload="return categoriaSelezionata(category)";>   
@@ -37,16 +37,16 @@
                     Edit account
                 </div>
                 <br>
-                <input type="text" id="name" name="name" value=<?php echo json_encode($name) ?>>
+                <input type="text" id="name" name="name" value= '<%= current_user.name %>'>
                 <br>
-                <input type="text" id="surname" name="surname" value =<?php echo json_encode($surname) ?>>
+                <input type="text" id="surname" name="surname" value = '<%= current_user.surname %>'>
                 <br>
                 <br>
-                <input type="text" id="username" name="username" value = <?php echo json_encode($username) ?>>
+                <input type="text" id="username" name="username" value = '<%= current_user.username %>'>
                 <br>
-                <input type="email" id="email" name="email" value=<?php echo json_encode($email) ?> readonly>
+                <input type="email" id="email" name="email" value= '<%= current_user.email %>' readonly>
                 <br>
-                <input type="password" id="password" name="password" value = <?php echo json_encode($password)?> readonly>
+                <input type="password" id="password" name="password" value = '<%= current_user.password_digest %>' readonly>
                 <br>
                 <br>
                     <select class="category" id="category" name ="category">
