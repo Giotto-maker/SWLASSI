@@ -47,6 +47,8 @@
         var aut7 = '<%= @artworks[6].autore %>'
         var lng7 = <%= @artworks[6].longitudine %>
         var lat7 = <%= @artworks[6].latitudine %>
+
+        var logged = <%= logged_in? %>
     </script>
 
     <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" %>
@@ -61,12 +63,13 @@
         <div class="element">
             <div id='divAccount' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
                 <div class="dropdown-content">
-                    <a href="../EditAccount/editAccount.php"> Edit Account </a>
-                    <a href="../EditPassword/editPassword.php"> Edit Password</a>
+                    <a href="#"> Edit Account </a>
+                    <a href="#"> Edit Password</a>
+                    <a href='/logout'> Logout </a>
                 </div>  
             </div>
         </div>     
-        <a href='/homepage'> <input type="button" class="logo" id='btnHome'> </a>
+        <a> <input type="button" class="logo" id='btnHome'> </a>
                 
         <div id='menu' class="menu">
             <a href="/visit/new" class="element">Start visit or come back to your tour! 🗺️ </a>
@@ -181,6 +184,7 @@
     <script type="text/javascript">
     $(document).ready(function(){
         load_map(art1,aut1,lng1,lat1,art2,aut2,lng2,lat2,art3,aut3,lng3,lat3,art4,aut4,lng4,lat4,art5,aut5,lng5,lat5,art6,aut6,lng6,lat6,art7,aut7,lng7,lat7);
+        disable_buttons_for_non_loggedin_user()
         $('.button').click(function(event){
             $('#button1').css("color", "blue")
             $('#button2').css("color", "blue")
@@ -191,6 +195,10 @@
 
             var id = '#' + event.target.id 
             $(id).css("color", "red")
+        })
+        $('#btnHome').click(function() {
+            if(logged)     window.location.replace('/welcomeHomepage')
+            else           window.location.replace('/homepage') 
         })
     });
     </script>
