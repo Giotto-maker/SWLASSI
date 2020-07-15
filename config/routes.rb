@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   put '/artwork_mark_update' => 'artworks#update_mark'
   get '/artwork_more_infos'  => 'artworks#more_infos'
   post '/contact_us_email'   => 'mail#send_email'
+  get '/update' => 'artworks#new'
+  post '/update' => 'artworks#update'
+  get '/artwork_find' => 'artworks#find'
 
   get 'signup'  => 'users#new'
   get 'login'   => 'sessions#new'

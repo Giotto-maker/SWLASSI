@@ -40,4 +40,35 @@ class ArtworksController < ApplicationController
             render html: '' + @infos
         end
     end
+
+    def edit
+        id = params[:id]
+        @artwork = Artwork.find(id)
+	end
+
+
+	def update
+        id = params[:id]
+        @artwork = Artwork.find(id)
+        @artwork.update_attributes!(params[:artwork].permit(:timePeriod, :dimension, :place, :lat, :long, :foto1, :foto2, :foto3, :foto4, :foto5))
+		redirect_to '/welcomeHomepage'
+	end
+
+
+	def destroy
+		id = params[:id]
+		@artwork = Artwork.find(id)
+		@artwork.destroy
+		redirect_to '/welcomeHomepage'
+    end
+
+    def find
+        id = params[:id]
+        if Artwork.exists?(id)
+            @movie = Artwork.find(id)
+        else
+            render html: 'Artwork does not exit'
+        end
+    end
+
 end

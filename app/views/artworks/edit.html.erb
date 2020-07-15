@@ -1,0 +1,154 @@
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag ('editArtwork.css') %>
+    <%= stylesheet_link_tag ('lightbox.min') %>
+
+    <script> var category = <%=@artwork.categoria%>; </script>
+
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <%= javascript_include_tag "lightbox-plus-jquery.min.js" %>
+    <%= javascript_include_tag "editArtwork.js" %>
+    <%= javascript_include_tag "vue.min.js" %>
+
+
+    <title>Edit <%=@artwork.nome %> </title>
+
+    </head>
+    <div class="tutto_container">
+    <body onload="return categoriaSelezionata(category);">
+    <!-- menu bar -->
+    <div class="w3-bar">
+            <div class="element">
+                <div class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">
+
+                <div class="dropdown-content">
+                    <a href="../EditAccount/editAccount.php"> Edit Account </a>
+                    <a href="../EditPassword/editPassword.php"> Edit Password</a>
+                </div>
+                </div>
+            </div>
+
+
+            <input type="button" class="logo" id='btnHome' onclick="location.href='../WelcomeHomepage/welcomeHomepage.html'">
+
+            <div class="menu">
+                <a href="../Start visit/visit.php" class="element">Start visit or come back to your tour! 🗺️ </a>
+                <a href ="../FindArtwork/findArtwork.html" class="element" >Look for an artwork 🔎</a>
+                <a href ="../AddArtwork/addArtwork.php" class="element">Add an artwork 🖼️</a>
+            </div>
+        </div>
+
+    <br>
+
+
+
+    <div class="tutto">
+        <form action="/update" method="post" name="editArtwork">
+            <div class="divText">
+            <div class="nome"><%=@artwork.nome%> Details </div>
+
+            <br>
+                <label>Category</label>: <select name="category" id="category_selection">
+                    <option value="star"> Star </option>
+                    <option value="painting"> Painting </option>
+                    <option value="architecture"> Architecture </option>
+                    <option value="sculpture"> Sculpture </option>
+                </select>
+                <br>
+                <br>
+                <label>Name: </label><input type="text" name="name" value= <%=@artwork.nome%> readonly>
+                <br>
+                <br>
+                <label>Author: </label><input type="text" name="author" value= <%=@artwork.autore%> readonly>
+                <br>
+                <br>
+                <label>TimePeriod: </label><input type="text" name="timePeriod" value= <%=@artwork.periodo%>>
+                <br>
+                <br>
+                <label>Dimension: </label><input type="text" name="dimension" value= <%=@artwork.dimensioni%>>
+                <br>
+                <br>
+                <label>Place and Address: </label><input type="text" name="place" value= <%=@artwork.indirizzo%>>
+                <br>
+                <br>
+                <label>Latitude: </label><input type="text" name="lat" value= <%=@artwork.latitudine%>>
+                <br>
+                <br>
+                <label>Longitude: </label><input type="text" name="long" value= <%=@artwork.longitudine%>>
+                <br>
+                <br>
+                <label>Image 1: </label><input type="text" name="foto1" value= <%=@artwork.foto1%>>
+                <br>
+                <br>
+                <label>Image 2: </label><input type="text" name="foto2" value= <%=@artwork.foto2%>>
+                <br>
+                <br>
+                <label>Image 3: </label><input type="text" name="foto3" value= <%=@artwork.foto3%>>
+                <br>
+                <br>
+                <label>Image 4: </label><input type="text" name="foto4" value= <%=@artwork.foto4%>>
+                <br>
+                <br>
+                <label>Image 5: </label><input type="text" name="foto5" value= <%=@artwork.foto5%>>
+                <br>
+                <br>
+                </div>
+                <br>
+                <div class="save"><input type="submit" value ="Save"> </div>
+
+    <br> <br>
+    <a href=<%= @artwork.foto1%> data-lightbox='mygallery' data-title='<%=@artwork.nome%>'>
+        <img class="artwork_image" alt=<%=@artwork.nome%> src= <%=@artwork.foto1%>>
+    </a>
+    <a href=<%= @artwork.foto2%> data-lightbox='mygallery' data-title='<%=@artwork.nome%>'>
+        <img class="artwork_snapshots" alt=<%=@artwork.nome%> src= <%=@artwork.foto2%>>
+    </a>
+    <a href=<%=@artwork.foto3%> data-lightbox='mygallery' data-title='<%=@artwork.nome%>'>
+        <img class="artwork_snapshots" alt=<%=@artwork.nome%> src= <%=@artwork.foto3%>>
+    </a>
+    <a href=<%=@artwork.foto4%> data-lightbox='mygallery' data-title='<%=@artwork.foto4%>'>
+        <img class="artwork_snapshots" alt=<%=@artwork.nome%> src= <%=@artwork.foto4%>>
+    </a>
+    <a href=<%=@artwork.foto5%> data-lightbox='mygallery' data-title='<%=@artwork.nome%>'>
+        <img class="artwork_snapshots" alt=<%=@artwork.nome%> src= <%=@artwork.foto5%>>
+    </a>
+    <form action="/delete" method="delete" name="delete" id="delete">
+        <div class="elimina">
+            <input type='button' value='Delete'>
+        </div>
+    </form>
+
+
+    </div>
+
+
+
+    <!-- footer bar -->
+    <div class="footer">
+            <div id="social_sez" class="social_sez">
+                <h5>Follow us on:</h5>
+                <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-youtube-play"></a>
+            </div>
+
+
+                <div class="logo_sez" align="left">
+                    <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+                </div>
+            <div class="developers">
+                    <a href="../AboutUs/aboutUs.php" class="footer_element">About Us</a>
+                    <a href="../ContactUs/conctact_us.html" class="footer_element">Contact Us</a>
+            </div>
+
+        </div>
+    </body>
+    </div>
+
+</html>

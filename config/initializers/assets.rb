@@ -21,6 +21,10 @@ Rails.application.config.assets.precompile += %w(vue.min.js)
 Rails.application.config.assets.precompile += %w(signup.js)
 Rails.application.config.assets.precompile += %w(login.js)
 Rails.application.config.assets.precompile += %w(editAccount.js)
+Rails.application.config.assets.precompile += %w(editArtwork.js)
+Rails.application.config.assets.precompile += %w(findArtwork.css)
+
+
 # asset-pipeline configuration for STYLESHEETS :
 Rails.application.config.assets.precompile += %w(homePage.css)
 Rails.application.config.assets.precompile += %w(details.css)
@@ -34,3 +38,5 @@ Rails.application.config.assets.precompile += %w(aboutUs.css)
 Rails.application.config.assets.precompile += %w(signup.css)
 Rails.application.config.assets.precompile += %w(login.css)
 Rails.application.config.assets.precompile += %w(editAccount.css)
+Rails.application.config.assets.precompile += %w(editArtwork.css)
+Rails.application.config.assets.precompile += %w(findArtwork.css)
