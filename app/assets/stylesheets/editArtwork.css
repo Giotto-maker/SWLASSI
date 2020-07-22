@@ -228,7 +228,7 @@ label {
    }
 
 /*bottone submit*/   
-.save input[type="submit"]{
+.save input[type="button"]{
    cursor: pointer;
    width: 5cm;
    height: 2.5cm;

@@ -47,7 +47,7 @@
 
 
     <div class="tutto">
-        <form action="/update" method="post" name="editArtwork">
+        <form action="" id='edit_form' name="editArtwork">
             <div class="divText">
             <div class="nome"><%=@artwork.nome%> Details </div>
 
@@ -60,45 +60,46 @@
                 </select>
                 <br>
                 <br>
-                <label>Name: </label><input type="text" name="name" value= <%=@artwork.nome%> readonly>
+                <label>Name: </label><input type="text" id='edit_name' name="name" value= '<%=@artwork.nome%>' >
                 <br>
                 <br>
-                <label>Author: </label><input type="text" name="author" value= <%=@artwork.autore%> readonly>
+                <label>Author: </label><input type="text" id='edit_author' name="author" value= '<%=@artwork.autore%>'>
                 <br>
                 <br>
-                <label>TimePeriod: </label><input type="text" name="timePeriod" value= <%=@artwork.periodo%>>
+                <label>TimePeriod: </label><input type="text" id='edit_timePeriod' name="timePeriod" value= <%=@artwork.periodo%>>
                 <br>
                 <br>
-                <label>Dimension: </label><input type="text" name="dimension" value= <%=@artwork.dimensioni%>>
+                <label>Dimension: </label><input type="text" id='edit_dimension' name="dimension" value= <%=@artwork.dimensioni%>>
                 <br>
                 <br>
-                <label>Place and Address: </label><input type="text" name="place" value= <%=@artwork.indirizzo%>>
+                <label>Place and Address: </label><input type="text" id='edit_place' name="place" value= '<%=@artwork.indirizzo%>'>
                 <br>
                 <br>
-                <label>Latitude: </label><input type="text" name="lat" value= <%=@artwork.latitudine%>>
+                <label>Latitude: </label><input type="text" id='edit_lat' name="lat" value= <%=@artwork.latitudine%>>
                 <br>
                 <br>
-                <label>Longitude: </label><input type="text" name="long" value= <%=@artwork.longitudine%>>
+                <label>Longitude: </label><input type="text" id='edit_long' name="long" value= <%=@artwork.longitudine%>>
                 <br>
                 <br>
-                <label>Image 1: </label><input type="text" name="foto1" value= <%=@artwork.foto1%>>
+                <label>Image 1: </label><input type="text" id='edit_foto1' name="foto1" value= <%=@artwork.foto1%>>
                 <br>
                 <br>
-                <label>Image 2: </label><input type="text" name="foto2" value= <%=@artwork.foto2%>>
+                <label>Image 2: </label><input type="text" id='edit_foto2' name="foto2" value= <%=@artwork.foto2%>>
                 <br>
                 <br>
-                <label>Image 3: </label><input type="text" name="foto3" value= <%=@artwork.foto3%>>
+                <label>Image 3: </label><input type="text" id='edit_foto3' name="foto3" value= <%=@artwork.foto3%>>
                 <br>
                 <br>
-                <label>Image 4: </label><input type="text" name="foto4" value= <%=@artwork.foto4%>>
+                <label>Image 4: </label><input type="text" id='edit_foto4' name="foto4" value= <%=@artwork.foto4%>>
                 <br>
                 <br>
-                <label>Image 5: </label><input type="text" name="foto5" value= <%=@artwork.foto5%>>
+                <label>Image 5: </label><input type="text" id='edit_foto5' name="foto5" value= <%=@artwork.foto5%>>
                 <br>
                 <br>
                 </div>
                 <br>
-                <div class="save"><input type="submit" value ="Save"> </div>
+                <div class="save"> <input type="button" id='edit_btn' value ="Save"> </div>
+            </form>
 
     <br> <br>
     <a href=<%= @artwork.foto1%> data-lightbox='mygallery' data-title='<%=@artwork.nome%>'>
@@ -116,17 +117,14 @@
     <a href=<%=@artwork.foto5%> data-lightbox='mygallery' data-title='<%=@artwork.nome%>'>
         <img class="artwork_snapshots" alt=<%=@artwork.nome%> src= <%=@artwork.foto5%>>
     </a>
-    <form action="/delete" method="delete" name="delete" id="delete">
+    <form action="" id="delete_form">
         <div class="elimina">
-            <input type='button' value='Delete'>
+            <input type='button' id='delete_btn' value='Delete'>
         </div>
     </form>
 
 
     </div>
-
-
-
     <!-- footer bar -->
     <div class="footer">
             <div id="social_sez" class="social_sez">
@@ -144,9 +142,64 @@
                     <a href="../AboutUs/aboutUs.php" class="footer_element">About Us</a>
                     <a href="../ContactUs/conctact_us.html" class="footer_element">Contact Us</a>
             </div>
-
         </div>
     </body>
     </div>
+
+
+    <script>
+        $('#edit_btn').click(function() {
+            console.log('Function called')
+            var category = $('#category_selection').val()
+            var name = $('#edit_name').val()
+            var author = $('#edit_author').val()
+            var timePeriod = $('#edit_timePeriod').val()
+            var dimension = $('#edit_dimension').val()
+            var place = $('#edit_place').val()
+            var lat = $('#edit_lat').val()
+            var long = $('#edit_long').val()
+            var foto1 = $('#edit_foto1').val()
+            var foto2 = $('#edit_foto2').val()
+            var foto3 = $('#edit_foto3').val()
+            var foto4 = $('#edit_foto4').val()
+            var foto5 = $('#edit_foto5').val()
+
+            $.ajax ({
+                method: "PUT",
+                url: "/update",
+                data: { "id" : + <%= @artwork.id %> , 
+                        "category" : category,
+                        "name" : name,
+                        "author" : author,
+                        "timePeriod" : timePeriod,
+                        "dimension" : dimension,
+                        "place" : place,
+                        "lat" : lat,
+                        "long" : long,
+                        "foto1": foto1,
+                        "foto2": foto2,
+                        "foto3": foto3,
+                        "foto4": foto4,
+                        "foto5": foto5 
+                      } 
+            }).done(function(result) {
+                alert(result)
+                window.location.replace('/welcomeHomepage')
+            })
+        })
+    </script>
+
+    <script>
+        $('#delete_btn').click(function(){
+            $.ajax ({
+                method: "DELETE",
+                url: "/artwork_delete",
+                data: { "id" : + <%= @artwork.id %> }
+        }).done(function(result) {
+            alert(result)
+            window.location.replace('/welcomeHomepage')
+        })
+    })
+    </script>
 
 </html>

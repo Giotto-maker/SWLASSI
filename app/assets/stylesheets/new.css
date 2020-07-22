@@ -217,6 +217,7 @@ a:hover {
 button:disabled {
     border: 2px solid #3a363d;
     color: #3a363d;
+    background-color: #3a363d;
 }
 
 .tourbutton{

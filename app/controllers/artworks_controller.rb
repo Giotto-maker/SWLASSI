@@ -6,6 +6,28 @@ class ArtworksController < ApplicationController
         render html: 'List of all artworks'
     end
 
+    def new
+        begin
+            Artwork.create(nome: params[:name], 
+                        autore: params[:author], 
+                        periodo: params[:timePeriod],
+                        dimensioni: params[:dimension], 
+                        voto: params[:vote], 
+                        valutazioni: params[:valutations],
+                        indirizzo: params[:place],
+                        latitudine: params[:lat],
+                        foto1: params[:foto1],
+                        foto2: params[:foto2],
+                        foto3: params[:foto3],
+                        foto4: params[:foto4],
+                        foto5: params[:foto5])
+        rescue => error
+            render html: 'An error occurred while creating artwork : ' + error.to_s
+        else
+            render html: 'Artwork successfuly added!'
+        end
+    end
+
     def show
         @artwork = Artwork.find(params[:id])
     end
@@ -47,19 +69,34 @@ class ArtworksController < ApplicationController
 	end
 
 
-	def update
-        id = params[:id]
-        @artwork = Artwork.find(id)
-        @artwork.update_attributes!(params[:artwork].permit(:timePeriod, :dimension, :place, :lat, :long, :foto1, :foto2, :foto3, :foto4, :foto5))
-		redirect_to '/welcomeHomepage'
+    def update
+        @artwork = Artwork.find(params[:id])
+
+        @artwork.categoria = params[:category]
+        @artwork.nome = params[:name]
+        @artwork.autore = params[:author]
+        @artwork.periodo = params[:timePeriod]
+        @artwork.dimensioni = params[:dimension]
+        @artwork.indirizzo = params[:place]
+        @artwork.latitudine = params[:lat]
+        @artwork.longitudine = params[:long]
+        @artwork.foto1 = params[:foto1]
+        @artwork.foto2 = params[:foto2]
+        @artwork.foto3 = params[:foto3]
+        @artwork.foto4 = params[:foto4]
+        @artwork.foto5 = params[:foto5]
+
+        @artwork.save
+
+        render html: 'Artworks updated!'
 	end
 
 
 	def destroy
 		id = params[:id]
 		@artwork = Artwork.find(id)
-		@artwork.destroy
-		redirect_to '/welcomeHomepage'
+        @artwork.destroy
+        render html: 'Artwork deleted'
     end
 
     def find
