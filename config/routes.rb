@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   delete '/artwork_delete' => 'artworks#destroy'
   put '/update' => 'artworks#update'
-  get '/artwork_find' => 'artworks#find'
   post '/create_artwork' => 'artworks#new'
+  get '/find_artwork' => 'artworks#index'
 
   get 'signup'  => 'users#new'
   get 'login'   => 'sessions#new'

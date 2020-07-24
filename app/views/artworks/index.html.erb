@@ -1,0 +1,116 @@
+<html>
+    <head> 
+    <title>Search results</title>
+    <meta name ="viewport" content = "width-device-width, initial-scale=1"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag ('index.css') %>
+    <style>
+      .h1{
+        position: relative;
+        top: 70px;
+        font-family: "Avenir", sans-serif;
+        font-size: 50px;
+        color: white;
+        text-align: center;
+
+        }
+
+    table {
+        background-color: white;
+        border-collapse: collapse;
+        width: 75%;
+        margin-left: 12%;
+        margin-bottom: 5%;
+        position: absolute;
+        }
+    td {
+        border-radius: 4px;
+        text-align: left;
+        padding: 8px;
+        color: black;
+        }
+    th {
+        border-radius: 4px;
+        text-align: center;
+        padding: 8px;
+        background-color: #04001b;
+        color: white;
+    }
+
+    tr:nth-child(even){background-color: rgba(206, 192, 176, 0.767);opacity: 0.8;};
+
+    </style>
+    </head>
+    <body>
+    <div class="tutto">
+        <!-- menu bar -->
+        <div class="w3-bar">
+            <div class="element">
+                <div class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
+
+                <div class="dropdown-content">
+                    <a href="../EditAccount/editAccount.php"> Edit Account </a>
+                    <a href="../EditPassword/editPassword.php"> Edit Password</a>
+                </div>  
+                </div>
+            </div>
+
+            <input type="button" class="logo" id='btnHome' onclick="location.href='../WelcomeHomepage/welcomeHomepage.html'">
+            
+            <div class="menu">
+                <a href="../Start visit/visit.php" class="element">Start visit or come back to your tour! 🗺️ </a>
+                <a href ="../FindArtwork/findArtwork.html" class="element" >Look for an artwork 🔎</a>
+                <a href ="../AddArtwork/addArtwork.php" class="element">Add an artwork 🖼️</a>
+            </div>
+        </div>
+        
+        <input type="button" class="link" onclick="location.href='findArtwork.html'">
+
+        <div class="h1">🎨 Search results: </div>
+        <br>
+    <button class="btn btn-primary scroll-top" data-scroll="up" type="button">
+    <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <div>
+        <tr>
+            <td> Artwork name </td>
+            <td> Author Name  </td>
+            <td> Additional Informations </td>
+            <br>
+        </tr>
+        <% @artworks.each do |artwork| %>                    
+            <tr>
+                <td> <%= artwork.nome %> </td>
+                <td> <%= artwork.autore %> </td>
+                <td> <%= link_to 'Details of this artwork' , artwork_path(:id => artwork.id )%> </td>
+            <br>
+            </tr>
+        <% end %>
+    </div>
+    
+            <!-- footer bar -->
+            <div class="footer">
+                <div id="social_sez" class="social_sez">
+                    <h5>Follow us on:</h5>
+                    <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-youtube-play"></a>
+                </div>
+
+                
+                <div class="logo_sez" align="left">
+                        <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+                </div>
+                <div class="developers" class="footer_element">
+                        <a href="../AboutUs/aboutUs.php" class="footer_element">About Us</a>
+                        <a href="../ContactUs/contact_us.html" class="footer_element">Contact Us</a>
+                </div>
+            </div>
+    </div>
+    </body>
+</html>

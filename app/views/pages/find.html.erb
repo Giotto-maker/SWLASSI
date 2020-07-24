@@ -6,11 +6,8 @@
         <meta name ="viewport" content = "width-device-width, initial-scale=1"/>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <%= stylesheet_link_tag ('findArtwork.css') %>
-
-        <%= javascript_include_tag "findArtwork.js" %>
-
-
     </head>
     <body>
      
@@ -41,29 +38,29 @@
            <h1>What are you looking for? 🔍</h1>
             <br>
             <br>
-            <form action="/find" method="POST" name="findArtwork" onsubmit="find_artwork()">
-                <div class="custom-select" style="width:200px;">
-                    <select id="category" name="category">
-                        <option value = "choose"> Choose a category
-                        <option value = "all"> All
-                        <option value = "painting"> Painting 
-                        <option value = "sculpture"> Sculpture 
-                        <option value = "architecture"> Architecture 
-                        <option value = "star"> * star
-                    </select>
-                </div>
-                <div class="tool">
-                  <a href="#" data-toggle="tooltip" data-placement="right" title="If youd don't know the category choose 'All' 😊">❓</a>
-                </div>
-                
-            <br>
-            <input type="search" name="searchName" size="40" placeholder="Search by artwork name">
-            <br>
-            <br>
-            <input type="search" name="searchAuthor" size="40" placeholder="Search by author">
-            <br>
-            <br>
-                <input type="submit" id="search_btn" value="Search">
+            <form action="/find_artwork" method="GET">
+              <div class="custom-select" style="width:200px;">
+                  <select id="category" name="category">
+                      <option value = "choose"> Choose a category
+                      <option value = "all"> All
+                      <option value = "painting"> Painting 
+                      <option value = "sculpture"> Sculpture 
+                      <option value = "architecture"> Architecture 
+                      <option value = "star"> * star
+                  </select>
+              </div>
+              <div class="tool">
+                <a href="#" data-toggle="tooltip" data-placement="right" title="If youd don't know the category choose 'All' 😊">❓</a>
+              </div>
+              
+              <br>
+              <input type="search" name="searchName" size="40" placeholder="Search by artwork name">
+              <br>
+              <br>
+              <input type="search" name="searchAuthor" size="40" placeholder="Search by author">
+              <br>
+              <br>
+                  <input type="submit" id="search_btn" value="Search">
             </form>
         </div> 
 
@@ -86,6 +83,7 @@
             </div>
            
         </div>
+
         <script>
            var selectitems, i, j, selectelem, divElem, itemElem, divItem;
             // seleziona tutti gli elementi del div
@@ -152,9 +150,8 @@
                 }
               }
             }
-            // chiudo tutto sel l'utente clicca fuori da qualsiasi box
+            
             document.addEventListener("click", closeAllSelect);
             </script>  
-           
     </body>
 </html>

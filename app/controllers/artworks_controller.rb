@@ -3,7 +3,39 @@ class ArtworksController < ApplicationController
     skip_before_action :verify_authenticity_token #COMPLETE: except: [:create, :update, :destroy]
 
     def index
-        render html: 'List of all artworks'
+        @category = params['category']
+        @name = params['searchName']
+        @author = params['searchAuthor']
+
+        # search by author
+        if @category == 'all' and @name == '' and @author != '' 
+            @artworks = Artwork.where(["autore = ?", @author])
+        # search by name
+        elsif 
+            @category == 'all' and @name != '' and @author == '' 
+            @artworks = Artwork.where(["nome = ?", @name])
+        # search by category
+        elsif 
+            @category != 'all' and @name == '' and @author == '' 
+            @artworks = Artwork.where(["categoria = ?", @category])
+
+
+        # search by name and author
+        elsif @category == 'all' and @name != '' and @author != ''
+            @artworks = Artwork.where(["nome = ? and autore = ?", @name , @author])
+        # search by name and category
+        elsif @category != 'all' and @name != '' and @author == ''
+            @artworks = Artwork.where(["nome = ? and categoria = ?", @name , @category]) 
+        # search by category and author
+        elsif @category != 'all' and @name == '' and @author != ''
+            @artworks = Artwork.where(["categoria = ? and autore = ?", @category , @author]) 
+
+
+        # search by category, author and name
+        else
+            @artworks = Artwork.where(["categoria = ? and nome = ? and autore = ?", @category , 
+            @name , @author])
+        end
     end
 
     def new
