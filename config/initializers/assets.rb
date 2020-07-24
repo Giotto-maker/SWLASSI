@@ -22,7 +22,8 @@ Rails.application.config.assets.precompile += %w(signup.js)
 Rails.application.config.assets.precompile += %w(login.js)
 Rails.application.config.assets.precompile += %w(editAccount.js)
 Rails.application.config.assets.precompile += %w(editArtwork.js)
-Rails.application.config.assets.precompile += %w(findArtwork.css)
+Rails.application.config.assets.precompile += %w(findArtwork.js)
+Rails.application.config.assets.precompile += %w(edit_psw.js)
 
 
 # asset-pipeline configuration for STYLESHEETS :
@@ -42,3 +43,4 @@ Rails.application.config.assets.precompile += %w(editArtwork.css)
 Rails.application.config.assets.precompile += %w(findArtwork.css)
 Rails.application.config.assets.precompile += %w(addArtwork.css)
 Rails.application.config.assets.precompile += %w(index.css)
+Rails.application.config.assets.precompile += %w(editPassword.css)

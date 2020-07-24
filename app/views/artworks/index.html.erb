@@ -77,19 +77,23 @@
     </button>
 
     <div>
-        <tr>
-            <td> Artwork name </td>
-            <td> Author Name  </td>
-            <td> Additional Informations </td>
-            <br>
-        </tr>
-        <% @artworks.each do |artwork| %>                    
+        <% if @artworks.empty? %>
+            <h1> No results were found matching the given criteria! </h1>
+        <% else %>
             <tr>
-                <td> <%= artwork.nome %> </td>
-                <td> <%= artwork.autore %> </td>
-                <td> <%= link_to 'Details of this artwork' , artwork_path(:id => artwork.id )%> </td>
-            <br>
+                <td> Artwork name </td>
+                <td> Author Name  </td>
+                <td> Additional Informations </td>
+                <br>
             </tr>
+            <% @artworks.each do |artwork| %>                    
+                <tr>
+                    <td> <%= artwork.nome %> </td>
+                    <td> <%= artwork.autore %> </td>
+                    <td> <%= link_to 'Details of this artwork' , artwork_path(:id => artwork.id )%> </td>
+                <br>
+                </tr>
+            <% end %>
         <% end %>
     </div>
     
