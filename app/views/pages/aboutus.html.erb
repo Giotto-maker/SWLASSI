@@ -4,24 +4,30 @@
         <title>About Us</title>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
         <%= stylesheet_link_tag('aboutUs.css') %>
+
+        <script>
+            var logged = <%= logged_in? %>
+        </script>
+
     </head>
     <body>
         <div class="w3-bar" id='upperBar'>
             <div class="element">
                 <div id='account' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
                     <div class="dropdown-content">
-                        <a href="../EditAccount/editAccount.php"> Edit Account </a>
-                        <a href="../EditPassword/editPassword.php"> Edit Password</a>
+                        <a href="/edit"> Edit Account </a>
+                        <a href="/change_psw"> Edit Password</a>
                     </div>  
                 </div>
             </div>     
-            <a href='/homepage'> <input type="button" class="logo" id='btnHome'> </a>
+            <a> <input type="button" class="logo" id='btnHome'> </a>
                     
             <div id='menu' class="menu">
                 <a href="/visit/new" class="element">Start visit or come back to your tour! 🗺️ </a>
-                <a href ="../FindArtwork/findArtwork.html" class="element" >Look for an artwork 🔎</a>
-                <a href ="../AddArtwork/addArtwork.php" class="element">Add an artwork 🖼️</a>
+                <a href ="/find" class="element" >Look for an artwork 🔎</a>
+                <a href ="/addAnArtworl" class="element">Add an artwork 🖼️</a>
             </div>
         </div>
     
@@ -55,4 +61,16 @@
               <a href="/contact_us" id='fe1' class="footer_element" style="margin-left: 30px;">Contact Us</a>
             </div>       
           </div>
+
+
+          <script>
+            $('#btnHome').click(function() {
+                if(logged)     window.location.replace('/welcomeHomepage')
+                else           window.location.replace('/homepage') 
+            })
+
+            if (!logged)    document.getElementById('dev').style.visibility = "hidden"
+            document.getElementById("menu").style.visibility = "hidden"
+            document.getElementById('account').style.visibility = "hidden"
+          </script>
     </body>

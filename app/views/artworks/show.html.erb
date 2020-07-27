@@ -20,31 +20,33 @@
     <script> 
         var valutations = <%= @artwork.valutazioni %>
         var mark = <%= @artwork.voto %>
+        var logged = <%= logged_in? %>
     </script>
 
    </head>
 
-   <body>
+   <body onload=modify_view()>
         <div class="w3-bar">
                 <div class="element">
                     <div id='account' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
 
                         <div class="dropdown-content">
-                            <a href="#"> Edit Account </a>
-                            <a href="#"> Edit Password</a>
+                            <a href="/edit"> Edit Account </a>
+                            <a href="/change_psw"> Edit Password</a>
+                            <a href='/logout'> Log out </a>
                         </div>  
                     </div>
                 </div>
 
-                <a href='/homepage'> <input type="button" class="logo" id='btnHome'> </a>
+                <a> <input type="button" class="logo" id='btnHome'> </a>
 
                 <div id='back'>
                     <a href="/visit/new" class="element">Start visit or come back to your tour! 🗺️ </a>
                 </div> 
                 
                 <div id='menu' class="menu">
-                    <a href ="#" class="element" >Look for an artwork 🔎</a>
-                    <a href ="#" class="element">Add an artwork 🖼️</a>
+                    <a href ="/find" class="element" >Look for an artwork 🔎</a>
+                    <a href ="/addAnArtwork" class="element">Add an artwork 🖼️</a>
                 </div>
         </div>
        
@@ -172,6 +174,14 @@
         })
     </script>
 
+    <script>
+        $('#btnHome').click(function() {
+            if(logged)     window.location.replace('/welcomeHomepage')
+            else           window.location.replace('/homepage') 
+        })
+    </script>
+
+
    <script>
         $(document).ready(function() { 
             $('#btninfo').click(function() {
@@ -195,5 +205,18 @@
                 })                
             })
         })
+
+
+        function modify_view() {
+            if (!logged) {
+                document.getElementById("edit_btn").style.visibility = "hidden"
+                document.getElementById("menu").style.visibility = "hidden"
+                document.getElementById('account').style.visibility = "hidden"
+            } else {
+                document.getElementById("edit_btn").style.visibility = "visible"
+                document.getElementById("menu").style.visibility = "visible"
+                document.getElementById('account').style.visibility = "visible"
+            }
+        }
    </script>
 </html>
