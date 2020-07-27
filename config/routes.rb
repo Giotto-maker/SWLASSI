@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post 'login'  => 'sessions#create'
   get 'logout'  => 'sessions#destroy'
   put '/change_psw' => 'users#change_psw'
+  post '/I_got_forgotten!' => 'users#forgotten_psw'
 
 
 end

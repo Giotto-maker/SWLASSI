@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   layout false
   skip_before_action :verify_authenticity_token
+  require 'securerandom'
+
   def new
     @user = User.new
   end
@@ -41,6 +43,24 @@ class UsersController < ApplicationController
     @user.password_digest = BCrypt::Password.create(@new_psw)
     @user.save
     render html: 'Password successfully updated!'
+  end
+
+  def forgotten_psw
+    @email = params[:email]
+    @user = User.find_by(email: @email)
+
+    @token = SecureRandom.base64(20)
+
+    @user.password_digest = BCrypt::Password.create(@token)
+    @user.save
+
+    begin
+      ContactMailer.send_psw(@token,@email,@user.name).deliver
+    rescue => error
+      render html: 'Cannot send password, this error has occurred : ' + error.to_s
+    else
+      render html: 'We have sent a new password to the email address you provided! Please, take a look...'
+    end
   end
   
   def update
