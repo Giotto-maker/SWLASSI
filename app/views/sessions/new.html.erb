@@ -9,7 +9,7 @@
     <body>
         <%= javascript_include_tag "login.js" %>
         <div class="w3-bar">
-            <input type="button" class="logo" onclick="location.href='../HomePage/homePage.html'">
+            <input type="button" class="logo">
         </div>
 
         <div class="login">
@@ -20,7 +20,7 @@
             <br>
             <br>
             <form action="/login" method="post" id="users" name="login" onsubmit="return message()">
-                <input name="authenticity_token" type="hidden" value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo=" />
+                <input name="authenticity_token" type="hidden" value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo="/>
                 <input type="email" id="name" name="session[email]" placeholder="E-mail" size="30" maxlength="30" required autofocus>
                 <br>
                 <br>
@@ -38,28 +38,28 @@
             🗝️<a href='/forgotten_psw'>Forgot your password?</a> 
             <br> <br>
             <div class='noaccount'> Don't have an account? </div>
-            <a href="../SignUp/signup.html">Sign Up</a>
+            <a href="/signup">Sign Up</a>
             <br>
             <br>
             <br>
         </div>
         <br>
         <br>
-        <div class="footer">
-            <div id="social_sez" class="social_sez">
-                <h5>Follow us on:</h5>
-                <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
-                <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-youtube-play"></a>
-            </div>
-
-            <div class="logo_sez" align="left">
-                <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
-            </div>
-
-            <div class="developers" align="center">
-                    <a href="../AboutUs/aboutUs.php" class="footer_element">About Us</a>
-            </div>
+        
+        <div class="w3-footer_bar">
+        <div id="social_sez" class="social_sez" text-align="center">
+          <h5>Follow us on:</h5>
+            <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-youtube-play"></a>
         </div>
+  
+        <div class="logo_sez" align="left">
+          <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+        </div>
+        <div class="developers">
+          <a href="aboutus" class="footer_element" style="margin-left: 30px;"> About Us</a>
+        </div>       
+      </div>
     </body>
 </html>
