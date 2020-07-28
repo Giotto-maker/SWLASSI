@@ -4,6 +4,7 @@
         <%= stylesheet_link_tag ('editAccount.css') %>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <%= javascript_include_tag "editAccount.js" %>
     </head>
 
@@ -31,7 +32,7 @@
         </div>
 
         <div class="edit">
-            <form action="save.php" method="post" id="users">
+            <form action="/update_user" method="PUT" id="users">
                 <br>
                 <div class='text1'>
                     Edit account
@@ -46,8 +47,6 @@
                 <br>
                 <input type="email" id="email" name="email" value= '<%= current_user.email %>' readonly>
                 <br>
-                <input type="password" id="password" name="password" value = '<%= current_user.password_digest %>' readonly>
-                <br>
                 <br>
                     <select class="category" id="category" name ="category">
                         <option value="Categories">Category</option>
@@ -57,10 +56,10 @@
                     </select>
                
                 <br> <br> <br>
-                <input type="submit" id="save" name="save" value="Save Changes">
+                <input type="button" id="saveBtn" name="save" value="Save Changes">
                 <br>
                 <br>
-                <a href="deleteAccount.php"> <input type="button" id="delete" value="Delete my account"> </a> 
+                <input type="button" id="deleteBtn" value="Delete my account"> </a> 
                 <br>
                 <br>
             </form>
@@ -79,11 +78,66 @@
               <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
             </div>
             <div class="developers">
-              <a href="../AboutUs/aboutUs.php" class="footer_element" style="margin-left: 30px;">About Us</a>
-              <a href="../ContactUs/contact_us.html" class="footer_element" style="margin-left: 30px;">Contact Us</a>
+              <a href="/aboutus" class="footer_element" style="margin-left: 30px;">About Us</a>
+              <a href="/contact_us" class="footer_element" style="margin-left: 30px;">Contact Us</a>
             </div>       
           </div>
        
+
+          <script>
+            $("#saveBtn").click(function(){
+
+                var name = $('#name').val()
+                var surname = $('#surname').val()
+                var username = $('#username').val()
+                var email = $('#email').val()
+                var category = $('#category').val()
+
+                if (name == '') {
+                    alert ('Specify a valid name!')
+                    return;
+                } 
+                if (surname == '') {
+                    alert ('Specify a valid surname!')
+                    return;
+                }
+                if (username == '') {
+                    alert ('Specify a valid username!')
+                    return;
+                }
+                if (email == '') {
+                    alert ('Specify a valid email!')
+                    return;
+                }
+
+                $.ajax ({
+                    method: "PUT",
+                    url: "/update_user",
+                    data: { "name" : name,
+                            "surname" : surname,
+                            "username" : username, 
+                            "email" : email,
+                            "category" : category } 
+                }).done(function(result) {
+                    alert(result)
+                    window.location.replace('/welcomeHomepage')
+                })
+            })
+
+            $('#deleteBtn').click(function(e) {
+                e.preventDefault();
+                var answer=confirm('Do you want to delete?');
+                if(!answer)    return false   
+                
+                $.ajax ({
+                    method: "DELETE",
+                    url: "/user_delete", 
+                }).done(function(result) {
+                    alert(result)
+                    window.location.replace('/homepage')
+                })
+            })
+          </script>
         
     </body>
     </div>

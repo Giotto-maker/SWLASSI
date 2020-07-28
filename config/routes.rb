@@ -16,11 +16,14 @@ Rails.application.routes.draw do
   get '/find_artwork' => 'artworks#index'
 
   get 'signup'  => 'users#new'
+  get '/edit' =>  'users#edit'
+  put '/update_user' => 'users#update'
   get 'login'   => 'sessions#new'
   post 'login'  => 'sessions#create'
   get 'logout'  => 'sessions#destroy'
   put '/change_psw' => 'users#change_psw'
   post '/I_got_forgotten!' => 'users#forgotten_psw'
+  delete '/user_delete' => 'users#delete'
 
 
 end

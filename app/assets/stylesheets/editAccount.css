@@ -120,7 +120,7 @@ a:hover {
     border-left: none;
     border-right: none;
 }
-.edit input[type="submit"],input[id="delete"]{
+.edit input[type="button"],input[id="delete"]{
     font-size: 18px;
     text-align: center;
     width: fit-content;

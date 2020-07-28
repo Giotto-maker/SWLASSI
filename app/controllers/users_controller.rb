@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
   end
 
   def change_psw
@@ -64,8 +64,64 @@ class UsersController < ApplicationController
   end
   
   def update
+    @category = params[:category]
+    @name = params[:name]
+    @surname = params[:surname]
+    @username = params[:username]
+    @email = params[:email]
 
+    if @category != 'Architecture' && @category != 'Sculpture' && @category != 'Painting'
+      render html: 'Invalid category'
+      return
+    end
+    if @name == ''   
+      render html: 'Invalid name'
+      return
+    end
+    if @surname == ''   
+      render html: 'Invalid surname'
+      return
+    end
+    if @username == ''   
+      render html: 'Invalid username'
+      return
+    end
+    if @email == ''   
+      render html: 'Invalid email'
+      return
+    end
+
+    begin
+      @user = User.find(session[:user_id])
+    rescue => error
+      render html: 'Record not found! ' + error.to_s
+    end
+
+    @user.name = @name
+    @user.surname = @surname
+    @user.username = @username
+    @user.email = @email
+    @user.category = @category
+
+    begin
+      @user.save!
+    rescue => error
+      render html: 'An error occurred : ' + error.to_s
+      return
+    end
+
+    render html: 'Your account has been successfully updated!'
   end 
+
+  def delete
+    begin
+      @user = User.find(session[:user_id])
+      @user.destroy
+      render html: 'Your account has been deleted'
+    rescue => error
+      render html: 'Could not delete user account : ' + error.to_s
+    end
+  end
 
   private
 
