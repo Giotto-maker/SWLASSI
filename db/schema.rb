@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_100609) do
+ActiveRecord::Schema.define(version: 2020_07_28_113453) do
 
   create_table "artworks", force: :cascade do |t|
     t.integer "voto"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_100609) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

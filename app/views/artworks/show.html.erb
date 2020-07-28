@@ -20,7 +20,13 @@
     <script> 
         var valutations = <%= @artwork.valutazioni %>
         var mark = <%= @artwork.voto %>
-        var logged = <%= logged_in? %>
+        var logged = <%= logged_in? %>     
+        <% if current_user != nil  %>
+            var admin = <%= current_user.admin %>
+        <% else %>
+            var admin = false
+        <% end %>
+        console.log(admin)
     </script>
 
    </head>
@@ -212,6 +218,10 @@
                 document.getElementById("edit_btn").style.visibility = "hidden"
                 document.getElementById("menu").style.visibility = "hidden"
                 document.getElementById('account').style.visibility = "hidden"
+            } else if (!admin) {
+                document.getElementById("edit_btn").style.visibility = "hidden"
+                document.getElementById("menu").style.visibility = "visible"
+                document.getElementById('account').style.visibility = "visible"
             } else {
                 document.getElementById("edit_btn").style.visibility = "visible"
                 document.getElementById("menu").style.visibility = "visible"
