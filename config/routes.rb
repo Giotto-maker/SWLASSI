@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   post '/I_got_forgotten!' => 'users#forgotten_psw'
   delete '/user_delete' => 'users#delete'
 
+  get '/forecast' => 'visit#visit_weather'
+
 
 end

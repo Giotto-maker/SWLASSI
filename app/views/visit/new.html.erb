@@ -157,6 +157,39 @@
         <button class='tourbutton' onclick="tour();"> 📸 Bring me on itinerary </button>
     </div>
 
+    <div class='weather'>
+        <h2> These are the weather forecast for your visit: </h2>
+        
+        <h3> Weather conditions : <%= @description %> </h3>
+        <h3> Temperature : <%= @temp %> </h3>
+
+        <% if @main == 'Clear' %>
+            <img class="weather_icon" alt='sun' src='https://images.vexels.com/media/users/3/145134/isolated/preview/46b65a02ff99e7bb4e84d4d3d627a729-sun-sharp-beams-icon-by-vexels.png' > 
+        <% elsif @main == 'Rain' %>
+            <img class="weather_icon" alt='rain' src='https://cdn3.iconfinder.com/data/icons/sunnyday-2/142/full_Cloudy_heavy_rain-512.png' >
+        <% elsif @main == 'Clouds' %>
+            <img class="weather_icon" alt='clouds' src='https://cdn1.iconfinder.com/data/icons/hawcons/32/700260-icon-20-clouds-512.png'>
+        <% elsif @main == 'Drizzle' %>    
+            <img class="weather_icon" alt='drizzle' src='https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Night_Drizzle_Rain_Raindrops_Apple_iOS_Flat_Weather-512.png'>
+        <% elsif @main == 'Snow' %>
+            <img class="weather_icon" alt='snow' src='https://icons.iconarchive.com/icons/fps.hu/free-christmas-flat-circle/512/snow-flake-icon.png'>    
+        <% elsif @main == 'Thunderstorm' %>        
+            <img class="weather_icon" alt='thunderstorm' src='https://www.transparentpng.com/thumb/thunderstorm/collection-of-thunder-storm-icons-png-19.png'>
+        <% elsif @main == 'Mist' %>        
+            <img class="weather_icon" alt='mist' src='https://image.flaticon.com/icons/png/512/175/175872.png'>
+        <% elsif @main == 'Smoke' %>        
+            <img class="weather_icon" alt='smoke' src='https://cdn2.iconfinder.com/data/icons/vape-stuff-3/100/vape_vaping_smoke_electronic_cigarette_-07-512.png'>
+        <% elsif @main == 'Haze' %>        
+            <img class="weather_icon" alt='haze' src='https://www.nicepng.com/png/full/123-1236627_haze-icon-png-haze-weather-icon.png'>
+        <% elsif @main == 'Dust' %>        
+            <img class="weather_icon" alt='dust' src='https://www.vhv.rs/dpng/d/405-4056831_dust-clipart-svg-dust-icon-png-transparent-png.png'>
+        <% elsif @main == 'Fog' %>        
+            <img class="weather_icon" alt='fog' src='https://static.thenounproject.com/png/9522-200.png' >  
+        <% else %>
+            Unrecognized condition : no image avaible    
+        <% end %>
+    </div>
+
     <div class='overlay-container'>
         <span class='overlay-text' id='artworkname'></span><br>
         <span class='overlay-text' id='authorname'></span><br>
