@@ -1,4 +1,10 @@
-<h2>Resend confirmation instructions</h2>
+<h1> You have almost done <%= @name %>!</h1>
+
+<h2> We have sent an email to the address you have provided to confirm your account.
+     After that you will be able to access SmartWandering! </h2>
+
+
+<h3> You did not receive confirmation email? Resend confirmation instructions</h3>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
