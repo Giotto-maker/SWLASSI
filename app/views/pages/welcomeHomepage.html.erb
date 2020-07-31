@@ -45,7 +45,7 @@
                     <div class="dropdown-content">
                         <a href="/edit"> Edit Account</a>
                         <a href='/change_psw'> Edit Password</a>
-                        <%= link_to "Log out", logout_path, method: "delete" %>
+                        <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                     </div>  
                     </div>
                 </div>
