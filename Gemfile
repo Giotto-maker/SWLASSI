@@ -43,6 +43,7 @@ gem 'lightbox-bootstrap-rails', '5.1.0.1'
 gem 'figaro'
 gem 'open-weather'
 gem 'devise'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
