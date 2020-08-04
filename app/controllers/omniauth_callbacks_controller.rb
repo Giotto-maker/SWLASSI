@@ -1,4 +1,9 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
+    def failure
+      redirect_to '/homepage'
+    end
+
     def facebook
       # You need to implement the method below in your model (e.g. app/models/user.rb)
       @user = User.from_omniauth(request.env["omniauth.auth"])
@@ -11,11 +16,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to new_user_registration_url
       end
     end
-  
-    def failure
-      redirect_to root_path
-    end
 
+
+      <<-DOC
     def google_oauth2
       auth = request.env["omniauth.auth"]
       user = User.where(provider: auth["provider"], uid: auth["uid"])
@@ -26,6 +29,26 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   
       user.remember_me = true
       user.skip_confirmation!
+      sign_in(:user, user)
+  
+      redirect_to after_sign_in_path_for(user)
+    end
+      DOC
+
+    def google_oauth2
+      auth = request.env["omniauth.auth"]
+      user = User.find_by(email: auth["info"]["email"])
+      if (!user) 
+        user = User.new(:email => auth["info"]["email"],
+                 :name  => auth["info"]["name"],
+                 :category => 'Star',
+                 :password => Devise.friendly_token,
+                 :provider => auth["provider"] , :uid => auth["uid"])
+        user.skip_confirmation!
+        user.save!
+      end
+
+      user.remember_me = true
       sign_in(:user, user)
   
       redirect_to after_sign_in_path_for(user)

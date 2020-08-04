@@ -4,10 +4,6 @@ module SessionsHelper
         session[:user_id] = user.id
     end
 
-    def current_user
-        @current_user ||= User.find_by(id: session[:user_id])
-    end
-
     #per diversificare link visibili ad un utente loggato e non 
     def logged_in?
         !current_user.nil?
