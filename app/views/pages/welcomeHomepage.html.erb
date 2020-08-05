@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,9 +45,7 @@
                     <div class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
 
                     <div class="dropdown-content">
-                        <% if current_user.provider == nil %>
-                            <%= link_to "Edit Account", edit_user_registration_path %>
-                        <% end %>
+                        <%= link_to "Edit Account", edit_user_registration_path %>
                         <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                     </div>  
                     </div>
@@ -152,3 +151,6 @@
         
     </body>
 </html>
+<% else %>
+        <h1> Page not visible! </h1>
+<% end %>

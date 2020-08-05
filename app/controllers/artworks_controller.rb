@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
     layout false
-    skip_before_action :verify_authenticity_token #COMPLETE: except: [:create, :update, :destroy]
+    before_action :authenticate_user!
 
     def index
         @category = params['category']
@@ -118,7 +118,11 @@ class ArtworksController < ApplicationController
         @artwork.foto4 = params[:foto4]
         @artwork.foto5 = params[:foto5]
 
-        @artwork.save
+        begin
+            @artwork.save!
+        rescue => error
+            render html: 'Could not save artwork : ' + error.to_s
+        end
 
         render html: 'Artworks updated!'
 	end

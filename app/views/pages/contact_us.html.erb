@@ -76,6 +76,7 @@
                 $(".button").click(function(){
 
                 var message = $('#contact_area').val()
+                if (!logged)    return
                 if (message == '') {
                     alert ('Insert a message to send!')
                     return;

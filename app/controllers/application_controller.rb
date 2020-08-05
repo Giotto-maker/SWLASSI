@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 
+    def handle_unverified_request
+        
+    end
+
     protected
 
     def configure_permitted_parameters

@@ -14,25 +14,14 @@ Rails.application.routes.draw do
   put '/artwork_mark_update' => 'artworks#update_mark'
   get '/artwork_more_infos'  => 'artworks#more_infos'
   post '/contact_us_email'   => 'mail#send_email'
-
-  delete '/artwork_delete' => 'artworks#destroy'
-  put '/update' => 'artworks#update'
   post '/create_artwork' => 'artworks#new'
+  put '/update' => 'artworks#update'
+  delete '/artwork_delete' => 'artworks#destroy'
   get '/find_artwork' => 'artworks#index'
 
-  get 'signup'  => 'users#new'
-  get '/edit' =>  'users#edit'
-  put '/update_user' => 'users#update'
-  get '/login'   => 'sessions#new'
-  post '/login'  => 'sessions#create'
-  get '/logout'  => 'sessions#destroy'
-  put '/change_psw' => 'users#change_psw'
-  post '/I_got_forgotten!' => 'users#forgotten_psw'
-  delete '/user_delete' => 'users#delete'
-
   get '/forecast' => 'visit#visit_weather'
+
   get '/review_create' => 'reviews#new'
   get '/all_reviews' => 'reviews#index'
-
-
+  
 end
