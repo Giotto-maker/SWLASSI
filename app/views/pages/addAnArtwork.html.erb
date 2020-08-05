@@ -10,7 +10,7 @@
         <%= stylesheet_link_tag ('addArtwork.css') %>    
 
       <script>
-          var admin = <%= User.find(session[:user_id]).admin %>
+          var admin = <%= current_user.admin %>
       </script>
 
     </head>
