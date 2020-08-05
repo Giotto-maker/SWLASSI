@@ -119,6 +119,7 @@
                 </div> 
 
             <%= link_to '<input type="button" id="edit_btn" value="Edit artwork">'.html_safe , edit_artwork_path(:id => @artwork.id) %>
+            <%= link_to '<input type="button" id="review_btn" value="Show reviews">'.html_safe , artwork_review_path(@artwork) %>
 
             <div class='infos'>
                 <button type="button" id='btninfo' class="show">
@@ -126,6 +127,10 @@
                 </button>
                 <div class='more_infos' id='more_infos'>  </div>
             </div>
+
+            <div class='comments'>
+                <textarea id="comment_area" name="comments" rows="4" cols="50"> </textarea>
+            <div>
 
            
             <div class="footer">
@@ -170,6 +175,16 @@
     <script>
         $('.star').click(function() {
             var mark = $(event.target).val()
+            var comment = $('#comment_area').val()
+
+            $.ajax ({
+                method: "GET",
+                url: '/review_create' ,
+                data: { "id" : + <%= @artwork.id %> , "mark" : mark, "comment" : comment } 
+            }).done(function(result) {
+                alert(result)
+            })
+            
             $.ajax ({
                 method: "PUT",
                 url: "/artwork_mark_update",

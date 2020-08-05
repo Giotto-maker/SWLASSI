@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_110333) do
+ActiveRecord::Schema.define(version: 2020_08_04_090155) do
 
   create_table "artworks", force: :cascade do |t|
     t.integer "voto"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2020_08_01_110333) do
     t.float "longitudine"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "valutation"
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "artwork_id"
+    t.index ["artwork_id"], name: "index_reviews_on_artwork_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

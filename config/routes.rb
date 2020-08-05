@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'users/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :artworks
+  resources :artworks do
+    resources :reviews  #nested resource
+  end
   resources :visit
   resources :users
 
@@ -29,6 +31,8 @@ Rails.application.routes.draw do
   delete '/user_delete' => 'users#delete'
 
   get '/forecast' => 'visit#visit_weather'
+  get '/review_create' => 'reviews#new'
+  get '/all_reviews' => 'reviews#index'
 
 
 end
