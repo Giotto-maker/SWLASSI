@@ -1,30 +1,71 @@
-<h2>Log in</h2>
+<html>
+    <head> <title>Log In</title>
+        <%= stylesheet_link_tag('login.css') %>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="w3-bar">
+           
+           <h1> smaARTwandering </h1>
+        
+        </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="login">
+            <br>
+            <h2>Log in</h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+            <div class="field">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+            <br>
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+          <% end %>
+           <br>
+           <br>
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+          <% end %>
+       
+          <br>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+          <br>
+          <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+          <br>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+          <%= render "devise/shared/links" %>
+          <br>
+        </div>
 
+        <div class="w3-footer_bar">
+          <div id="social_sez" class="social_sez" text-align="center">
+            <h5>Follow us on:</h5>
+              <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+              <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+              <a href="#" class="fa fa-youtube-play"></a>
+          </div>
+  
+          <div class="logo_sez" align="left">
+            <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+          </div>
 
-<%= render "devise/shared/links" %>
+          <div class="developers">
+            <a href="aboutus" class="footer_element" style="margin-left: 30px;"> About Us</a>
+          </div>  
+          
+        </div>
+    </body>   

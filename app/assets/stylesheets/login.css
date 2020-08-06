@@ -3,38 +3,27 @@ body{
     background-size: 100%;
     background-repeat: no-repeat; 
     background-attachment: block;
+    z-index: 70;
 } 
 .w3-bar {
     text-align: center;
     background-color:#04001b;
-    margin-top: 0px;;
+    margin-top: -66px;;
     width: 100%;
-    height: 80px;
+    height: 100px;
     position: fixed;
     font-size: 18px;
 }
-
-.logo{
-    background-image: url('../Images/logo_scritta.jpeg');
-    background-size: contain;
-    position: fixed;
-    left: 10px;
-    height: 75px;
-    width: 75px;
-    border-radius: 10px;
-    top: 3px;
-    left: 3px;
-    cursor: pointer;
-}
- 
+.w3-bar h1 {
+  font-family: "Avenir",sans-serif;
+  color:white;
+} 
 .footer {
     font-family: "Avenir",sans-serif;
     position: fixed;
-    left: 0;
-    bottom: 0px;
     width: 100%;
+    height: 100%;
     background-color: #04001b;
-    color: white;
     text-align: center;
     font-size: 18px; 
     text-align: center;
@@ -42,13 +31,14 @@ body{
 }
 
 .footer_element{
+    position: relative;
     font-weight: normal;
     text-align: center;
     color:white;
     text-decoration:none; 
     margin-bottom: 30px;
     font-size: 18px;
-    /* margin-right: 100px; */
+    right: 37%;
 }
 
 .footer_element:hover{
@@ -65,7 +55,6 @@ body{
   height: 150px;
   float: right;
 }
-
 .fa {
   padding: 10px; /*grandezza cerchio */
   font-size: 40px;
@@ -76,7 +65,6 @@ body{
   margin: 5px 2px 0 0;
   border-radius: 50%;
 }
-
 .fa:hover {
   opacity: 0.7;
 }
@@ -119,10 +107,10 @@ h5 {
   color: white;
 }
 
-.developers {
+.w3-footer_bar .developers {
     position: relative;
     text-align: center;
-    right: 4.5%;
+    right: 50%;
     margin-top:1%;
 }
 
@@ -138,9 +126,11 @@ h5 {
     text-align: center;
     font-family: "Avenir", sans-serif;
     font-size: 18px;
+    z-index: 80;
 }
 
-.login .text1 {
+.login h2 {
+    color: #04001b;
     font-family: "Avenir", sans-serif;
     font-size: 35px;
     font-weight: bold;
@@ -183,12 +173,16 @@ a::after {
 
  .login input[type="email"],
  .login input[type="password"]{
-     font-family: "Avenir", sans-serif;
-     background: rgba(255,255,255,.1);
-     border-top: none;
-     border-left: none;
-     border-right: none;
- } 
+    font-family: "Avenir", sans-serif;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: white;
+ }
+ .login .field label{
+    font-family: "Avenir", sans-serif; 
+ }  
+
  .login input[type="submit"]{
     font-size: 18px;
     text-align: center;
@@ -217,7 +211,4 @@ a::after {
     background-position: -200% 0, 0 0;
 }
 
- .noaccount {
-     font-weight: bold;
- }
   
