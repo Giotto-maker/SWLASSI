@@ -22,7 +22,7 @@
         var mark = <%= @artwork.voto %>
         var logged = <%= user_signed_in? %>     
         <% if current_user != nil  %>
-            var admin = <%= current_user.admin %>
+            var admin = <%= current_user.admin? %>
         <% else %>
             var admin = false
         <% end %>

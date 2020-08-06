@@ -35,10 +35,12 @@ class ReviewsController < ApplicationController
     def show
         @artwork = Artwork.find(params[:id])
         @reviews = Review.where(artwork: params[:id])
+        authorize! :read , @reviews, :message => 'Forbidden'
     end
 
     def destroy
         review = Review.find(params[:review_id])
+        authorize! :destroy , review, :message => 'Forbidden'
         artwork = review.artwork_id
         review.destroy
         redirect_to artwork_review_path(artwork)

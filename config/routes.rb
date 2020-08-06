@@ -11,17 +11,22 @@ Rails.application.routes.draw do
   resources :visit
   resources :users
 
+  # artworks:
   put '/artwork_mark_update' => 'artworks#update_mark'
+  post '/create_artwork_admin' => 'artworks#new_artwork_admin'
+  post '/create_artwork_base' => 'artworks#new_artwork_base'
   get '/artwork_more_infos'  => 'artworks#more_infos'
-  post '/contact_us_email'   => 'mail#send_email'
-  post '/create_artwork' => 'artworks#new'
   put '/update' => 'artworks#update'
   delete '/artwork_delete' => 'artworks#destroy'
   get '/find_artwork' => 'artworks#index'
 
-  get '/forecast' => 'visit#visit_weather'
-
+  # reviews:
   get '/review_create' => 'reviews#new'
   get '/all_reviews' => 'reviews#index'
+
+  # other:
+  post '/contact_us_email'   => 'mail#send_email'
+  get '/forecast' => 'visit#visit_weather'
+
   
 end

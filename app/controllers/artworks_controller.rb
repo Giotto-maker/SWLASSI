@@ -38,10 +38,20 @@ class ArtworksController < ApplicationController
         end
     end
 
-    def new
+
+
+    def new_artwork_base
+        Artwork.create!(nome: params[:name], autore: params[:author])
+        render html: 'Artwork successfuly added!'
+    end
+
+
+    def new_artwork_admin
         begin
-            Artwork.create(nome: params[:name], 
-                        autore: params[:author], 
+            ActiveRecord::Base.transaction do
+                authorize! :create_artwork_with_admin_permission, Artwork.create!(nome: params[:name], 
+                        autore: params[:author],
+                        categoria: params[:category],
                         periodo: params[:timePeriod],
                         dimensioni: params[:dimension], 
                         voto: params[:vote], 
@@ -52,17 +62,24 @@ class ArtworksController < ApplicationController
                         foto2: params[:foto2],
                         foto3: params[:foto3],
                         foto4: params[:foto4],
-                        foto5: params[:foto5])
-        rescue => error
+                        foto5: params[:foto5]), :message => 'Forbidden'
+            end
+        rescue CanCan::AccessDenied
+            raise
+        rescue Exception => error
             render html: 'An error occurred while creating artwork : ' + error.to_s
         else
             render html: 'Artwork successfuly added!'
         end
     end
 
+
+
     def show
         @artwork = Artwork.find(params[:id])
     end
+
+
 
     def update_mark
         @artwork = Artwork.find(params[:id])
@@ -76,6 +93,8 @@ class ArtworksController < ApplicationController
 
         render html: 'Nome : ' + @artwork.nome + ' Voto : ' + @mark.to_s + ' Valutazioni : ' + @nuovaValutazione.to_s + ' nuovoVoto: ' + @nuovoVoto.to_s
     end
+
+
 
     def more_infos
         @artwork = Artwork.find(params[:id]).nome + '.txt'
@@ -95,14 +114,19 @@ class ArtworksController < ApplicationController
         end
     end
 
+
+
     def edit
         id = params[:id]
         @artwork = Artwork.find(id)
-	end
+        authorize! :update, @artwork, :message => 'Forbidden'
+    end
+
 
 
     def update
         @artwork = Artwork.find(params[:id])
+        authorize! :update, @artwork, :message => 'Forbidden'
 
         @artwork.categoria = params[:category]
         @artwork.nome = params[:name]
@@ -128,12 +152,15 @@ class ArtworksController < ApplicationController
 	end
 
 
+
 	def destroy
 		id = params[:id]
 		@artwork = Artwork.find(id)
         @artwork.destroy
         render html: 'Artwork deleted'
     end
+
+
 
     def find
         id = params[:id]

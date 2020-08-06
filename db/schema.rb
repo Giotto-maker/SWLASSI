@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_090155) do
+ActiveRecord::Schema.define(version: 2020_08_06_073554) do
 
   create_table "artworks", force: :cascade do |t|
     t.integer "voto"
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 2020_08_04_090155) do
     t.string "surname"
     t.string "username"
     t.string "category"
-    t.boolean "admin", default: false
     t.string "provider"
     t.string "uid"
+    t.integer "roles_mask"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
