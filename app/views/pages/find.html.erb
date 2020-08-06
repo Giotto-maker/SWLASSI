@@ -1,4 +1,4 @@
-<% if signed_in? %>
+<% if signed_in? && (current_user.artlover? || current_user.admin?) %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -157,5 +157,5 @@
     </body>
 </html>
 <% else %>
-    <h1> Page not visible </h1>
+    <h1> You need to be an artlover to look for artworks! </h1>
 <% end %>

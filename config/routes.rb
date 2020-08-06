@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # artworks:
   put '/artwork_mark_update' => 'artworks#update_mark'
   post '/create_artwork_admin' => 'artworks#new_artwork_admin'
-  post '/create_artwork_base' => 'artworks#new_artwork_base'
+  post '/create_artwork_lover' => 'artworks#new_artwork_lover'
   get '/artwork_more_infos'  => 'artworks#more_infos'
   put '/update' => 'artworks#update'
   delete '/artwork_delete' => 'artworks#destroy'

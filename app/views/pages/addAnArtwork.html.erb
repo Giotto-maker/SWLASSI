@@ -1,4 +1,4 @@
-<% if signed_in? %>
+<% if signed_in? && ( current_user.artlover? || current_user.admin? ) %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +12,7 @@
 
       <script>
           var admin = <%= current_user.admin? %>
+          console.log(admin)
       </script>
 
     </head>
@@ -234,7 +235,7 @@
             
               $.ajax ({
                   method: "POST",
-                  url: "/create_artwork_base",
+                  url: "/create_artwork_lover",
                   data: { "category" : category,
                           "name" : name,
                           "author" : author 
@@ -267,5 +268,5 @@
 
     </body>
 <% else %>
-  <h1> Page not visible </h1>
+  <h1> You need to be an artlover to Add Artworks! </h1>
 <% end %>

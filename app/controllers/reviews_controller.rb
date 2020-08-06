@@ -25,6 +25,13 @@ class ReviewsController < ApplicationController
                 user_review.artwork_id = artwork_id
                 current_user.reviews << user_review
                 Artwork.find(artwork_id).reviews << user_review
+
+                current_user.reviews_number += 1
+                if current_user.reviews_number == 10
+                    current_user.roles_mask = 2     # make this user artlover!
+                end
+                current_user.save!
+
                 render html: 'Your review has been correctly registered. Thank you!'
             rescue => error
                 render html: 'Something went wrong : ' + error.to_s

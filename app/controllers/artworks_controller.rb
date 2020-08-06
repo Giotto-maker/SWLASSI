@@ -36,13 +36,26 @@ class ArtworksController < ApplicationController
             @artworks = Artwork.where(["categoria = ? and nome = ? and autore = ?", @category , 
             @name , @author])
         end
+
+        authorize! :look_for_artwork, @artworks[0], :message => 'You need to be an artlover to look for artworks'
     end
 
 
 
-    def new_artwork_base
-        Artwork.create!(nome: params[:name], autore: params[:author])
-        render html: 'Artwork successfuly added!'
+    def new_artwork_lover
+        begin
+            ActiveRecord::Base.transaction do
+                authorize! :create_artwork_with_lover_permission, 
+                    Artwork.create!(nome: params[:name], autore: params[:author]),
+                    :message => 'Forbidden'
+            end
+        rescue CanCan::AccessDenied
+            raise
+        rescue Exception => error
+            render html: 'An error occurred while creating artwork : ' + error.to_s
+        else
+            render html: 'Artwork successfuly added!'
+        end
     end
 
 
@@ -97,20 +110,29 @@ class ArtworksController < ApplicationController
 
 
     def more_infos
-        @artwork = Artwork.find(params[:id]).nome + '.txt'
-        @file_name = Rails.root.join("public", "Infos", @artwork.to_s)
-        @infos = ''
+        artwork = Artwork.find(params[:id])
+
+        begin
+            authorize! :require_additional_infos, artwork, :message => 'You need to be an artlover to read more!'
+        rescue => message
+            render html: message
+            return
+        end
+
+        artwork_name = artwork.nome + '.txt'
+        file_name = Rails.root.join("public", "Infos", artwork_name.to_s)
+        infos = ''
 
         begin 
-            File.open(@file_name.to_s, "r") do |f|
+            File.open(file_name.to_s, "r") do |f|
                 f.each_line do |line|
-                        @infos += line
+                        infos += line
                     end
                 end
         rescue => error
             render html: 'This error has occured : ' + error.to_s
         else
-            render html: '' + @infos
+            render html: '' + infos
         end
     end
 

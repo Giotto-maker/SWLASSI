@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   has_many :reviews
-  acts_as_user :roles => [:base, :admin]
+  acts_as_user :roles => [:base, :artlover, :admin]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
