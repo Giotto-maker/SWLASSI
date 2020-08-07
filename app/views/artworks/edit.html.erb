@@ -19,15 +19,15 @@
 
     </head>
     <div class="tutto_container">
-    <body onload="return categoriaSelezionata(category);">
+    <body onload="return categoriaSelezionata('<%= @artwork.categoria %>');">
     <!-- menu bar -->
     <div class="w3-bar">
             <div class="element">
                 <div class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">
 
                 <div class="dropdown-content">
-                    <a href="../EditAccount/editAccount.php"> Edit Account </a>
-                    <a href="../EditPassword/editPassword.php"> Edit Password</a>
+                    <%= link_to "Edit Account", edit_user_registration_path %>
+                    <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                 </div>
                 </div>
             </div>
@@ -36,9 +36,9 @@
             <input type="button" class="logo" id='btnHome' onclick="location.href='../WelcomeHomepage/welcomeHomepage.html'">
 
             <div class="menu">
-                <a href="../Start visit/visit.php" class="element">Start visit or come back to your tour! 🗺️ </a>
-                <a href ="../FindArtwork/findArtwork.html" class="element" >Look for an artwork 🔎</a>
-                <a href ="../AddArtwork/addArtwork.php" class="element">Add an artwork 🖼️</a>
+                <a href="/visit/new" class="element">Start visit or come back to your tour! 🗺️ </a>
+                <a href ="/find" class="element" >Look for an artwork 🔎</a>
+                <a href ="/addAnArtwork" class="element">Add an artwork 🖼️</a>
             </div>
         </div>
 
@@ -139,8 +139,8 @@
                     <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
                 </div>
             <div class="developers">
-                    <a href="../AboutUs/aboutUs.php" class="footer_element">About Us</a>
-                    <a href="../ContactUs/conctact_us.html" class="footer_element">Contact Us</a>
+                    <a href="/aboutus" class="footer_element">About Us</a>
+                    <a href="/contact_us" class="footer_element">Contact Us</a>
             </div>
         </div>
     </body>
@@ -202,4 +202,13 @@
     })
     </script>
 
+    <script>
+        function categoriaSelezionata(category){
+            document.getElementById("category_selection").value = category;
+        }
+
+        $('#btnHome').click(function() {
+            window.location.replace('/welcomeHomepage') 
+        })
+    </script>
 </html>

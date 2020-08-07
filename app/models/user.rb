@@ -29,4 +29,13 @@ class User < ApplicationRecord
             end
           end
         end
+
+        # lock users (only if not admin)
+        def active_for_authentication?
+          super && ( account_active || roles_mask == 4)
+        end
+
+        def inactive_message
+          account_active ? super : :locked
+        end
 end

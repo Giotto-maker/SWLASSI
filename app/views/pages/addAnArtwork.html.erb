@@ -25,9 +25,8 @@
                 <div class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
 
                     <div class="dropdown-content">
-                        <a href="/edit"> Edit Account </a>
-                        <a href="/change_psw"> Edit Password</a>
-                        <a href='/logout'> Log out </a>
+                      <%= link_to "Edit Account", edit_user_registration_path %>
+                      <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                     </div>  
                 </div>
             </div> 
@@ -108,8 +107,8 @@
                     <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
                 </div>
             <div class="developers" class="footer_element">
-                    <a href="../AboutUs/aboutUs.php" class="footer_element">About Us</a>
-                    <a href="../ContactUs/contact_us.html" class="footer_element">Contact Us</a>
+                    <a href="/aboutus" class="footer_element">About Us</a>
+                    <a href="/contact_us" class="footer_element">Contact Us</a>
             </div>
         </div>
    
@@ -181,6 +180,10 @@
             }
             // chiudo tutto sel l'utente clicca fuori da qualsiasi box
             document.addEventListener("click", closeAllSelect);
+
+            $('#btnHome').click(function() {
+              window.location.replace('/welcomeHomepage') 
+            })
             </script>     
         </div>
 

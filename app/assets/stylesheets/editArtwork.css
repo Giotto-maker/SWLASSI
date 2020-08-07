@@ -253,13 +253,13 @@ label {
    }
 
 
-.save input[type="submit"]:active {
+.save input[type="button"]:active {
    box-shadow: none;
    }
    
    
    
-.save input[type="submit"]:hover {
+.save input[type="button"]:hover {
    transition: .5s linear;
    background-position: -200% 0, 0 0;
    }
