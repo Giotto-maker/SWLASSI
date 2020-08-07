@@ -1,55 +1,88 @@
-<h2>Sign up</h2>
+<html>
+    <head>
+        <title>Sign Up</title>
+        <%= stylesheet_link_tag('signup.css') %>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    
+    <div class="signup">
+      <br>
+      <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div>
-     <%= f.label :name %><br />
-     <%= f.text_field :name, autofocus: true %>
-  </div>
+        <div>
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true %>
+        </div>
 
-  <div>
-     <%= f.label :surname %><br />
-     <%= f.text_field :surname, autofocus: true %>
-  </div>
+        <div>
+          <%= f.label :surname %><br />
+          <%= f.text_field :surname, autofocus: true %>
+        </div>
 
-  <div>
-     <%= f.label :username %><br />
-     <%= f.text_field :username, autofocus: true %>
-  </div>
+        <div>
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true %>
+        </div>
 
-  <div>
-    <%= f.label :category %><br />
-    <%= f.select :category , options_for_select([["Star", "Star"], ["Architecture", "Architecture"], 
-    ["Painting", "Painting" ], ["Sculpture", "Sculpture"]]) %>
-  </div>
+        <div>
+          <%= f.label :category %><br />
+          <%= f.select :category , options_for_select([["Star", "Star"], ["Architecture", "Architecture"], 
+          ["Painting", "Painting" ], ["Sculpture", "Sculpture"]]) %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+        <br>
+        <br>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-
-  <%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %>
-  <%= link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path %>
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+        <br>
+        <br>
+        <%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %>
+        <br>
+        <%= link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path %>
 
 
-<% end %>
+      <% end %>
+      <br>
+      <%= render "devise/shared/links" %>
+      <br>
+    </div>
+      <div class="footer">
+            <div id="social_sez" class="social_sez" text-align="center">
+              <h5>Follow us on:</h5>
+                <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-youtube-play"></a>
+            </div>
 
-<%= render "devise/shared/links" %>
+            <div class="logo_sez" align="left">
+              <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+            </div>
+            <div class="developers" class="footer_element">
+              <a href="aboutus">About Us</a>
+            </div>       
+        </div>

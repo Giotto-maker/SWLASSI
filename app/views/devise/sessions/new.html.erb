@@ -1,19 +1,14 @@
 <html>
-    <head> <title>Log In</title>
+    <head> 
+        <title>Log In</title>
         <%= stylesheet_link_tag('login.css') %>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <div class="w3-bar">
-           
-           <h1> smaARTwandering </h1>
-        
-        </div>
-
         <div class="login">
-            <br>
+          <br>
             <h2>Log in</h2>
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -51,7 +46,7 @@
           <br>
         </div>
 
-        <div class="w3-footer_bar">
+        <div class="footer">
           <div id="social_sez" class="social_sez" text-align="center">
             <h5>Follow us on:</h5>
               <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
@@ -63,9 +58,9 @@
             <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
           </div>
 
-          <div class="developers">
-            <a href="aboutus" class="footer_element" style="margin-left: 30px;"> About Us</a>
-          </div>  
-          
+          <div class="developers" class="footer_element">
+            <a href="aboutus"> About Us</a>
+          </div>          
         </div>
     </body>   
+</html>
