@@ -1,22 +1,56 @@
-<h1> You have almost done <%= @name %>!</h1>
+<html>
+    <head>
+        <title> Confirm account</title>
+        <%= stylesheet_link_tag('confirm.css') %>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    
+    <div class="container">
+      <br>
+      
+      <h1> You have almost done <%= @name %>!</h1>
 
-<h2> We have sent an email to the address you have provided to confirm your account.
-     After that you will be able to access SmartWandering! </h2>
+        <h3> We have sent an email to the address </h3><br>
+        <h3> you have provided to confirm your account.</h3> <br>
+        <h3> After that you will be able to access SmartWandering! </h3>
 
+        <br><br>
+        <h2> ⁉️ You did not receive confirmation email? ⁉️ <h2>
+        <h2> Resend confirmation instructions: </h2>
 
-<h3> You did not receive confirmation email? Resend confirmation instructions</h3>
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+          </div>
+          <br>
+          <div class="actions">
+            <%= f.submit "Resend confirmation instructions" %>
+          </div>
+        <% end %>
+        <br>
+        <%= render "devise/shared/links" %>
+        <br>
+      </div>
+      <div class="footer">
+            <div id="social_sez" class="social_sez" text-align="center">
+              <h5>Follow us on:</h5>
+                <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-youtube-play"></a>
+            </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+            <div class="logo_sez" align="left">
+              <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+            </div>
+            <div class="developers" class="footer_element">
+              <a href="aboutus">About Us</a>
+            </div>       
+        </div>
+      </body>
+</html>
