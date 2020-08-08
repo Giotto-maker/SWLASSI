@@ -1,5 +1,5 @@
 class MailController < ApplicationController
-    skip_before_action :verify_authenticity_token #COMPLETE: except: [:create, :update, :destroy]
+    before_action :authenticate_user!
 
     def send_email
         @body = params[:message]

@@ -11,7 +11,7 @@
         <title>Contact Us</title>
 
         <script>
-            var logged = <%= logged_in? %>
+            var logged = <%= user_signed_in? %>
         </script>
 
     </head>
@@ -76,6 +76,7 @@
                 $(".button").click(function(){
 
                 var message = $('#contact_area').val()
+                if (!logged)    return
                 if (message == '') {
                     alert ('Insert a message to send!')
                     return;

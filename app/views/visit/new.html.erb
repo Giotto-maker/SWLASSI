@@ -48,7 +48,7 @@
         var lng7 = <%= @artworks[6].longitudine %>
         var lat7 = <%= @artworks[6].latitudine %>
 
-        var logged = <%= logged_in? %>
+        var logged = <%= user_signed_in? %>
     </script>
 
     <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" %>
@@ -63,9 +63,8 @@
         <div class="element">
             <div id='divAccount' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
                 <div class="dropdown-content">
-                    <a href='/edit'> Edit Account </a>
-                    <a href='/change_psw'> Edit Password</a>
-                    <a href='/logout'> Log out </a>
+                    <%= link_to "Edit Account", edit_user_registration_path %>
+                    <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                 </div>  
             </div>
         </div>     
@@ -208,7 +207,7 @@
         <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
       </div>
       <div id='dev' class="developers">
-        <a href="../AboutUs/aboutUs.php" id='fe1' class="footer_element" style="margin-left: 30px;">About Us</a>
+        <a href="/aboutus" id='fe1' class="footer_element" style="margin-left: 30px;">About Us</a>
         <a href="/contact_us" id='fe2' class="footer_element" style="margin-left: 30px";>Contact Us</a>
       </div>       
     </div>

@@ -11,28 +11,22 @@ Rails.application.routes.draw do
   resources :visit
   resources :users
 
+  # artworks:
   put '/artwork_mark_update' => 'artworks#update_mark'
+  post '/create_artwork_admin' => 'artworks#new_artwork_admin'
+  post '/create_artwork_lover' => 'artworks#new_artwork_lover'
   get '/artwork_more_infos'  => 'artworks#more_infos'
-  post '/contact_us_email'   => 'mail#send_email'
-
-  delete '/artwork_delete' => 'artworks#destroy'
   put '/update' => 'artworks#update'
-  post '/create_artwork' => 'artworks#new'
+  delete '/artwork_delete' => 'artworks#destroy'
   get '/find_artwork' => 'artworks#index'
 
-  get 'signup'  => 'users#new'
-  get '/edit' =>  'users#edit'
-  put '/update_user' => 'users#update'
-  get '/login'   => 'sessions#new'
-  post '/login'  => 'sessions#create'
-  get '/logout'  => 'sessions#destroy'
-  put '/change_psw' => 'users#change_psw'
-  post '/I_got_forgotten!' => 'users#forgotten_psw'
-  delete '/user_delete' => 'users#delete'
-
-  get '/forecast' => 'visit#visit_weather'
+  # reviews:
   get '/review_create' => 'reviews#new'
   get '/all_reviews' => 'reviews#index'
 
+  # other:
+  post '/contact_us_email'   => 'mail#send_email'
+  get '/forecast' => 'visit#visit_weather'
 
+  
 end

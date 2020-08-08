@@ -1,3 +1,4 @@
+<% if signed_in? && ( current_user.artlover? || current_user.admin? ) %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +11,8 @@
         <%= stylesheet_link_tag ('addArtwork.css') %>    
 
       <script>
-          var admin = <%= User.find(session[:user_id]).admin %>
+          var admin = <%= current_user.admin? %>
+          console.log(admin)
       </script>
 
     </head>
@@ -23,9 +25,8 @@
                 <div class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
 
                     <div class="dropdown-content">
-                        <a href="/edit"> Edit Account </a>
-                        <a href="/change_psw"> Edit Password</a>
-                        <a href='/logout'> Log out </a>
+                      <%= link_to "Edit Account", edit_user_registration_path %>
+                      <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                     </div>  
                 </div>
             </div> 
@@ -106,8 +107,8 @@
                     <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
                 </div>
             <div class="developers" class="footer_element">
-                    <a href="../AboutUs/aboutUs.php" class="footer_element">About Us</a>
-                    <a href="../ContactUs/contact_us.html" class="footer_element">Contact Us</a>
+                    <a href="/aboutus" class="footer_element">About Us</a>
+                    <a href="/contact_us" class="footer_element">Contact Us</a>
             </div>
         </div>
    
@@ -179,51 +180,76 @@
             }
             // chiudo tutto sel l'utente clicca fuori da qualsiasi box
             document.addEventListener("click", closeAllSelect);
+
+            $('#btnHome').click(function() {
+              window.location.replace('/welcomeHomepage') 
+            })
             </script>     
         </div>
 
         <script>
         $('#submit_btn').click(function() {
-            
-            var category = $('#category').val()
-            var name = $('#name').val()
-            var author = $('#author').val()
-            var timePeriod = $('#timePeriod').val()
-            var dimension = $('#dimensions').val()
-            var place = $('#location').val()
-            var lat = $('#lat').val()
-            var long = $('#long').val()
-            var vote = $('#valutations').val()
-            var valutations = $('#vote').val()
-            var foto1 = $('#imm1').val()
-            var foto2 = $('#imm2').val()
-            var foto3 = $('#imm3').val()
-            var foto4 = $('#imm4').val()
-            var foto5 = $('#imm5').val()
+            if (admin) {
+              var category = $('#category').val()
+              var name = $('#name').val()
+              var author = $('#author').val()
+              var timePeriod = $('#timePeriod').val()
+              var dimension = $('#dimensions').val()
+              var place = $('#location').val()
+              var lat = $('#lat').val()
+              var long = $('#long').val()
+              var vote = $('#valutations').val()
+              var valutations = $('#vote').val()
+              var foto1 = $('#imm1').val()
+              var foto2 = $('#imm2').val()
+              var foto3 = $('#imm3').val()
+              var foto4 = $('#imm4').val()
+              var foto5 = $('#imm5').val()
 
-            $.ajax ({
-                method: "POST",
-                url: "/create_artwork",
-                data: { "category" : category,
-                        "name" : name,
-                        "author" : author,
-                        "timePeriod" : timePeriod,
-                        "dimension" : dimension,
-                        "vote": vote,
-                        "valutations": valutations,
-                        "place" : place,
-                        "lat" : lat,
-                        "long" : long,
-                        "foto1": foto1,
-                        "foto2": foto2,
-                        "foto3": foto3,
-                        "foto4": foto4,
-                        "foto5": foto5 
-                      } 
-            }).done(function(result) {
-                alert(result)
-                window.location.replace('/welcomeHomepage')
-            })
+              $.ajax ({
+                  method: "POST",
+                  url: "/create_artwork_admin",
+                  data: { "category" : category,
+                          "name" : name,
+                          "author" : author,
+                          "timePeriod" : timePeriod,
+                          "dimension" : dimension,
+                          "vote": vote,
+                          "valutations": valutations,
+                          "place" : place,
+                          "lat" : lat,
+                          "long" : long,
+                          "foto1": foto1,
+                          "foto2": foto2,
+                          "foto3": foto3,
+                          "foto4": foto4,
+                          "foto5": foto5 
+                        } 
+              }).done(function(result) {
+                  if (result == 'Artwork successfuly added!') {
+                    alert(result)
+                    window.location.replace('/welcomeHomepage')
+                  }
+              })
+            } else {
+              var category = $('#category').val()
+              var name = $('#name').val()
+              var author = $('#author').val()
+            
+              $.ajax ({
+                  method: "POST",
+                  url: "/create_artwork_lover",
+                  data: { "category" : category,
+                          "name" : name,
+                          "author" : author 
+                        } 
+              }).done(function(result) {
+                  if (result == 'Artwork successfuly added!') {
+                    alert(result)
+                    window.location.replace('/welcomeHomepage')
+                  }
+              })
+            }
         })
         </script>
 
@@ -244,3 +270,6 @@
         </script>
 
     </body>
+<% else %>
+  <h1> You need to be an artlover to Add Artworks! </h1>
+<% end %>

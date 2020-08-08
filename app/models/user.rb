@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :reviews
+  acts_as_user :roles => [:base, :artlover, :admin]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -27,5 +28,14 @@ class User < ApplicationRecord
               user.email = data["email"] if user.email.blank?
             end
           end
+        end
+
+        # lock users (only if not admin)
+        def active_for_authentication?
+          super && ( account_active || roles_mask == 4)
+        end
+
+        def inactive_message
+          account_active ? super : :locked
         end
 end

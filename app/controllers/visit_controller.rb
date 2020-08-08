@@ -28,7 +28,7 @@ class VisitController < ApplicationController
         @artworks = Artwork.all
 
         # retrieve weather infos from external API
-        options = { units: "metric", APPID: "c5306bba2af4c6f13a4092103cda0787" }
+        options = { units: "metric", APPID: ENV['OPEN_WEATHER_API_KEY'] }
         weather_json = OpenWeather::Current.city("Rome, IT", options)
         weather_parsed = JSON.parse(weather_json.to_json)
 

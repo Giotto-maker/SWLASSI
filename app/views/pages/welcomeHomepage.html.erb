@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,7 +46,6 @@
 
                     <div class="dropdown-content">
                         <%= link_to "Edit Account", edit_user_registration_path %>
-                        <a href='/change_psw'> Edit Password</a>
                         <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                     </div>  
                     </div>
@@ -151,3 +151,6 @@
         
     </body>
 </html>
+<% else %>
+        <h1> Page not visible! </h1>
+<% end %>

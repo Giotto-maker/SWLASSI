@@ -20,13 +20,14 @@
     <script> 
         var valutations = <%= @artwork.valutazioni %>
         var mark = <%= @artwork.voto %>
-        var logged = <%= logged_in? %>     
+        var logged = <%= user_signed_in? %>     
         <% if current_user != nil  %>
-            var admin = <%= current_user.admin %>
+            var admin = <%= current_user.admin? %>
         <% else %>
             var admin = false
         <% end %>
         console.log(admin)
+        console.log(logged)
     </script>
 
    </head>
@@ -129,8 +130,9 @@
             </div>
 
             <div class='comments'>
-                <textarea id="comment_area" name="comments" rows="4" cols="50"> </textarea>
-            <div>
+            <h3> Leave a comment in the section below: </h3>
+                <textarea id="comment_area" name="comments" rows="4" cols="65"> </textarea>
+            </div>
 
            
             <div class="footer">
@@ -146,8 +148,8 @@
                     <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
                 </div>
             <div class="developers">
-                    <a href="/aboutus" class="footer_element">About Us</a>
-                    <a href="/contact_us" class="footer_element">Contact Us</a>
+                    <a href="/aboutus" id='aboutUs' class="footer_element">About Us</a>
+                    <a href="/contact_us" id='contactUs' class="footer_element">Contact Us</a>
             </div>
            
         </div>
@@ -231,16 +233,22 @@
         function modify_view() {
             if (!logged) {
                 document.getElementById("edit_btn").style.visibility = "hidden"
+                document.getElementById("review_btn").style.visibility = "hidden"
                 document.getElementById("menu").style.visibility = "hidden"
                 document.getElementById('account').style.visibility = "hidden"
+                document.getElementById('contactUs').style.visibility = "hidden"
             } else if (!admin) {
                 document.getElementById("edit_btn").style.visibility = "hidden"
+                document.getElementById("review_btn").style.visibility = "hidden"
                 document.getElementById("menu").style.visibility = "visible"
                 document.getElementById('account').style.visibility = "visible"
+                document.getElementById('contactUs').style.visibility = "visible"
             } else {
                 document.getElementById("edit_btn").style.visibility = "visible"
+                document.getElementById("review_btn").style.visibility = "visible"
                 document.getElementById("menu").style.visibility = "visible"
                 document.getElementById('account').style.visibility = "visible"
+                document.getElementById('contactUs').style.visibility = "visible"
             }
         }
    </script>
