@@ -1,64 +1,110 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<html>
+    <head>
+        <title>Edit account</title>
+        <%= stylesheet_link_tag('editAccount.css') %>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <div class="w3-bar">
+        <div class="element">
+            <div id='divAccount' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
+                <div class="dropdown-content">
+                    <a href='/edit'> Edit Account </a>
+                    <a href='/change_psw'> Edit Password</a>
+                    <a href='/logout'> Log out </a>
+                </div>  
+            </div>
+        </div>     
+        <a> <input type="button" class="logo" id='btnHome'> </a>
+                
+        <div id='menu' class="menu">
+            <a href ="/find" class="element" >Look for an artwork 🔎</a>
+            <a href ="/addAnArtwork" class="element">Add an artwork 🖼️</a> 
+        </div>
+    </div>
+    <div class="edit">
+      <br>
+      <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class='field'>
-     <%= f.label :name %><br />
-     <%= f.text_field :name, autofocus: true , autocomplete: "new-name"%>
-  </div>
+            <div class='field'>
+              <%= f.label :name %><br />
+              <%= f.text_field :name, autofocus: true , autocomplete: "new-name"%>
+            </div>
 
-  <div class="field">
-     <%= f.label :surname %><br />
-     <%= f.text_field :surname, autofocus: true, autocomplete: "new-surname" %>
-  </div>
+            <div class="field">
+              <%= f.label :surname %><br />
+              <%= f.text_field :surname, autofocus: true, autocomplete: "new-surname" %>
+            </div>
 
-  <div class="field">
-     <%= f.label :username %><br />
-     <%= f.text_field :username, autofocus: true, autocomplete: "new-username" %>
-  </div>
+            <div class="field">
+              <%= f.label :username %><br />
+              <%= f.text_field :username, autofocus: true, autocomplete: "new-username" %>
+            </div>
 
-  <div class='field'>
-    <%= f.label :category %><br />
-    <%= f.select :category , options_for_select([["Star", "Star"], ["Architecture", "Architecture"], 
-    ["Painting", "Painting" ], ["Sculpture", "Sculpture"]]) %>
-  </div>
+            <div class='field'>
+              <%= f.label :category %><br />
+              <%= f.select :category , options_for_select([["Star", "Star"], ["Architecture", "Architecture"], 
+              ["Painting", "Painting" ], ["Sculpture", "Sculpture"]]) %>
+            </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+            <div class="field">
+              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+              <% if @minimum_password_length %>
+                <br />
+                <em><%= @minimum_password_length %> characters minimum</em>
+              <% end %>
+            </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+            <div class="field">
+              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password" %>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+            <div class="actions">
+              <%= f.submit "Update" %>
+            </div>
+          <% end %>
 
-<h3>Cancel my account</h3>
+          <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+          <%= link_to "Back", :back %>
+    </div>
+    <div class="footer">
+            <div id="social_sez" class="social_sez" text-align="center">
+              <h5>Follow us on:</h5>
+                <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-youtube-play"></a>
+            </div>
+
+            <div class="logo_sez" align="left">
+              <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+            </div>
+            <div class="developers" class="footer_element">
+              <a href="aboutus">About Us</a>
+            </div>       
+        </div>
+    </body>
+  </html>
