@@ -3,19 +3,12 @@ body{
     font-family: "Avenir", sans-serif;
     font-size: 18px;
     background-image: url("../Images/image2.jpg");
-    background-size: 50%;
+    background-size: 45%;
     background-position: top left;
     background-repeat: no-repeat; 
-    z-index: 10;
-    background-attachment: scroll;
     background-attachment: fixed;
 }
 
-.container {
-    position: absolute;
-    left: 27%;
-    top: 150px;
-}
 .w3-bar {
     text-align: center;
     background-color:#04001b;
@@ -39,24 +32,27 @@ body{
     cursor: pointer;
 }
 .container {
+    position: absolute;
     background-color:whitesmoke;
     opacity: 0.9;
     height: fit-content;
-    width: 450px;
+    width: 600px;
     border-radius: 10px;
-    position: relative;
-    left: 60%;
-    top: 250x;
+    left: 53%;
+    top: 20%;
     text-align: center;
     font-family: "Avenir", sans-serif;
     font-size: 18px;
 }
-.container .text {
+.container h2 {
     font-family: "Avenir", sans-serif;
     font-size: 35px;
     font-weight: bold;
     text-shadow: 0 0 45px rgba(0, 0, 0, 0.7);   
 }
+.container label{
+  font-family: "Avenir", sans-serif; 
+} 
 .container input[type="email"]{
     font-family: "Avenir", sans-serif;
     background: rgba(255,255,255,.1);
@@ -64,10 +60,10 @@ body{
     border-left: none;
     border-right: none;
 } 
-.container input[type="button"]{
+.container input[type="submit"]{
     font-size: 18px;
     text-align: center;
-    width: 180px;
+    width: fit-content;
     position: relative;
     color: white;
     text-decoration: none;
@@ -102,26 +98,36 @@ body{
     bottom: 0px;
 } 
 
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #04001b;
+  color: white;
+  text-align: center;
+} 
+
 /*social*/
 .social_sez {
-    width: 25%;
-    height: 150px;
+    width: 15%;
+    height: 80px;
     float: right;
-    right:14%;
+    right:15%;
     text-align: center;
   }
 
 .social_sez h5{
     font-family: "Avenir", sans-serif;
-    font-size: 18px;
+    font-size: smaller;
     color: white;  
     text-align: center;
 }
 .fa {
   padding: 10px; /*grandezza cerchio */
-  font-size: 40px;
-  width: 20px;
-  height: 20px;
+  font-size: smaller;
+  width: 10px;
+  height: 10px;
   text-align: center;  /*top*/
   text-decoration: none;
   margin: 5px 2px 0 0;
@@ -135,20 +141,20 @@ body{
 .fa-facebook {
   background: #3B5998;
   color: white;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 .fa-instagram {
   background: #125688;
   color: white;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 .fa-youtube-play {
   background: #bb0000;
   color: white;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 .logo_sez {
     width: 35%;
@@ -158,29 +164,28 @@ body{
     top: 15px;
   }
 #foto_logo_sez {
-  width: 60%;
-  height: 70px;
+  width: 45%;
+  height: 50px;
   margin: 2%;
-  width: 60%;
 }
 
 .footer_element{
     color:white;
     text-decoration:none; 
-    margin-bottom: 30px;
-    margin-right: 100px;
     font-family: "Avenir", sans-serif;
     font-weight: normal;
+    font-size: 10px;
 }
 .developers{
-    position: relative;
+    position: absolute;
+    width: 300px;
     text-align: center;
-    right: 1.5%;
-    margin-top:1%;
+    margin-left: 5%;
 }
 
 .footer_element:hover{
     color:rgb(72, 168, 247);
     text-decoration:none;  
 }  
+  
   
