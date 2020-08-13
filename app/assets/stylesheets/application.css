@@ -15,3 +15,70 @@
  *= require_tree .
  *= require_self
  */
+ /* body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    background: White;
+    color: DarkSlateGrey;
+    font-family: Avenir;
+    font-size: 10pt;
+    background-attachment: block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  } */
+  div#main {
+    margin: 0;
+    padding: 0 20px 20px;
+  }
+  a {
+    background: transparent;
+    color:#04001b;;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  h1 {
+    color:#04001b;;
+    font-size: 150%;
+    font-style: italic;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid DarkSlateGrey;
+  }
+  h1.title {
+    margin: 0 0 1em;
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    border-bottom: 4px solid gold;
+    font-size: 2em;
+    font-style: normal;
+  }
+  table#reviews {
+    margin: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 2px solid black;
+  }
+  table#reviews th {
+    border: 2px solid white;
+    font-weight: bold;
+    background-color: wheat;
+  }
+  table#reviews th, table#reviews td {
+    padding: 4px;
+    text-align: left;
+  }
+  #notice, #warning {
+    background: rosybrown;
+    margin: 1em 0;
+    padding: 4px;
+  }
+  form label {
+    display: block;
+    display: inline;
+    line-height: 25px;
+    font-weight: bold;
+    color: maroon;
+  }
+  

@@ -67,24 +67,40 @@ body {
 .account:hover .dropdown-content {
     display: block;
 }
-a::after {
-    position: absolute;
-    bottom: .3em;
-    left: 0;
-    content: '';
-    width: 100%;
-    background-color: black;
-    opacity: 0;
-    transition: .3s;
-}  
-a:hover::after {
-    bottom: 0;
-    opacity: 1;
-    color: black;
-} 
-a:hover {
-    color: black;
+a {
+  font-weight: bolder;
+  color: royalblue;
+  text-decoration: none;
+  padding: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  word-wrap: normal;
+  display: inline-block;
+  background-size: 16px 16px;
+  padding-right: 19px;
 }
+
+a::after {
+  position: absolute;
+  bottom: .3em;
+  left: 0;
+  content: '';
+  width: 100%;
+  background-color: green;
+  opacity: 0;
+  transition: .3s;
+}
+
+a:hover::after {
+  bottom: 0;
+  opacity: 1;
+  color:rgb(72, 168, 247);
+}
+
+a:hover {
+  color: rgb(72, 168, 247);
+}
+
 .edit {
     background-color:whitesmoke;
     opacity: 0.8;        
@@ -104,9 +120,9 @@ a:hover {
     bottom: 100px;
     left: 42%;
 }
-.edit .text1 {
+.edit h2, .delete h2 {
     font-family: "Avenir", sans-serif;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     text-shadow: 0 0 45px rgba(0,0,0,.7);   
  }
@@ -120,7 +136,10 @@ a:hover {
     border-left: none;
     border-right: none;
 }
-.edit input[type="submit"],input[id="delete"]{
+.field label{
+  font-family: "Avenir", sans-serif; 
+} 
+input[type="submit"], input[type="delete"]{
     font-size: 18px;
     text-align: center;
     width: fit-content;
@@ -139,55 +158,59 @@ a:hover {
     box-shadow: rgba(57, 206, 226, 0.3) 0 2px 5px;
     border-radius: 10px;
 }
-.edit input[type="submit"], input[id="delete"]:active {
+input[type="submit"], input[type="delete"]:active {
     top: 1px;
     box-shadow: none;
 }
-.edit input[type="submit"]:hover, input[id="delete"]:hover {
+input[type="submit"]:hover, input[type="delete"]:hover {
     transition: .5s linear;
     background-position: -200% 0, 0 0;
 }
-
-/* ELEMENTO SELECT */
-.category {
-    position: relative;
-    font-family: "Avenir", sans-serif;
-    left: 0%;
-    border-radius: 10px;
-    height: 1.5cm;
-    width: 4cm;
+.delete {
+  background-color:whitesmoke;
+  opacity: 0.8;        
+  height: fit-content;
+  width: 300px;        
+  position: absolute;
+  left: 75%;
+  top: 178px;
+  text-align: center;
+  font-family: "Avenir", sans-serif;
+  font-size: 18px;
+  border-radius: 10px;
 }
 
-.w3-footer_bar{
-    text-align: left;
-    background-color:#04001b;
-    width: 100%;
-    height: 150px;
-    font-size: 18px;  
-    position: absolute;
-    bottom: -200px;
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #04001b;
+  color: white;
+  text-align: center;
 } 
 
 /*social*/
 .social_sez {
-    width: 25%;
-    height: 150px;
+    width: 15%;
+    height: 80px;
     float: right;
-    right:14%;
+    right:15%;
     text-align: center;
   }
 
 .social_sez h5{
     font-family: "Avenir", sans-serif;
-    font-size: 18px;
+    font-size: smaller;
     color: white;  
     text-align: center;
 }
 .fa {
   padding: 10px; /*grandezza cerchio */
-  font-size: 40px;
-  width: 20px;
-  height: 20px;
+  font-size: smaller;
+  width: 10px;
+  height: 10px;
   text-align: center;  /*top*/
   text-decoration: none;
   margin: 5px 2px 0 0;
@@ -201,20 +224,20 @@ a:hover {
 .fa-facebook {
   background: #3B5998;
   color: white;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 .fa-instagram {
   background: #125688;
   color: white;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 .fa-youtube-play {
   background: #bb0000;
   color: white;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 .logo_sez {
     width: 35%;
@@ -224,25 +247,23 @@ a:hover {
     top: 15px;
   }
 #foto_logo_sez {
-  width: 60%;
-  height: 70px;
+  width: 45%;
+  height: 50px;
   margin: 2%;
-  width: 60%;
 }
 
 .footer_element{
     color:white;
     text-decoration:none; 
-    margin-bottom: 30px;
-    margin-right: 100px;
     font-family: "Avenir", sans-serif;
     font-weight: normal;
+    font-size: smaller;
 }
 .developers{
-    position: relative;
+    position: absolute;
+    width: 300px;
     text-align: center;
-    right: 1.5%;
-    margin-top:1%;
+    margin-left: 5%;
 }
 
 .footer_element:hover{

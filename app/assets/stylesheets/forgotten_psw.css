@@ -88,16 +88,39 @@ body{
     transition: .5s linear;
     background-position: -200% 0, 0 0;
 }
-.w3-footer_bar{
-    text-align: left;
-    background-color:#04001b;
-    width: 100%;
-    height: 150px;
-    font-size: 18px;  
-    position: absolute;
-    bottom: 0px;
-} 
+a {
+  font-weight: bolder;
+  color: royalblue;
+  text-decoration: none;
+  padding: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  word-wrap: normal;
+  display: inline-block;
+  background-size: 16px 16px;
+  padding-right: 19px;
+}
 
+a::after {
+  position: absolute;
+  bottom: .3em;
+  left: 0;
+  content: '';
+  width: 100%;
+  background-color: green;
+  opacity: 0;
+  transition: .3s;
+}
+
+a:hover::after {
+  bottom: 0;
+  opacity: 1;
+  color:rgb(72, 168, 247);
+}
+
+a:hover {
+  color: rgb(72, 168, 247);
+}
 .footer{
   position: fixed;
   left: 0;

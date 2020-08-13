@@ -91,7 +91,7 @@ a::after {
  .login input[type="submit"]{
     font-size: 18px;
     text-align: center;
-    width: 180px;
+    width: fit-content;
     position: relative;
     color: white;
     text-decoration: none;
