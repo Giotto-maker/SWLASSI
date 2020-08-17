@@ -38,39 +38,48 @@
     font-weight: bold;
   }
   h1 {
-    color:#04001b;;
-    font-size: 150%;
-    font-style: italic;
+    margin-left: 5%;
+    text-align: center;
+    color: #04001b;
+    font-size: 30px;
+    font-style: bold;
     display: block;
-    width: 100%;
-    border-bottom: 1px solid DarkSlateGrey;
+    position: relative;
+    width: 90%;
+    border-bottom: 1px solid rgb(3, 3, 26);
   }
   h1.title {
-    margin: 0 0 1em;
+    margin: 0 0 9em;
     padding: 10px;
-    background-color: orange;
+    position: relative;
+    left: 50%;
     color: white;
-    border-bottom: 4px solid gold;
+    border-bottom: 4px solid;
     font-size: 2em;
     font-style: normal;
   }
   table#reviews {
-    margin: 10px;
+    margin-left: 5%;
+    background-color: rgba(245, 245, 245, 0.329);
     border-collapse: collapse;
-    width: 100%;
-    border-bottom: 2px solid black;
+    width: 90%;
+    border-bottom: 2px solid #04001b;
   }
   table#reviews th {
-    border: 2px solid white;
+    font-family: Avenir;
+    color: #04001b;
+    border: 1px solid white;
     font-weight: bold;
-    background-color: wheat;
+    background-color: rgba(255, 255, 255, 0.623);
   }
   table#reviews th, table#reviews td {
+    color: #04001b;
+    font-family: Avenir;
     padding: 4px;
     text-align: left;
   }
   #notice, #warning {
-    background: rosybrown;
+    background: whitesmoke;
     margin: 1em 0;
     padding: 4px;
   }
@@ -79,6 +88,10 @@
     display: inline;
     line-height: 25px;
     font-weight: bold;
-    color: maroon;
   }
+div {
+  text-align: center;
+  font-family: Avenir;
+
+}
   

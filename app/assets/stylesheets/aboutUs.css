@@ -159,16 +159,16 @@ a:hover {
   }
 .logo_sez {
     width: 35%;
-    height: 130px;
+    height: 120px;
     float: left;
     position: relative;
+    left: 2%;
     top: 15px;
   }
 #foto_logo_sez {
-    width: 60%;
-    height: 65px;
+    width: 45%;
+    height: 50px;
     margin: 2%;
-    width: 60%;
   }
 
 .footer_element{

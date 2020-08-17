@@ -160,17 +160,16 @@ p {
 }
 .logo_sez {
     width: 35%;
-    height: 130px;
+    height: 120px;
     float: left;
     left: 2%;
     position: relative;
     top: 15px;
   }
 #foto_logo_sez {
-  width: 60%;
-  height: 65px;
+  width: 45%;
+  height: 50px;
   margin: 2%;
-  width: 60%;
 }
 
 .footer_element{

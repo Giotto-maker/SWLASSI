@@ -1,3 +1,7 @@
+%br
+%br
+%br
+%br
 %h1 Reviews about #{@artwork.nome}
 %table#reviews
   %thead 
@@ -11,5 +15,5 @@
           %td= review.valutation
           %td= review.comment
           %td= link_to "Delete", artwork_review_path(review_id: review.id) , :method => :delete
-
-#{link_to "Back to artwork details", artwork_path(@artwork.id)}
+%br
+%div #{link_to "Back to artwork details", artwork_path(@artwork.id)}
