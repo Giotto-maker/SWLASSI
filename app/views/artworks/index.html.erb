@@ -9,14 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag ('index.css') %>
     <style>
-      .h1{
+      h1{
         position: relative;
-        top: 70px;
+        top: 20px;
         font-family: "Avenir", sans-serif;
         font-size: 50px;
         color: white;
         text-align: center;
-
         }
 
     table {
@@ -24,9 +23,10 @@
         border-collapse: collapse;
         width: 75%;
         margin-left: 12%;
-        margin-bottom: 5%;
         position: absolute;
+        top: 10%;
         }
+    
     td {
         border-radius: 4px;
         text-align: left;
@@ -46,7 +46,6 @@
     </style>
     </head>
     <body>
-    <div class="tutto">
         <!-- menu bar -->
         <div class="w3-bar">
             <div class="element">
@@ -70,22 +69,18 @@
         
         <input type="button" class="link" onclick="location.href='findArtwork.html'">
 
-        <div class="h1">🎨 Search results: </div>
-        <br>
-    <button class="btn btn-primary scroll-top" data-scroll="up" type="button">
-    <i class="fa fa-chevron-up"></i>
-    </button>
-
+        <h1>🎨 Search results: <h1>
     <div>
         <% if @artworks.empty? %>
             <h1> No results were found matching the given criteria! </h1>
         <% else %>
-            <tr>
+            <table>
+            <head>
                 <td> Artwork name </td>
                 <td> Author Name  </td>
                 <td> Additional Informations </td>
                 <br>
-            </tr>
+            </head>
             <% @artworks.each do |artwork| %>                    
                 <tr>
                     <td> <%= artwork.nome %> </td>
@@ -97,24 +92,22 @@
         <% end %>
     </div>
     
-            <!-- footer bar -->
-            <div class="footer">
-                <div id="social_sez" class="social_sez">
-                    <h5>Follow us on:</h5>
-                    <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
-                    <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-youtube-play"></a>
-                </div>
+    <div class="footer">
+        <div id="social_sez" class="social_sez" text-align="center">
+            <h5>Follow us on:</h5>
+              <a href="https://www.facebook.com/Smart-Wandering-106566171072452/" class="fa fa-facebook"></a>
+              <a href="https://www.instagram.com/smartwanderinginrome/?hl=it" class="fa fa-instagram"></a>
+              <a href="#" class="fa fa-youtube-play"></a>
+        </div>
+  
+        <div class="logo_sez" align="left">
+            <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
+        </div>
 
-                
-                <div class="logo_sez" align="left">
-                        <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
-                </div>
-                <div class="developers" class="footer_element">
-                        <a href="../AboutUs/aboutUs.php" class="footer_element">About Us</a>
-                        <a href="../ContactUs/contact_us.html" class="footer_element">Contact Us</a>
-                </div>
-            </div>
+        <div class="developers" class="footer_element">
+            <a href="aboutus"> About Us</a>
+        </div>          
     </div>
+
     </body>
 </html>
