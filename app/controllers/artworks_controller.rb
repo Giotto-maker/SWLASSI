@@ -14,6 +14,10 @@ class ArtworksController < ApplicationController
         elsif 
             @category == 'all' and @name != '' and @author == '' 
             @artworks = Artwork.where(["nome = ?", @name])
+        # search by category == All
+        elsif 
+            @category == 'all' and @name == '' and @author == ''
+            @artworks = Artwork.all
         # search by category
         elsif 
             @category != 'all' and @name == '' and @author == '' 

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag ('index.css') %>
+    <%= javascript_include_tag "findArtwork.js" %>
+
     <style>
       h1{
         position: relative;
@@ -58,16 +60,16 @@
                 </div>
             </div>
 
-            <input type="button" class="logo" id='btnHome' onclick="location.href='../WelcomeHomepage/welcomeHomepage.html'">
+            <input type="button" class="logo" id='btnHome' onclick="location.href='/WelcomeHomepage'">
             
             <div class="menu">
                 <a href="../Start visit/visit.php" class="element">Start visit or come back to your tour! 🗺️ </a>
-                <a href ="../FindArtwork/findArtwork.html" class="element" >Look for an artwork 🔎</a>
+                <a href ="/find" class="element" >Look for an artwork 🔎</a>
                 <a href ="../AddArtwork/addArtwork.php" class="element">Add an artwork 🖼️</a>
             </div>
         </div>
         
-        <input type="button" class="link" onclick="location.href='findArtwork.html'">
+        <input type="button" class="link" onclick="location.href='/find'">
 
         <h1>🎨 Search results: <h1>
     <div>
@@ -84,7 +86,7 @@
             <% @artworks.each do |artwork| %>                    
                 <tr>
                     <td> <%= artwork.nome %> </td>
-                    <td> <%= artwork.autore %> </td>
+                    <td> <%= artwork.autore  %> </td>
                     <td> <%= link_to 'Details of this artwork' , artwork_path(:id => artwork.id )%> </td>
                 <br>
                 </tr>
