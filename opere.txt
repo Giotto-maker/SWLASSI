@@ -53,3 +53,276 @@ Artwork.create(:voto=>4,:valutazioni=>198,:periodo=>"IV sec/I sec d.C",:nome=>"L
 :foto2=>"https://civitavecchia.portmobility.it/sites/default/files/scavi_di_torre_argentina_2.jpg",
 :foto1=>"https://www.sitiarcheologiciditalia.it/wp-content/uploads/2018/03/TORRE-ARGENTINA1.jpg",
 :autore=>"Romani",:dimensioni=>"Non disponibile",:categoria=>"star",:latitudine=>41.896081,:longitudine=>12.476803)
+
+
+Artwork.create(:voto=>4,:valutazioni=>38,:periodo=>"2002",:nome=>"Auditorium Parco della Musica",:indirizzo=>"Via Pietro de Coubertin, 30, 00196 Roma RM",
+:foto5=>"https://www.turismoroma.it/sites/default/files/auditorium_0.jpg",
+:foto4=>"https://zero-media.s3.amazonaws.com/uploads/2015/06/cavea-auditorium-2.jpg",
+:foto3=>"https://www.teatro.it/images/teatri/2569/main-image/teatro.it-auditorium-parco-della-musica.jpg",
+:foto2=>"https://www.agb.it/getattachment/968f7da8-8785-466c-a952-6b9d8098be00/attachment.aspx",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Orchestra_dell%27Accademia_Nazionale_di_Santa_Cecilia.JPG/1200px-Orchestra_dell%27Accademia_Nazionale_di_Santa_Cecilia.JPG",
+:autore=>"Renzo Piano",:dimensioni=>"capienza di 2800 persone",:categoria=>"architecture",:latitudine=>41.9296419,:longitudine=>12.473146)
+
+
+Artwork.create(:voto=>5,:valutazioni=>89,:periodo=>"1889-1911",:nome=>"Palazzo di Giustizia",:indirizzo=>"Piazza Cavour-Piazza dei Tribunali",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/a/a0/Roma_2011_08_07_Palazzo_di_Giustizia.jpg",
+:foto4=>"https://imageviaggiart.r.worldssl.net/resources/images/xl/list/image/26176-798e71ee116c563c8102576ff3363c3e-1502338320.jpg",
+:foto3=>"https://3.bp.blogspot.com/--rccA4CunZA/VBMHdDwoiGI/AAAAAAAAD1A/v4PsaYrNb5A/s1600/DSC_0026.jpg",
+:foto2=>"http://www.cortedicassazione.it/cassazione-resources/resources/cms/images/Interno1_d0.jpg",
+:foto1=>"http://www.cortedicassazione.it/cassazione-resources/resources/cms/images/Cortile_1_d0.jpg",
+:autore=>"Guglielmo Calderin",:dimensioni=>"metri 170 x 155",:categoria=>"architecture",:latitudine=>41.9033555,:longitudine=>12.4710604)
+
+
+Artwork.create(:voto=>4,:valutazioni=>57,:periodo=>"1957",:nome=>"Palazzetto dello Sport",:indirizzo=>"Piazza Apollodoro",
+:foto5=>"https://upload.wikimedia.org/wikipedia/it/thumb/0/0e/Palazzetto_dello_Sport_Roma.jpg/1920px-Palazzetto_dello_Sport_Roma.jpg",
+:foto4=>"https://www.roma2pass.it/wp-content/uploads/2017/03/pa5-Palazzetto-dello-Sport-1959.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/it/4/41/Palazzetto_dello_Sport_Roma_cropped.jpg",
+:foto2=>"https://media-cdn.tripadvisor.com/media/photo-s/0d/aa/7b/c5/roma-palazzetto-dello.jpg",
+:foto1=>"https://zero-media.s3.amazonaws.com/uploads/2016/09/009-pier-luigi-nervi-palazzetto-dello-sport-theredlist.png",
+:autore=>"Annibale Vitellozzi",:dimensioni=>"4 800 m²",:categoria=>"architecture",:latitudine=>41.92952450442701,:longitudine=>12.470720395265005)
+
+Artwork.create(:voto=>4,:valutazioni=>90,:periodo=>"1953",:nome=>"Stadio Olimpico",:indirizzo=>"Viale dei Gladiatori",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/L%27Olimpico_-_panoramio.jpg/1920px-L%27Olimpico_-_panoramio.jpg",
+:foto4=>"https://upload.wikimedia.org/wikipedia/it/thumb/6/6e/Stadio_Olimpico_di_Roma_-_Anni_1950.jpg/1920px-Stadio_Olimpico_di_Roma_-_Anni_1950.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/commons/a/a8/Rome_Olympics_1960_-_Opening_Day.jpg",
+:foto2=>"https://upload.wikimedia.org/wikipedia/it/d/dc/Stadio_Olimpico_-_Roma_-_1989.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Stadio_Olimpico_%28Rome%29_-_2014_-_AS_Roma_v_Juventus_FC.jpg/1920px-Stadio_Olimpico_%28Rome%29_-_2014_-_AS_Roma_v_Juventus_FC.jpg",
+:autore=>"A. Vitellozzi e E.  Del Debbio",:dimensioni=>"33 500 m²",:categoria=>"architecture",:latitudine=>41.9339521,:longitudine=>12.4547231)
+
+Artwork.create(:voto=>4,:valutazioni=>75,:periodo=>"1957",:nome=>"Palazzo dello Sport",:indirizzo=>"Piazzale dello Sport",
+:foto5=>"https://upload.wikimedia.org/wikipedia/it/thumb/b/bc/Roma_Palazzo_dello_Sport_da_Piazzale_dello_Sport.jpg/1920px-Roma_Palazzo_dello_Sport_da_Piazzale_dello_Sport.jpg",
+:foto4=>"https://upload.wikimedia.org/wikipedia/it/thumb/e/e8/Roma_Cascate_Laghetto_EUR_Palazzo_dello_Sport.jpg/1920px-Roma_Cascate_Laghetto_EUR_Palazzo_dello_Sport.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/it/thumb/7/7f/Roma_EUR_Palazzo_dello_Sport_da_viale_America.jpg/1920px-Roma_EUR_Palazzo_dello_Sport_da_viale_America.jpg",
+:foto2=>"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/PalaLottomatica.jpg/1920px-PalaLottomatica.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/it/thumb/1/11/Roma_Palazzo_dello_Sport_da_Piazzale_Pakistan.jpg/1920px-Roma_Palazzo_dello_Sport_da_Piazzale_Pakistan.jpg",
+:autore=>"M. Piacentini e P. L. Nervi",:dimensioni=>"7800 m²",:categoria=>"architecture",:latitudine=>41.8244132,:longitudine=>12.4662537)
+
+Artwork.create(:voto=>5,:valutazioni=>97,:periodo=>"IV-XVIII secolo",:nome=>"Basilica di San Giovanni in Laterano",:indirizzo=>"Piazza di S. Giovanni in Laterano",
+:foto5=>"https://commons.cathopedia.org/w/images/commons/thumb/c/cc/Roma_Basilica_S_Giovanni.jpg/1600px-Roma_Basilica_S_Giovanni.jpg",
+:foto4=>"https://civitavecchia.portmobility.it/sites/default/files/basilica_di_san_giovanni_e_palazzo.jpg",
+:foto3=>"https://civitavecchia.portmobility.it/sites/default/files/san_giovanni_-_soffitto.jpg",
+:foto2=>"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/210SGiovanniLaterano.JPG/270px-210SGiovanniLaterano.JPG",
+:foto1=>"https://civitavecchia.portmobility.it/sites/default/files/san_giovanni_in_laterano_-_chiostro.jpg",
+:autore=>"Francesco Borromin",:dimensioni=>"oltre 5.097 m²",:categoria=>"architecture",:latitudine=>41.886106,:longitudine=>12.50397)
+
+Artwork.create(:voto=>4,:valutazioni=>84,:periodo=>"completata nel XVIII secolo",:nome=>"Basilica di Santa Maria Maggiore",:indirizzo=>"Piazza di S. Maria Maggiore",
+:foto5=>"https://commons.cathopedia.org/w/images/commons/0/03/Basilica_Santa_Maria_Maggiore.jpg",
+:foto4=>"https://upload.wikimedia.org/wikipedia/commons/2/2d/Roma_-_2016-05-23_-_Basilica_di_Santa_Maria_Maggiore_-_2957.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/commons/7/79/Roma_-_Santa_Maria_Maggiore_-_Abside.jpg",
+:foto2=>"https://www.turismoroma.it/sites/default/files/santa-maria-maggiore.jpg",
+:foto1=>"https://mywowo.net/media/images/cache/roma_chiesa_santa_maria_maggiore_01_storia_esterno_jpg_1200_630_cover_85.jpg",
+:autore=>"Ferdinando Fuga",:dimensioni=>"2752 m²",:categoria=>"architecture",:latitudine=>41.8976268,:longitudine=>12.49847)
+
+Artwork.create(:voto=>4,:valutazioni=>62,:periodo=>"XX secolo",:nome=>"Basilica di San Paolo fuori le mura", :indirizzo=>"Piazzale San Paolo",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Roma_San_Paolo_fuori_le_mura_BW_1.JPG/1920px-Roma_San_Paolo_fuori_le_mura_BW_1.JPG",
+:foto4=>"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Bazylika_%C5%9Bw._paw%C5%82a_za_murami.jpg/1920px-Bazylika_%C5%9Bw._paw%C5%82a_za_murami.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/commons/a/a9/085SPaoloFuoriLeMura.JPG",
+:foto2=>"https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Rom%2C_Sankt_Paul_vor_den_Mauern_%28San_Paolo_fuori_le_mura%29%2C_Innenansicht_1.jpg/1280px-Rom%2C_Sankt_Paul_vor_den_Mauern_%28San_Paolo_fuori_le_mura%29%2C_Innenansicht_1.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/a/a0/Lazio_Roma_SPaolo3_tango7174.jpg",
+:autore=>"Virginio Vespignani",:dimensioni=>"8.515 m²",:categoria=>"architecture",:latitudine=>41.85866,:longitudine=>12.47704)
+
+Artwork.create(:voto=>4,:valutazioni=>88,:periodo=>"1951-1959",:nome=>"Obelisco di Marconi", :indirizzo=>"Piazza Guglielmo Marconi",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/EUR_Obelisco_Guglielmo_Marconi_2.jpg/1024px-EUR_Obelisco_Guglielmo_Marconi_2.jpg",
+:foto4=>"https://www.romadailynews.it/photogallery_new/images/2019/11/obelisco-eur-362983.660x368.jpg",
+:foto3=>"https://lh3.googleusercontent.com/proxy/hiy-vFERvH6TaQ24hxWu5xM8917BgEElD90ScRWrUe59a0Og2IbR2lz1HpLCoSY5jP2razHai9R_93kSngH95cEJF_war1hyYKOnSvGi65NVN7FAQ1L0ny-eg6XfYiVa_4HEjDAizba3vr6WCkMp",
+:foto2=>"https://vod.rcsobjects.it/youreporter/photoyr/big/702873.jpg",
+:foto1=>"https://s0.wklcdn.com/image_3/96488/1905750/741990Master.jpg",
+:autore=>"Arturo Dazzi",:dimensioni=>"alto 4500 cm",:categoria=>"sculpture",:latitudine=>41.8335959,:longitudine=>12.4705265)
+
+Artwork.create(:voto=>4,:valutazioni=>90,:periodo=>"2008-2016",:nome=>"Roma Convention Center 'La Nuvola'", :indirizzo=>"Viale Asia",
+:foto5=>"https://www.eurspa.it/sites/default/files/styles/medium/public/congressuale/pc-03-02032016-livello-n5.jpg?itok=s2BpABBd",
+:foto4=>"https://www.eurspa.it/sites/default/files/styles/medium/public/congressuale/pc-07-02032016-passerella-ingresso-nuvola-da-n3.jpg?itok=7dMAa38D",
+:foto3=>"https://www.eurspa.it/sites/default/files/styles/medium/public/congressuale/pc-10-02032016-scorcio-da-n4-dell-esterno-su-palazzo-scienze.jpg?itok=F2vIFWgx",
+:foto2=>"https://www.turismoroma.it/sites/default/files/nuvola.jpg",
+:foto1=>"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQDovgeQ9iC8rjWY-OqiFuNtoowhIdiANnV9LKshO97XC2mdVF6&usqp=CAU",
+:autore=>"Massimiliano Fuksas",:dimensioni=>"55 000 m²",:categoria=>"architecture",:latitudine=>41.8309656,:longitudine=>12.4718364)
+
+Artwork.create(:voto=>4,:valutazioni=>146,:periodo=>"2008-2011",:nome=>"Ponte della Musica-Armando Trovajoli", :indirizzo=>"Ponte della Musica Armando Trovajoli",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ponte_Della_Musica_%5E2_-_panoramio.jpg/800px-Ponte_Della_Musica_%5E2_-_panoramio.jpg",
+:foto4=>"https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bridge_of_music.JPG/1920px-Bridge_of_music.JPG",
+:foto3=>"https://upload.wikimedia.org/wikipedia/it/thumb/e/e8/2012-02-17_Ponte_della_Musica_lato_Della_Vittoria.jpg/1920px-2012-02-17_Ponte_della_Musica_lato_Della_Vittoria.jpg",
+:foto2=>"https://upload.wikimedia.org/wikipedia/it/7/70/Ponte_della_Musica_a_Roma.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Bridge_of_the_Music_2.jpg/520px-Bridge_of_the_Music_2.jpg",
+:autore=>"B. Happold, K. Williams",:dimensioni=>"190x22 m",:categoria=>"architecture",:latitudine=>41.926479,:longitudine=>12.4595877)
+
+
+Artwork.create(:voto=>4,:valutazioni=>47,:periodo=>"V secolo a.C.",:nome=>"Amazzone ferita", :indirizzo=>"Musei Capitolini",
+:foto5=>"https://www.n7antiquariato.it/public/allegati/4_20180725104421.JPG",
+:foto4=>"https://live.staticflickr.com/3718/12119424135_96fde6baa2_b.jpg",
+:foto3=>"https://www.arteopereartisti.it/wp-content/uploads/2018/06/af.jpg",
+:foto2=>"https://www.analisidellopera.it/wp-content/uploads/2019/12/Policleto_Amazzone_ferita.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Musei_capitolini_%28Roma%29_-_Amazzone_1.jpg/332px-Musei_capitolini_%28Roma%29_-_Amazzone_1.jpg",
+:autore=>"Fidia",:dimensioni=>"altezza di 190 cm",:categoria=>"sculpture",:latitudine=>41.8926668,:longitudine=>12.4822048)
+
+
+Artwork.create(:voto=>5,:valutazioni=>149,:periodo=>"1622-1625",:nome=>"Apollo e Dafne", :indirizzo=>"Galleria Borghese",
+:foto5=>"https://www.artesvelata.it/wp-content/uploads/2019/02/Gian-Lorenzo-Bernini-Apollo-e-Dafne-Visione-laterale-Arte-Svelata.jpg",
+:foto4=>"https://www.arteworld.it/wp-content/uploads/2013/07/Particolare-leggerezza-materiale-marmo-Apollo-Dafne-Bernini.jpg",
+:foto3=>"https://www.analisidellopera.it/wp-content/uploads/2018/02/Bernini_Apollo_Dafne-820x1200.jpg",
+:foto2=>"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Apollo_%26_Daphne_September_2015-1a.jpg/1920px-Apollo_%26_Daphne_September_2015-1a.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Apollo_and_Daphne_%28Bernini%29.jpg/800px-Apollo_and_Daphne_%28Bernini%29.jpg",
+:autore=>"Gian Lorenzo Bernini",:dimensioni=>"alta 243 cm",:categoria=>"sculpture",:latitudine=>41.9141203,:longitudine=>12.492061)
+
+
+Artwork.create(:voto=>5,:valutazioni=>136,:periodo=>"1804-1808",:nome=>"Paolina Borghese", :indirizzo=>"Galleria Borghese",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Paolina_Borghese_%28Canova%29.jpg/600px-Paolina_Borghese_%28Canova%29.jpg",
+:foto4=>"https://4.bp.blogspot.com/-UhLBHanPt4c/VPIiNklL0iI/AAAAAAAAAXE/mNLVgOR7Gsc/w1200-h630-p-k-no-nu/30.jpg",
+:foto3=>"https://www.arte.it/foto/orig/62/100529-Antonio-Canova_Paolina-Borghese.jpg",
+:foto2=>"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSK4ZnPh0l2sXWjebR-pczicGGzMD7sKdwxqRP_IcgJ718rA5NH&usqp=CAU",
+:foto1=>"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSg_OD3FdCczWT0HIQjcqF9GctO0AlJ5loQdrChsVYhsKQMngKy&usqp=CAU",
+:autore=>"Antonio Canova",:dimensioni=>"92 (160 con il letto) × 200 cm",:categoria=>"sculpture",:latitudine=>41.9141203,:longitudine=>12.492061)
+
+
+Artwork.create(:voto=>4,:valutazioni=>104,:periodo=>"1804-1808",:nome=>"Ratto di Proserpina", :indirizzo=>"Galleria Borghese",
+:foto5=>"https://galleriaborghese.beniculturali.it/wp-content/uploads/ratto-di-Proserpina.jpg",
+:foto4=>"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Rape_of_Prosepina_September_2015-2b.jpg/1920px-Rape_of_Prosepina_September_2015-2b.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/commons/4/46/Rape_of_Proserpina_-_Gian_Lorenzo_Bernini.jpg",
+:foto2=>"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Rape_of_Proserpina.jpg/1920px-Rape_of_Proserpina.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/The_Rape_of_Proserpina_%28Rome%29.jpg/434px-The_Rape_of_Proserpina_%28Rome%29.jpg",
+:autore=>"Gian Lorenzo Bernini",:dimensioni=>"altezza 255 cm",:categoria=>"sculpture",:latitudine=>41.9141203,:longitudine=>12.492061)
+
+
+Artwork.create(:voto=>4,:valutazioni=>98,:periodo=>"1542 circa",:nome=>"Lia", :indirizzo=>"Basilica di San Pietro in Vincoli",
+:foto5=>"https://michelangelobuonarrotietornato.files.wordpress.com/2014/08/lia-vita-attiva.jpg",
+:foto4=>"https://lh3.googleusercontent.com/proxy/PmJbTucdUkVAihkJ2_hkEt9PqCe97xOnakNx8c46xr67jyY1ULSYvuCmdtNJT2WvULuEvnR_vSUA3iOQXwxL5TsCz0yjz7InPzXnYC57tuV7poOyIookhIaScqHvHUDuScHkME6Un7wj1ue81TOdkrGx9jab7imF3l4nrTEAsCyOiUVvtNjnKfnxeemEihqu5-ry4m1YOdmGDiRkE4bVcjxVDFCovqcnuduZU3Qy",
+:foto3=>"https://lh3.googleusercontent.com/proxy/Z9I6RY4EFASqpF5xmFnAaiguDTHry53NlXbEFqIkctQ9EojtpYBCPNSdxcU9gPq9tFZchcyxgL1DPmn-jg0rvIFlIV0WclH5K6dUHw",
+:foto2=>"https://www.finestresullarte.info/blog/immagini/2020/1272/michelangelo-lia.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Michelangelo-Leah.jpg/1024px-Michelangelo-Leah.jpg",
+:autore=>"Michelangelo",:dimensioni=>"altezza 197 cm",:categoria=>"sculpture",:latitudine=>41.8938513,:longitudine=>12.4931577)
+
+
+Artwork.create(:voto=>4,:valutazioni=>110,:periodo=>"1797-1801",:nome=>"Perseo trionfante", :indirizzo=>"Musei Vaticani, Vaticano",
+:foto5=>"https://4.bp.blogspot.com/-FmdS2O6PNqc/V7gQBFrLJTI/AAAAAAAADpc/GiKJRkmhNFQgdykCsmoAt-jeKL4DTZqAQCEw/s1600/can002.jpg",
+:foto4=>"https://www.acistampa.com/image/fig_1430730110.jpg?w=810",
+:foto3=>"https://www.repstatic.it/content/localirep/img/rep-roma/2015/04/30/210455955-0be0acbe-efb6-445b-85df-49e4431fae5b.jpg",
+:foto2=>"https://upload.wikimedia.org/wikipedia/commons/2/28/Persus-with-the-head-of-med.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Persus-with-the-head-of-med.jpg/520px-Persus-with-the-head-of-med.jpg",
+:autore=>"Antonio Canova",:dimensioni=>"altezza 235 cm",:categoria=>"sculpture",:latitudine=>41.904961,:longitudine=>12.4546617)
+
+
+Artwork.create(:voto=>4,:valutazioni=>92,:periodo=>"1542 circa",:nome=>"Rachele", :indirizzo=>"Basilica di San Pietro in Vincoli",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/%27Moses%27_by_Michelangelo_JBU070.jpg/220px-%27Moses%27_by_Michelangelo_JBU070.jpg",
+:foto4=>"https://lh3.googleusercontent.com/proxy/PDk_glliQ3pO244Kry85Q80GGUyFuymnKx6KZntoknigKXQ2f74qmuIZ_xj-lUO4VqNxLy1XsZdcQiIkbAb2GkEU77po1VLtClJfm7jSfBi92Ci_AQ",
+:foto3=>"https://michelangelobuonarrotietornato.files.wordpress.com/2014/08/michelangelo-rachel-2.jpg",
+:foto2=>"https://i2.wp.com/ilformat.info/wp-content/uploads/2018/11/San-Pietro-in-Vincoli-tomba-Giulio-II-Michelangelo-new-155-1.jpg?fit=300%2C300&ssl=1",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/%27Moses%27_by_Michelangelo_JBU060.jpg/400px-%27Moses%27_by_Michelangelo_JBU060.jpg",
+:autore=>"Michelangelo",:dimensioni=>"altezza 280 cm",:categoria=>"sculpture",:latitudine=>41.893851,:longitudine=>12.4931577)
+
+
+Artwork.create(:voto=>4,:valutazioni=>120,:periodo=>"455 a.C.",:nome=>"Discobolo", :indirizzo=>"Museo nazionale romano di Palazzo Massimo",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Discobolo_13.jpg/1200px-Discobolo_13.jpg",
+:foto4=>"https://www.artesvelata.it/wp-content/uploads/2019/09/discoboli-1.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/commons/d/dc/Discobolo13.JPG",
+:foto2=>"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Discobolo_13.jpg/1024px-Discobolo_13.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG/418px-Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG",
+:autore=>"Mirone",:dimensioni=>"altezza 156 cm",:categoria=>"sculpture",:latitudine=>41.9011978,:longitudine=>12.4728382)
+
+
+Artwork.create(:voto=>4,:valutazioni=>120,:periodo=>"455 a.C.",:nome=>"Discobolo", :indirizzo=>"Museo nazionale romano di Palazzo Massimo",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Discobolo_13.jpg/1200px-Discobolo_13.jpg",
+:foto4=>"https://www.artesvelata.it/wp-content/uploads/2019/09/discoboli-1.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/commons/d/dc/Discobolo13.JPG",
+:foto2=>"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Discobolo_13.jpg/1024px-Discobolo_13.jpg",
+:foto1=>"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG/418px-Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG",
+:autore=>"Mirone",:dimensioni=>"altezza 156 cm",:categoria=>"sculpture",:latitudine=>41.9011978,:longitudine=>12.4728382)
+
+
+Artwork.create(:voto=>4,:valutazioni=>50,:periodo=>"1602-1604",:nome=>"Deposizione", :indirizzo=>"Pinacoteca Vaticana",
+:foto5=>"https://www.arteworld.it/wp-content/uploads/2015/05/Deposizione-Caravaggio-analisi.jpg",
+:foto4=>"https://cdnx.ilsussidiario.net/wp-content/uploads/2019/04/19/caravaggio_deposizione_cristomorto_1604arte.jpg",
+:foto3=>"https://lh3.googleusercontent.com/proxy/c_MtiR20OtH7JtZxEYFT81zZ2PmChR2axr01_g78hfNhLNVI7E04GvLU96biuY9QrfDnY1Ud7j7iw_ycZJ4o956-H0MaUbHU9ieS60Z6mkLSC95JCRIPp-2T",
+:foto2=>"https://www.arteworld.it/wp-content/uploads/2015/05/Particolare-Vergine-Maria-Maria-Maddalena-Maria-Cleofa-Donne-deposizione-Caravaggio.jpg",
+:foto1=>"https://www.scienzainrete.it/files/u/schermata_2015-06-16_alle_21.09.46.jpg",
+:autore=>"Caravaggio",:dimensioni=>"300×203 cm",:categoria=>"painting",:latitudine=>41.89193,:longitudine=>12.51133)
+
+
+Artwork.create(:voto=>3,:valutazioni=>60,:periodo=>"1515 circa",:nome=>"Amor sacro e Amor profano", :indirizzo=>"Galleria Borghese",
+:foto5=>"https://www.analisidellopera.it/wp-content/uploads/2018/04/Tiziano_Amor_Sacro_e_Amor_profano-2000x794.jpg",
+:foto4=>"https://restaurars.altervista.org/wp-content/uploads/2015/09/Amor_sacro_e_amor_profano_041.jpg",
+:foto3=>"https://www.finestresullarte.info/blog/immagini/2017/795/vasca.jpg",
+:foto2=>"https://www.finestresullarte.info/blog/immagini/2017/795/donna-nuda.jpg",
+:foto1=>"https://www.arteopereartisti.it/wp-content/uploads/2018/01/amor-sacro-e-amor-profano-01.jpg",
+:autore=>"Tiziano",:dimensioni=>"118×278 cm",:categoria=>"painting",:latitudine=>41.91412,:longitudine=>12.492061)
+
+
+
+Artwork.create(:voto=>3,:valutazioni=>16,:periodo=>"1898",:nome=>"Ninfee rosa", :indirizzo=>"Galleria Nazionale Arte Moderna",
+:foto5=>"https://www.analisidellopera.it/wp-content/uploads/2018/01/Monet_Ninfee_Rosa.jpg",
+:foto4=>"https://it.toluna.com/dpolls_images/2017/04/10/236397bd-fd97-4dfb-a877-1d93feeaa460_x365.jpg",
+:foto3=>"https://www.artwave.it/wp/wp-content/uploads/2019/07/16D21D46-FA11-4F0B-A65C-B6C6344CD946.jpeg",
+:foto2=>"https://lh3.googleusercontent.com/proxy/-o4Lrx88WwhuioA6Ua0Ugd_gudOXVl_juuDGSRzg9QbUyzm8wRipBW1VeeYkUjEK3wvviowv_L5srvOTX55CBJQN18kYOvPQURZU-jtMhgjtXZsx6iMqAcGRexk",
+:foto1=>"https://www.picclickimg.com/00/s/NTkyWDU5NA==/z/5k8AAMXQgJRQ-7xZ/$/CLAUDE-MONET-Art-Lithograph-LE-NINFEE-ROSA-Detail-_1.jpg",
+:autore=>"Monet",:dimensioni=>"81.5×100 cm",:categoria=>"painting",:latitudine=>41.89193,:longitudine=>12.51133)
+
+
+Artwork.create(:voto=>2,:valutazioni=>20,:periodo=>"1605",:nome=>"San Girolamo in meditazione", :indirizzo=>"Museo del Monasterio de Santa Maria",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Saint_Jerome_in_Meditation-Caravaggio_%281606%29.jpg/1200px-Saint_Jerome_in_Meditation-Caravaggio_%281606%29.jpg",
+:foto4=>"https://www.artesplorando.it/wp-content/uploads/2018/05/1024px-Caravaggio_-_San_Gerolamo.jpg",
+:foto3=>"https://lh3.googleusercontent.com/proxy/4lVe3hYfkBdW0Y7NsVqIbNvWf8CP854JgV06M2C91VnbUvRqxI0krep2OJ6EiS_nSl1npDERp4ZzjMYU4usUMoLFUgpiedJyXNn6EWc-ik48aw-zwMACm__hHNWP_Q8J3Yk1HXuqINVxcMVHfICeEWfo-h-JigDFIscDtPS2B5b1bRg",
+:foto2=>"https://www.arteworld.it/wp-content/uploads/2017/09/Particolare-volto-aureola-San-Girolamo-penitente-Montserrat-Caravaggio.jpg",
+:foto1=>"https://www.arteworld.it/wp-content/uploads/2017/09/Particolare-veste-rossa-san-Girolamo-penitente-Caravaggio-Montserrat.jpg",
+:autore=>"Caravaggio",:dimensioni=>"118×81 cm",:categoria=>"painting",:latitudine=>41.8486,:longitudine=>12.89834)
+
+
+Artwork.create(:voto=>4,:valutazioni=>60,:periodo=>"1518-1519",:nome=>"La Fornarina", :indirizzo=>"Galleria nazionale arte antica",
+:foto5=>"https://www.exibart.com/repository/media/2020/01/la-fornarina-1280x720.jpg",
+:foto4=>"https://pbs.twimg.com/media/C2TEB8MXcAAb_MM.jpg",
+:foto3=>"https://upload.wikimedia.org/wikipedia/commons/9/91/Fornarina_02.jpg",
+:foto2=>"https://artslife.com/wp-content/uploads/2020/01/fornarina-22.jpg",
+:foto1=>"https://www.arte.it/foto/600x450/97/98539-BARBERINI_RaffaelloSanzio_Fornarina.jpg",
+:autore=>"Raffaello",:dimensioni=>"85×60 cm",:categoria=>"painting",:latitudine=>41.89332,:longitudine=>12.482932)
+
+
+Artwork.create(:voto=>3,:valutazioni=>35,:periodo=>"1602",:nome=>"San Giovanni Battista", :indirizzo=>"Musei capitolini",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/c/cb/Michelangelo_Merisi_da_Caravaggio%2C_Saint_John_the_Baptist_%28Youth_with_a_Ram%29_%28c._1602%2C_WGA04112%29.jpg",
+:foto4=>"https://lh3.googleusercontent.com/proxy/2P_3IWpy8_cTmzIHz2zdgxUEmfEoEF-C7q_iqmYRzU4lmHueBqEib3AAjakSj7Ae_Oe_bvkwwp6GhLKMTPR43GUNZZYy31qGBYNGbQjEIlPkNUPUhZ-jPfV0IBusa5TWJSzp1Q",
+:foto3=>"https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Caravaggio-Saint_John_the_Baptist-Musei_Capitolini.jpg/440px-Caravaggio-Saint_John_the_Baptist-Musei_Capitolini.jpg",
+:foto2=>"https://www.emettiladaparte.com/wp-content/uploads/2014/08/san_giovanni_battista_caravaggio_ignudo_michelangelo.png",
+:foto1=>"https://www.arteworld.it/wp-content/uploads/2016/11/San-Giovanni-Battista-Caravaggio-Musei-Capitolini.png",
+:autore=>"Caravaggio",:dimensioni=>"129×94 cm",:categoria=>"painting",:latitudine=>41.892667,:longitudine=>12.482205)
+
+
+Artwork.create(:voto=>5,:valutazioni=>50,:periodo=>"1600-1601",:nome=>"Conversione di San Paolo", :indirizzo=>"Collezione privata Odescalchi",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/a/a3/Caravaggio_-_Conversione_di_San_Paolo_%28Odescalchi%29.jpg",
+:foto4=>"https://www.msrestauri.com/wp-content/uploads/2017/03/Caravaggio-Odescalchi1-1.jpg",
+:foto3=>"https://www.msrestauri.com/wp-content/uploads/2017/03/Caravaggio-Odescalchi-pulitura-1.jpg",
+:foto2=>"https://letterarte.files.wordpress.com/2015/05/caravaggio_-_conversione_di_san_paolo_-odescalchi.jpg",
+:foto1=>"https://www.aboutartonline.com/wp-content/uploads/2017/08/vodre-3.jpg",
+:autore=>"Caravaggio",:dimensioni=>"237×189 cm",:categoria=>"painting",:latitudine=>41.89193,:longitudine=>12.51133)
+
+
+Artwork.create(:voto=>4,:valutazioni=>54,:periodo=>"1604-1606",:nome=>"Madonna dei Pellegrini", :indirizzo=>"Basilica di Sant Agostino in Campo Marzio",
+:foto5=>"https://www.analisidellopera.it/wp-content/uploads/2018/02/Caravaggio_Madonna_dei_Pellegrini-722x1200.jpg",
+:foto4=>"https://ilgiornaleoff.ilgiornale.it/wp-content/uploads/2018/02/Caravaggio-La-Madonna-dei-pellegrini-1606-ca.jpg",
+:foto3=>"https://artepiu.info/wp-content/uploads/2019/02/Caravaggio-Madonna-dei-Pellegrini-2.jpg",
+:foto2=>"https://lh3.googleusercontent.com/proxy/QGYwFEn1ldWxkheXEBAO9szzW4002QsOYg3W-lQYb9VjkejlqMf-FR7oYBai3XXt21IbRwgCkebfFrkH18fmpvrzGyrvwjlCoLFBWQrEOJlM_ttqpMu3vQJpDjRFHXXUWapySh01eWeCYA2UMgC0yvmPcIJxkZVissKx-swSnXS7yo4s",
+:foto1=>"https://www.radiopiu.eu/wp-content/uploads/2019/10/la-madonna-dei-pellegrini.jpg",
+:autore=>"Caravaggio",:dimensioni=>"260×150 cm",:categoria=>"painting",:latitudine=>41.900937,:longitudine=>12.474271)
+
+
+Artwork.create(:voto=>5,:valutazioni=>300,:periodo=>"1626",:nome=>"Basilica di San Pietro", :indirizzo=>"Piazza San Pietro",
+:foto5=>"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg/1200px-Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg",
+:foto4=>"https://www.romasottosopra.com/wp-content/uploads/2018/12/sanpietro.jpg",
+:foto3=>"https://www.nonhospites.org/wp-content/uploads/2019/05/1.jpg",
+:foto2=>"https://www.turismo.it/typo3temp/pics/0a497ba800.jpg",
+:foto1=>"https://www.vaticanstate.va/media/k2/items/cache/de2df791682f079f8397226a3ff38bc7_L.jpg",
+:autore=>"Michelangelo Buonarroti",:dimensioni=>"23 000 metri quadrati",:categoria=>"star",:latitudine=>41.903815,:longitudine=>12.453153)
+
+
+Artwork.create(:voto=>3,:valutazioni=>230,:periodo=>"38 d.C",:nome=>"Acquedotto Claudio", :indirizzo=>"Parco degli acquedotti",
+:foto5=>"https://2.bp.blogspot.com/-SYIT-0yAkZc/XHht-GAtw0I/AAAAAAAAr8s/aXcWzgbd_ckWeg_ctkL_-mPitWqPS9YmQCLcBGAs/s1600/acquedotto-claudio1.jpg",
+:foto4=>"https://www.appuntidivita.eu/wp-content/uploads/2019/08/acquedotti.png",
+:foto3=>"https://i2.wp.com/www.parcodegliacquedotti.it/wp-content/uploads/2016/12/IMG_3815.jpg?fit=3456%2C2304&ssl=1",
+:foto2=>"https://media.wsimag.com/attachments/4eb60d4d0d1c70c6f2cfc7c8df4a97d7466d4b04/store/fill/1090/613/36c897cbcbb9983a2157f66eb8d14253aa87df60e0c7faff3f786bdc10c7/Le-svettanti-arcuazioni-dellAcquedotto-Claudio.jpg",
+:foto1=>"https://live.staticflickr.com/1063/1366135708_39280a8761_b.jpg",
+:autore=>"Romani",:dimensioni=>"68,681 km (originariamente)",:categoria=>"star",:latitudine=>41.843561,:longitudine=>12.563428)
+
+
+Artwork.create(:voto=>5,:valutazioni=>170,:periodo=>"1818",:nome=>"Piazza del Popolo", :indirizzo=>"Piazza del Popolo",
+:foto5=>"https://www.noidiroma.com/wp-content/uploads/2017/12/piazza-del-popolo-roma.jpg",
+:foto4=>"https://www.10cose.it/wp-content/uploads/2016/05/chiese-gemelle-piazza-popolo-roma.jpg",
+:foto3=>"https://www.fabriziomosconi.com/foto/foto/piazzadelpopolo/big/piazza_del_popolo03.jpg",
+:foto2=>"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCV1vYiZ1j2LA2IEGVs0FuuGvVQucktWPjBfy2Wm0siSs8y73c&usqp=CAU",
+:foto1=>"https://www.romasegreta.it/images/piazza-del-popolo.jpg",
+:autore=>"Giuseppe Valdier",:dimensioni=>"17.100 metri quadrati",:categoria=>"star",:latitudine=>41.910763,:longitudine=>12.475908)
+
