@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_120327) do
+ActiveRecord::Schema.define(version: 2020_08_19_184035) do
 
   create_table "artworks", force: :cascade do |t|
     t.integer "voto"
@@ -32,11 +32,25 @@ ActiveRecord::Schema.define(version: 2020_08_07_120327) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "itineraries", force: :cascade do |t|
+    t.integer "artwork1"
+    t.integer "artwork2"
+    t.integer "artwork3"
+    t.integer "artwork4"
+    t.integer "artwork5"
+    t.integer "artwork6"
+    t.integer "artwork7"
+    t.integer "user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "valutation"
     t.text "comment"
     t.integer "user_id"
     t.integer "artwork_id"
+    t.datetime "updated_at", default: "2020-08-19 18:42:57"
     t.index ["artwork_id"], name: "index_reviews_on_artwork_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

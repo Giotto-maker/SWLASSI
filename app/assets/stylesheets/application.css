@@ -95,3 +95,23 @@ div {
 
 }
   
+table#users {
+  margin-left: 5%;
+  background-color: rgba(245, 245, 245, 0.329);
+  border-collapse: collapse;
+  width: 90%;
+  border-bottom: 2px solid #04001b;
+}
+table#users th {
+  font-family: Avenir;
+  color: #04001b;
+  border: 1px solid white;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.623);
+}
+table#users th, table#reviews td {
+  color: #04001b;
+  font-family: Avenir;
+  padding: 4px;
+  text-align: left;
+}

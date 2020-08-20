@@ -49,8 +49,8 @@
             <br>
             <div class='field'>
               <%= f.label :category %><br />
-              <%= f.select :category , options_for_select([["Star", "Star"], ["Architecture", "Architecture"], 
-              ["Painting", "Painting" ], ["Sculpture", "Sculpture"]])%>
+              <%= f.select :category , options_for_select([ ["Star", "Star"], ["Architecture", "Architecture"], 
+              ["Painting", "Painting" ], ["Sculpture", "Sculpture"]], [current_user.category, current_user.category]) %>
             </div>
             <br>
             <div class="field">

@@ -8,12 +8,14 @@
     %tr
       %th Rating
       %th Comment
-      %th Delete review
+      - if current_user.admin?
+        %th Delete review
     %tbody
       - @reviews.each do |review|
         %tr
           %td= review.valutation
           %td= review.comment
-          %td= link_to "Delete", artwork_review_path(review_id: review.id) , :method => :delete
+          - if current_user.admin?
+            %td= link_to "Delete", artwork_review_path(review_id: review.id) , :method => :delete
 %br
 %div #{link_to "Back to artwork details", artwork_path(@artwork.id)}

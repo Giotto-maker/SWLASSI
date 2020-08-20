@@ -1,6 +1,7 @@
 class ArtworksController < ApplicationController
     layout false
     before_action :authenticate_user!
+    require 'time_difference'
 
     def index
         @category = params['category']
@@ -154,6 +155,15 @@ class ArtworksController < ApplicationController
         @artwork = Artwork.find(params[:id])
         authorize! :update, @artwork, :message => 'Forbidden'
 
+        # check time constraint
+        start_time = @artwork.updated_at
+        end_time = DateTime.now()
+        elapsed_sec = TimeDifference.between(start_time, end_time).in_seconds.to_i
+        if elapsed_sec < 3600
+            render html: 'You have to wait before you can edit this artwork again'
+            return
+        end
+
         @artwork.categoria = params[:category]
         @artwork.nome = params[:name]
         @artwork.autore = params[:author]
@@ -167,11 +177,13 @@ class ArtworksController < ApplicationController
         @artwork.foto3 = params[:foto3]
         @artwork.foto4 = params[:foto4]
         @artwork.foto5 = params[:foto5]
+        @artwork.updated_at = DateTime.now()
 
         begin
             @artwork.save!
         rescue => error
             render html: 'Could not save artwork : ' + error.to_s
+            return
         end
 
         render html: 'Artworks updated!'

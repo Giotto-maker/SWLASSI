@@ -23,11 +23,10 @@
         var logged = <%= user_signed_in? %>     
         <% if current_user != nil  %>
             var admin = <%= current_user.admin? %>
-        <% else %>
-            var admin = false
+            var artlover = <%= current_user.artlover? %>
         <% end %>
-        console.log(admin)
-        console.log(logged)
+        console.log('admin : ' + admin)
+        console.log('lover : ' + artlover)
     </script>
 
    </head>
@@ -75,15 +74,15 @@
                         <h3>Place and address:</h3> <p style="display:inline"> <%= @artwork.indirizzo %> </p>
                         <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
                         <div class="rating"> 
-                            <input type="radio" class="star" id="star1" v-on:click="incrementVal(); updateMark(5)" 
+                            <input type="radio" class="star" id="star1" v-on:click="incrementVal(); updateMark(mark)" 
                                 value='5'> <label for="star1"></label>
-                            <input type="radio" class="star" id="star2" v-on:click="incrementVal(); updateMark(4)" 
+                            <input type="radio" class="star" id="star2" v-on:click="incrementVal(); updateMark(mark)" 
                                 value='4'> <label for="star2"></label>
-                            <input type="radio" class="star" id="star3" v-on:click="incrementVal(); updateMark(3)" 
+                            <input type="radio" class="star" id="star3" v-on:click="incrementVal(); updateMark(mark)" 
                                 value='3'> <label for="star3"></label>
-                            <input type="radio" class="star" id="star4" v-on:click="incrementVal(); updateMark(2)" 
+                            <input type="radio" class="star" id="star4" v-on:click="incrementVal(); updateMark(mark)" 
                                 value='2'> <label for="star4"></label>
-                            <input type="radio" class="star" id="star5" v-on:click="incrementVal(); updateMark(1)" 
+                            <input type="radio" class="star" id="star5" v-on:click="incrementVal(); updateMark(mark)" 
                                 value='1'> <label for="star5"></label>
                         </div>
                     </div>         
@@ -171,7 +170,7 @@
                     this.vote = Math.ceil((this.vote + mark) / 2)
                 }
             }
-        })        
+        })
     </script>
 
     <script>
@@ -185,14 +184,18 @@
                 data: { "id" : + <%= @artwork.id %> , "mark" : mark, "comment" : comment } 
             }).done(function(result) {
                 alert(result)
-            })
-            
-            $.ajax ({
-                method: "PUT",
-                url: "/artwork_mark_update",
-                data: { "id" : + <%= @artwork.id %> , "mark" : mark } 
-            }).done(function(result) {
-                alert(result)
+                if (result != 'Your review has been updated!' && 
+                    result != 'Your review has been correctly registered. Thank you!') 
+                    return false
+                else {
+                    $.ajax ({
+                        method: "PUT",
+                        url: "/artwork_mark_update",
+                        data: { "id" : + <%= @artwork.id %> , "mark" : mark } 
+                        }).done(function(result) {
+                            alert(result)
+                        })
+                }
             })
         })
     </script>
@@ -239,7 +242,8 @@
                 document.getElementById('contactUs').style.visibility = "hidden"
             } else if (!admin) {
                 document.getElementById("edit_btn").style.visibility = "hidden"
-                document.getElementById("review_btn").style.visibility = "hidden"
+                if (!artlover)
+                    document.getElementById("review_btn").style.visibility = "hidden"
                 document.getElementById("menu").style.visibility = "visible"
                 document.getElementById('account').style.visibility = "visible"
                 document.getElementById('contactUs').style.visibility = "visible"
