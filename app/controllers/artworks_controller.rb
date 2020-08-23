@@ -8,12 +8,15 @@ class ArtworksController < ApplicationController
         @name = params['searchName']
         @author = params['searchAuthor']
 
+        #render html: @category.to_s
+        #return;
+
         # search by author
-        if @category == 'all' and @name == '' and @author != '' 
+        if @category == 'choose' and @name == '' and @author != '' 
             @artworks = Artwork.where(["autore = ?", @author])
         # search by name
         elsif 
-            @category == 'all' and @name != '' and @author == '' 
+            @category == 'choose' and @name != '' and @author == '' 
             @artworks = Artwork.where(["nome = ?", @name])
         # search by category == All
         elsif 
@@ -21,18 +24,18 @@ class ArtworksController < ApplicationController
             @artworks = Artwork.all
         # search by category
         elsif 
-            @category != 'all' and @name == '' and @author == '' 
+            @category != 'choose' and @name == '' and @author == '' 
             @artworks = Artwork.where(["categoria = ?", @category])
 
 
         # search by name and author
-        elsif @category == 'all' and @name != '' and @author != ''
+        elsif (@category == 'choose' || @category == 'all') and @name != '' and @author != ''
             @artworks = Artwork.where(["nome = ? and autore = ?", @name , @author])
         # search by name and category
-        elsif @category != 'all' and @name != '' and @author == ''
+        elsif @category != 'choose' and @name != '' and @author == ''
             @artworks = Artwork.where(["nome = ? and categoria = ?", @name , @category]) 
         # search by category and author
-        elsif @category != 'all' and @name == '' and @author != ''
+        elsif @category != 'choose'  and @name == '' and @author != ''
             @artworks = Artwork.where(["categoria = ? and autore = ?", @category , @author]) 
 
 
@@ -48,11 +51,18 @@ class ArtworksController < ApplicationController
 
 
     def new_artwork_lover
+        this_user = current_user.id
+        if Artwork.find_by(nome: params[:name], autore: params[:author])
+            render html: 'Artwork already exists'
+            return
+        end
+
         begin
             ActiveRecord::Base.transaction do
-                authorize! :create_artwork_with_lover_permission, 
-                    Artwork.create!(nome: params[:name], autore: params[:author]),
-                    :message => 'Forbidden'
+                artw = Artwork.create!(nome: params[:name], autore: params[:author])
+                authorize! :create_artwork_with_lover_permission, artw, :message => 'Forbidden'
+                lover_creation = LoverCreation.create!(user_id: this_user, artwork_id: artw.id)
+                authorize! :create, lover_creation, :message => 'Forbidden'
             end
         rescue CanCan::AccessDenied
             raise
@@ -65,23 +75,34 @@ class ArtworksController < ApplicationController
 
 
     def new_artwork_admin
+        if Artwork.find_by(nome: params[:name], autore: params[:author])
+            render html: 'Artwork already exists'
+            return
+        end
+        
         begin
             ActiveRecord::Base.transaction do
-                authorize! :create_artwork_with_admin_permission, Artwork.create!(nome: params[:name], 
-                        autore: params[:author],
-                        categoria: params[:category],
-                        periodo: params[:timePeriod],
-                        dimensioni: params[:dimension], 
-                        voto: params[:vote], 
-                        valutazioni: params[:valutations],
-                        indirizzo: params[:place],
-                        latitudine: params[:lat],
-                        foto1: params[:foto1],
-                        foto2: params[:foto2],
-                        foto3: params[:foto3],
-                        foto4: params[:foto4],
-                        foto5: params[:foto5]), :message => 'Forbidden'
+
+                artw = Artwork.create!(nome: params[:name], 
+                autore: params[:author],
+                categoria: params[:category],
+                periodo: params[:timePeriod],
+                dimensioni: params[:dimension], 
+                voto: params[:vote], 
+                valutazioni: params[:valutations],
+                indirizzo: params[:place],
+                latitudine: params[:lat],
+                foto1: params[:foto1],
+                foto2: params[:foto2],
+                foto3: params[:foto3],
+                foto4: params[:foto4],
+                foto5: params[:foto5])
+
+                authorize! :create_artwork_with_admin_permission, artw, :message => 'Forbidden'
+                admin_creation = AdminCreation.create!(user_id: current_user.id, artwork_id: artw.id)
+                authorize! :create, admin_creation, :message => 'Forbidden'
             end
+
         rescue CanCan::AccessDenied
             raise
         rescue Exception => error
@@ -192,21 +213,25 @@ class ArtworksController < ApplicationController
 
 
 	def destroy
-		id = params[:id]
-		@artwork = Artwork.find(id)
-        @artwork.destroy
-        render html: 'Artwork deleted'
-    end
-
-
-
-    def find
         id = params[:id]
-        if Artwork.exists?(id)
-            @movie = Artwork.find(id)
-        else
-            render html: 'Artwork does not exit'
+        this_user = current_user.id
+
+        begin
+            ActiveRecord::Base.transaction do
+                @artwork = Artwork.find(id)
+                authorize! :destroy, @artwork, :message => 'Forbidden'
+                del = Deletion.create!(user_id: this_user, artwork_id: @artwork.id)
+                authorize! :destroy, del, :message => 'Forbidden'
+                @artwork.destroy!
+            end
+        rescue CanCan::AccessDenied
+            raise
+        rescue => error
+            render html: 'Cannot delete artwork : ' + error.to_s
+            return;
         end
+
+        render html: 'Artwork deleted'
     end
 
 end

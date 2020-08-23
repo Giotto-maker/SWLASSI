@@ -32,4 +32,6 @@ Canard::Abilities.for(:artlover) do
   can [:read], Review
   cannot [:destroy], Review
   can [:create, :update], Review
+
+  can [:create], LoverCreation
 end

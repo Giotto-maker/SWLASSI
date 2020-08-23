@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_184035) do
+ActiveRecord::Schema.define(version: 2020_08_23_125052) do
+
+  create_table "admin_creations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "artwork_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "artworks", force: :cascade do |t|
     t.integer "voto"
@@ -32,6 +39,13 @@ ActiveRecord::Schema.define(version: 2020_08_19_184035) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "deletions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "artwork_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "itineraries", force: :cascade do |t|
     t.integer "artwork1"
     t.integer "artwork2"
@@ -40,7 +54,14 @@ ActiveRecord::Schema.define(version: 2020_08_19_184035) do
     t.integer "artwork5"
     t.integer "artwork6"
     t.integer "artwork7"
-    t.integer "user"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lover_creations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "artwork_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
