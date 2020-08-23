@@ -124,15 +124,15 @@ body{
    width: 122px;
    height: 110px;
    position: relative;
-   left: -375px;
-   bottom: 430px;
+   left: -250px;
+   bottom: 500px;
   } 
 
 .divText {
    position: relative;    
    display: inline-block;
-   top: 200px; 
-   left: 700px;
+   top: 250px; 
+   left: 100%;
    }
 
 .divText input[type="text"]{
@@ -210,8 +210,8 @@ label {
    box-shadow: rgba(57, 206, 226, 0.3) 0 2px 5px;
    border-radius: 10px;
    position: relative;
-   bottom: 208px;
-   left: 690px;
+   bottom: 405px;
+   left: 55%;
    }
    
    
@@ -248,8 +248,8 @@ label {
    background-position: 200% 0, 0 0;
    box-shadow: rgba(57, 206, 226, 0.3) 0 2px 5px;
    border-radius: 10px;
-   left: 40%;
-   top: 300px;
+   left: 30%;
+   top: 100px;
    }
 
 

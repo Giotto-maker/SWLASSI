@@ -9,7 +9,18 @@ class ReviewsController < ApplicationController
 
         review = Review.find_by(artwork: artwork_id , user: user_id)
 
-        if review                           # update review
+        # update review
+        if review
+            # time constraint check
+            start_time = review.updated_at
+            end_time = DateTime.now()
+            elapsed_sec = TimeDifference.between(start_time, end_time).in_seconds.to_i
+            if elapsed_sec < 3600
+                left_time = (3600 - elapsed_sec)/60
+                render html: 'Still ' + left_time.to_s + ' minutes before you can update your review'
+                return
+            end
+                
             review.valutation = vote
             review.comment = comment
             begin
@@ -18,9 +29,10 @@ class ReviewsController < ApplicationController
             rescue => error
                 render html: 'Something went wrong : ' + error.to_s
             end
-        else                                # create review
+        # create review
+        else                                
             begin
-                user_review = Review.new(:valutation => vote , :comment => comment)
+                user_review = Review.new(:valutation => vote , :comment => comment, :updated_at => DateTime.now)
                 user_review.user_id = user_id
                 user_review.artwork_id = artwork_id
                 current_user.reviews << user_review
@@ -28,7 +40,8 @@ class ReviewsController < ApplicationController
 
                 current_user.reviews_number += 1
                 if current_user.reviews_number == 10
-                    current_user.roles_mask = 2     # make this user artlover!
+                    # make this user artlover!
+                    current_user.roles_mask = 2     
                 end
                 current_user.save!
 
@@ -42,7 +55,7 @@ class ReviewsController < ApplicationController
     def show
         @artwork = Artwork.find(params[:id])
         @reviews = Review.where(artwork: params[:id])
-        authorize! :read , @reviews, :message => 'Forbidden'
+        authorize! :read , @reviews[0], :message => 'Forbidden'
     end
 
     def destroy

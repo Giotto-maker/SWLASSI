@@ -29,7 +29,7 @@ Canard::Abilities.for(:artlover) do
   cannot :create_artwork_with_admin_permission, Artwork
   cannot [:destroy, :update], Artwork
   
-  
-  cannot [:read,:destroy], Review
+  can [:read], Review
+  cannot [:destroy], Review
   can [:create, :update], Review
 end
