@@ -48,10 +48,19 @@ gem 'omniauth-google-oauth2'
 gem 'haml'
 gem 'canard', '~> 0.5.0.pre'
 gem 'time_difference'
+gem 'json', '~> 2.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
