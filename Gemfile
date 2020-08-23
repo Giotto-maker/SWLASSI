@@ -49,10 +49,28 @@ gem 'haml'
 gem 'canard', '~> 0.5.0.pre'
 gem 'time_difference'
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
+group :test do
+  gem 'cucumber-rails', require: false
+  # database_cleaner is not mandatory, but highly recommended
+  gem 'database_cleaner'
+end
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  #gem 'byebug'
+  gem 'factory_bot_rails'
+end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

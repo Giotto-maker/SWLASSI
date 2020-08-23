@@ -51,7 +51,7 @@ class ArtworksController < ApplicationController
         begin
             ActiveRecord::Base.transaction do
                 authorize! :create_artwork_with_lover_permission, 
-                    Artwork.create!(nome: params[:name], autore: params[:author]),
+                    Artwork.create!(nome: params[:name], autore: params[:author], categoria: params[:category]),
                     :message => 'Forbidden'
             end
         rescue CanCan::AccessDenied
@@ -76,6 +76,7 @@ class ArtworksController < ApplicationController
                         valutazioni: params[:valutations],
                         indirizzo: params[:place],
                         latitudine: params[:lat],
+                        longitudine: params[:long],
                         foto1: params[:foto1],
                         foto2: params[:foto2],
                         foto3: params[:foto3],
