@@ -15,6 +15,12 @@ module NavigationHelpers
 
     when /^the smARTwandering welcome page/
       '/'
+    
+    when /^the smARTwandering homepage/
+      '/homepage'
+    
+    when /^the smARTwandering sign in page/
+      '/users/sign_in'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
