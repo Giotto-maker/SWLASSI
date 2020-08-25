@@ -223,7 +223,8 @@
                           "foto2": foto2,
                           "foto3": foto3,
                           "foto4": foto4,
-                          "foto5": foto5 
+                          "foto5": foto5,
+                          "authenticity_token": "<%= form_authenticity_token %>"
                         } 
               }).done(function(result) {
                     alert(result)
@@ -239,7 +240,8 @@
                   url: "/create_artwork_lover",
                   data: { "category" : category,
                           "name" : name,
-                          "author" : author 
+                          "author" : author,
+                          "authenticity_token": "<%= form_authenticity_token %>"
                         } 
               }).done(function(result) {
                   if (result == 'Artwork successfuly added!') {

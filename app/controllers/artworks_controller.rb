@@ -136,12 +136,19 @@ class ArtworksController < ApplicationController
 
 
     def more_infos
-        artwork = Artwork.find(params[:id])
 
         begin
+            artwork = Artwork.find(params[:id])
+
+            if !artwork.voto || !artwork.valutazioni || !artwork.periodo || !artwork.dimensioni || !artwork.indirizzo || !artwork.latitudine || !artwork.longitudine
+                raise CanCan::AccessDenied 
+            end
+
             authorize! :require_additional_infos, artwork, :message => 'You need to be an artlover to read more!'
-        rescue => message
-            render html: message
+        rescue CanCan::AccessDenied
+            raise
+        rescue => error
+            render html: error.to_s
             return
         end
 

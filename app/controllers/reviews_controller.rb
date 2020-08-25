@@ -7,6 +7,18 @@ class ReviewsController < ApplicationController
         vote = params[:mark]
         comment = params[:comment]
 
+        # check is artwork has not been added by artlover and not completed yet
+        begin
+            artwork = Artwork.find(artwork_id)
+        rescue => error
+            render html: 'Error : ' + error.to_s
+            return
+        end
+        
+        if !artwork.voto || !artwork.valutazioni || !artwork.periodo || !artwork.dimensioni || !artwork.indirizzo || !artwork.latitudine || !artwork.longitudine
+            raise CanCan::AccessDenied
+        end
+
         review = Review.find_by(artwork: artwork_id , user: user_id)
 
         # update review

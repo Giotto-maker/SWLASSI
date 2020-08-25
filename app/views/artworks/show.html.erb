@@ -1,3 +1,4 @@
+<% if @artwork.valutazioni && @artwork.voto && @artwork.periodo && @artwork.dimensioni && @artwork.indirizzo && @artwork.latitudine && @artwork.longitudine %>
 <!DOCTYPE html>
 <html>
 
@@ -181,7 +182,7 @@
             $.ajax ({
                 method: "GET",
                 url: '/review_create' ,
-                data: { "id" : + <%= @artwork.id %> , "mark" : mark, "comment" : comment } 
+                data: { "id" : + <%= @artwork.id %> , "mark" : mark, "comment" : comment, "authenticity_token": "<%= form_authenticity_token %>" } 
             }).done(function(result) {
                 alert(result)
                 if (result != 'Your review has been updated!' && 
@@ -191,7 +192,7 @@
                     $.ajax ({
                         method: "PUT",
                         url: "/artwork_mark_update",
-                        data: { "id" : + <%= @artwork.id %> , "mark" : mark } 
+                        data: { "id" : + <%= @artwork.id %> , "mark" : mark, "authenticity_token": "<%= form_authenticity_token %>" } 
                         }).done(function(result) {
                             alert(result)
                         })
@@ -257,3 +258,6 @@
         }
    </script>
 </html>
+<% else %>
+    <h1> This artwork has missing informations: please contact an administrator! </h1>
+<% end %>

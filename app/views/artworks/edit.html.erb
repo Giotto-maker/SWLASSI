@@ -180,7 +180,8 @@
                         "foto2": foto2,
                         "foto3": foto3,
                         "foto4": foto4,
-                        "foto5": foto5 
+                        "foto5": foto5,
+                        "authenticity_token": "<%= form_authenticity_token %>"
                       } 
             }).done(function(result) {
                 alert(result)
@@ -194,7 +195,7 @@
             $.ajax ({
                 method: "DELETE",
                 url: "/artwork_delete",
-                data: { "id" : + <%= @artwork.id %> }
+                data: { "id" : + <%= @artwork.id %> , "authenticity_token": "<%= form_authenticity_token %>"}
         }).done(function(result) {
             alert(result)
             window.location.replace('/welcomeHomepage')
