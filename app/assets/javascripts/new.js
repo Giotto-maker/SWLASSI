@@ -308,16 +308,3 @@ function reduce_visit() {
 
     return true
 }
-
-
-function disable_buttons_for_non_loggedin_user() {
-    if (!logged) {
-        document.getElementById('divAccount').style.visibility = 'hidden'
-        document.getElementById('menu').style.visibility = 'hidden'
-        document.getElementById('fe2').style.visibility = 'hidden'
-    } else {
-        document.getElementById('divAccount').style.visibility = 'visible'
-        document.getElementById('menu').style.visibility = 'visible'
-    } 
-    return true
-}

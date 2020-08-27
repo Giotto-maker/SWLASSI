@@ -61,19 +61,23 @@
 
     <div class="w3-bar">
         <div class="element">
-            <div id='divAccount' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
-                <div class="dropdown-content">
-                    <%= link_to "Edit Account", edit_user_registration_path %>
-                    <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
-                </div>  
-            </div>
+            <% if user_signed_in? %>
+                <div id='divAccount' class ="account">Account <img src="../Images/Microsoft_Account.svg.png" width="40" height="40">       
+                    <div class="dropdown-content">
+                        <%= link_to "Edit Account", edit_user_registration_path %>
+                        <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
+                    </div>  
+                </div>
+            <% end %>
         </div>     
         <a> <input type="button" class="logo" id='btnHome'> </a>
                 
-        <div id='menu' class="menu">
-            <a href ="/find" class="element" >Look for an artwork 🔎</a>
-            <a href ="/addAnArtwork" class="element">Add an artwork 🖼️</a> 
-        </div>
+        <% if user_signed_in? %>
+            <div id='menu' class="menu">
+                <a href ="/find" class="element" >Look for an artwork 🔎</a>
+                <a href ="/addAnArtwork" class="element">Add an artwork 🖼️</a> 
+            </div>
+        <% end %>
     </div>
 
         <span class="text1" align="center">
@@ -208,14 +212,16 @@
       </div>
       <div id='dev' class="developers">
         <a href="/aboutus" id='fe1' class="footer_element" style="margin-left: 30px;">About Us</a>
-        <a href="/contact_us" id='fe2' class="footer_element" style="margin-left: 30px";>Contact Us</a>
+        <% if user_signed_in? %>
+            <a href="/contact_us" id='fe2' class="footer_element" style="margin-left: 30px";>Contact Us</a>
+        <% end %>      
       </div>       
     </div>
     <!-- Animazioni in JQuery -->
     <script type="text/javascript">
     $(document).ready(function(){
         load_map(art1,aut1,lng1,lat1,art2,aut2,lng2,lat2,art3,aut3,lng3,lat3,art4,aut4,lng4,lat4,art5,aut5,lng5,lat5,art6,aut6,lng6,lat6,art7,aut7,lng7,lat7);
-        disable_buttons_for_non_loggedin_user()
+        
         $('.button').click(function(event){
             $('#button1').css("color", "blue")
             $('#button2').css("color", "blue")
