@@ -17,7 +17,7 @@
 
     </head>
 
-    <body onload=hide_if_is_not_admin()> 
+    <body onload=not_required_if_not_admin()> 
     <div class="tutto">
         <!-- menu bar -->
         <div class="w3-bar"> 
@@ -46,20 +46,23 @@
             <br>
             <form action="" name="addArtwork">
                 <div id='userinfo'>
-                    <div class="custom-select" style="width:200px;">
+                    <h3> <strong> Artlover fields: </strong> </h3>
+                    <div class="custom-select" style="width:200px;"> 
                         <select id='category' name="category">
-                            <option value = "choose" selected> Choose a category </option>
-                            <option value = "painting"> Painting </option>
-                            <option value = "sculpture"> Sculpture </option>
-                            <option value = "architecture"> Architecture </option>
-                            <option value = "star"> * category </option> 
+                            <option value = "choose"> Choose a category </option>
+                            <option value = "painting" > Painting </option>
+                            <option value = "sculpture" > Sculpture </option>
+                            <option value = "architecture" > Architecture </option>
+                            <option value = "star" selected > star </option> 
                         </select>
                     </div> <br>
                     <input type="text" id='name' name="name" size="30" maxlenght ="30" placeholder="Artwork title" required> <br>
                     <input type="text" id='author' name="author" placeholder="Artwork author" required> <br>    
                 </div>
-
+                
+                <% if current_user.admin? %>
                 <div id='admininfo'>
+                    <h3> <strong> Admin fields: </strong> </h3>
                     <input type="text" id='timePeriod' name="timePeriod" placeholder="TimePeriod" required><br>
     
                     <input type="text" id='dimensions' name="dimensions" placeholder="Dimensions" required><br>
@@ -83,11 +86,11 @@
                     <input type="text" id='lat' name="latitude" placeholder="Latitude" required> <br>
                     
                     <input type="text" id='long' name="long" placeholder="Longitude" required> <br>
-                    
-                    <br>
-                    <br> 
-                    <br>
                 </div>
+                <% end %>
+                <br>
+                <br> 
+                <br>
                 
                 <input type="reset"value="Reset" id="reset_btn">
                 <input type="button" value="Submit" id="submit_btn">
@@ -254,10 +257,8 @@
         </script>
 
         <script>
-        function hide_if_is_not_admin() {
-        if (!admin) {
-          document.getElementById('admininfo').style.visibility = 'hidden'
-        
+        function not_required_if_not_admin() {
+        if (!admin) {        
           document.getElementById('timePeriod').removeAttribute('required', '')
           document.getElementById('dimensions').removeAttribute('required', '')
           document.getElementById('vote').removeAttribute('required', '')

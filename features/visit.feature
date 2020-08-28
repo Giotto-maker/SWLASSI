@@ -1,9 +1,13 @@
 Feature: Itinerary
-    As a user 
+    As a external user 
     So that I can enjoy a visit
-    I want to receive an itinerary
+    I want to receive an itinerary with the most important artworks
 
-Background: 
+    As a registerd users
+    So that I can enjoy a visit
+    I want to receive a customized itinery matching my personal preference
+
+Background: Registration
     Given a registered user
 
 Scenario: External user requests visit suggestion
@@ -57,4 +61,3 @@ Scenario: Logged in user requests visit suggestion
     And I should see "Add an artwork 🖼️"
     And I should see "Contact Us"
     And I should see "Account"
-

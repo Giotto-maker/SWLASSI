@@ -252,3 +252,15 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+# ADDED (to confirm alerts messages)
+
+Then /^the confirmation box should have been displayed$/ do
+  message_displayed = page.driver.browser.switch_to.alert
+  if message_displayed.text != 'Artwork successfuly added!'
+      message_displayed.dismiss
+  else
+      message_displayed.accept
+  end
+end
+
