@@ -62,9 +62,6 @@ RSpec.describe VisitController do
         :foto2=>"https://civitavecchia.portmobility.it/sites/default/files/scavi_di_torre_argentina_2.jpg",
         :foto1=>"https://www.sitiarcheologiciditalia.it/wp-content/uploads/2018/03/TORRE-ARGENTINA1.jpg",
         :autore=>"Romani",:dimensioni=>"Non disponibile",:categoria=>"star",:latitudine=>41.896081,:longitudine=>12.476803)
-        
-        @artworks_star = [artwork1_star, artwork2_star, artwork3_star, 
-        artwork4_star, artwork5_star, artwork6_star, artwork7_star]
 
         artwork_arch1 = Artwork.create(:voto=>4,:valutazioni=>38,:periodo=>"2002",:nome=>"Auditorium Parco della Musica",:indirizzo=>"Via Pietro de Coubertin, 30, 00196 Roma RM",
         :foto5=>"https://www.turismoroma.it/sites/default/files/auditorium_0.jpg",
@@ -121,9 +118,6 @@ RSpec.describe VisitController do
         :foto2=>"https://www.turismoroma.it/sites/default/files/santa-maria-maggiore.jpg",
         :foto1=>"https://mywowo.net/media/images/cache/roma_chiesa_santa_maria_maggiore_01_storia_esterno_jpg_1200_630_cover_85.jpg",
         :autore=>"Ferdinando Fuga",:dimensioni=>"2752 m²",:categoria=>"architecture",:latitudine=>41.8976268,:longitudine=>12.49847)
-
-        @artworks_arch = [artwork_arch1, artwork_arch2, artwork_arch3, artwork_arch4, artwork_arch5,
-        artwork_arch6, artwork_arch7]
     end
 
     after(:all) do
@@ -131,10 +125,34 @@ RSpec.describe VisitController do
         Artwork.delete_all
     end
 
+    after(:each) do
+        @test_user.category = 'Architecture'
+        @test_user.save
+    end
+
 
     it "should return successfully when visit is requested" do
-      get :new
-      expect(response.status).to be(200)
+        get :new
+        expect(response.status).to be(200)
+    end
+
+    it "should return no suggestions if there are not artworks of the given category" do
+        sign_in @test_user
+        @test_user.category = 'Sculpture'
+        @test_user.save
+
+        get :new
+
+        suggested_artworks = assigns(:artworks)
+
+        expect(response.status).to be(200)
+        expect(suggested_artworks[0]).to be_nil
+        expect(suggested_artworks[1]).to be_nil
+        expect(suggested_artworks[2]).to be_nil
+        expect(suggested_artworks[3]).to be_nil
+        expect(suggested_artworks[4]).to be_nil
+        expect(suggested_artworks[5]).to be_nil
+        expect(suggested_artworks[6]).to be_nil
     end
 
     it "should suggest star artworks if the user is not logged in" do
