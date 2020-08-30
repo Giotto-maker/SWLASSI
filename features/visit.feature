@@ -1,3 +1,4 @@
+@javascript
 Feature: Itinerary
     As a external user 
     So that I can enjoy a visit
@@ -9,12 +10,13 @@ Feature: Itinerary
 
 Background: Registration
     Given a registered user
+    And an artworks collection
 
 Scenario: External user requests visit suggestion
 
     Given I am on the home page
     When I follow "visit link"
-    Then I should be on the new visit page for non logged in users
+    Then I should be on the new visit page
     
     And I should see "Enjoy your tour!"
     And I should see "Anfiteatro Flavio"
@@ -41,7 +43,7 @@ Scenario: Logged in user requests visit suggestion
     Then I should see "Welcome to smART wandering"
     And I should see "Start visit or come back to your tour! 🗺️"
     When I follow "Start visit or come back to your tour! 🗺️"
-    Then I should be on the new visit page for logged in users
+    Then I should be on the new visit page
 
     And I should see "Enjoy your tour!"
     And I should see "Auditorium Parco della Musica"
