@@ -147,6 +147,8 @@ artwork_arch7 = Artwork.create(:voto=>4,:valutazioni=>84,:periodo=>"completata n
       new_visit_path(@artworks_arch)
     when /^the add new artwork page/
       '/addAnArtwork'
+    when /^the users page/
+      '/users'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

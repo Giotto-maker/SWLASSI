@@ -19,7 +19,7 @@
           %td= user.username
           %td= user.name
           %td= user.surname
-          %td= link_to "Block", edit_user_path(id: user.id, operation: 'block')
-          %td= link_to "Unblock", edit_user_path(id: user.id, operation: 'unblock')     
+          %td= link_to "Block "+ user.email, edit_user_path(id: user.id, operation: 'block')
+          %td= link_to "Unblock "+ user.email, edit_user_path(id: user.id, operation: 'unblock')     
 %br
 %div #{link_to "Back to welcome page", root_path}
