@@ -59,7 +59,7 @@ class ArtworksController < ApplicationController
 
         begin
             ActiveRecord::Base.transaction do
-                artw = Artwork.create!(nome: params[:name], autore: params[:author])
+                artw = Artwork.create!(nome: params[:name], autore: params[:author], categoria: params[:category])
                 authorize! :create_artwork_with_lover_permission, artw, :message => 'Forbidden'
                 lover_creation = LoverCreation.create!(user_id: this_user, artwork_id: artw.id)
                 authorize! :create, lover_creation, :message => 'Forbidden'
@@ -92,6 +92,7 @@ class ArtworksController < ApplicationController
                 valutazioni: params[:valutations],
                 indirizzo: params[:place],
                 latitudine: params[:lat],
+                longitudine: params[:long],
                 foto1: params[:foto1],
                 foto2: params[:foto2],
                 foto3: params[:foto3],
