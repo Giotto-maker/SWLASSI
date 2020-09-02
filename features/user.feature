@@ -23,6 +23,10 @@ Scenario: Admin can block an base user
     Then I should be on the users page
     And I should see "ferrazzivalentina@gmail.com"
     When I follow "Block ferrazzivalentina@gmail.com"
+    Then I should be on the users page
+    When I follow "Back to welcome page"
     Then I should see "Welcome to smART wandering"
     When I press "Log out"
-
+    Then I should be on the home page
+    Given a logged in base user
+    Then I should see "Your account is locked"

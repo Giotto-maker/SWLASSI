@@ -4,7 +4,8 @@ body{
     background-repeat: no-repeat; 
     background-attachment: block;
     z-index: 70;
-} 
+}
+
 .w3-bar {
     text-align: center;
     background-color:#04001b;

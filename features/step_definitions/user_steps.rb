@@ -12,6 +12,13 @@ Given /^a registered base user$/ do
   :password_confirmation => password, confirmed_at: Time.now.utc)
 end
 
+Given /^a logged in base user$/ do
+  visit new_user_session_path
+  fill_in "Email", :with => ENV['TEST_USER_EMAIL_2']
+  fill_in "Password", :with => ENV['TEST_USER_PSW_2']
+  click_button "Log in"
+end
+
 Given /^a logged in user$/ do
     visit new_user_session_path
     fill_in "Email", :with => ENV['TEST_USER_EMAIL']
@@ -36,4 +43,6 @@ Given /^I am an admin user$/ do
     test_user.roles_mask = 4
     test_user.save
 end
+
+
 

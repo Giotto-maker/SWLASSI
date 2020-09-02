@@ -27,6 +27,10 @@
     background-size: 100%;
     background-repeat: no-repeat;
   } */
+
+  link {
+    color: red;
+  }
   div#main {
     margin: 0;
     padding: 0 20px 20px;
@@ -82,6 +86,7 @@
     background: whitesmoke;
     margin: 1em 0;
     padding: 4px;
+    color: rgb(153, 17, 96);
   }
   form label {
     display: block;
@@ -92,7 +97,6 @@
 div {
   text-align: center;
   font-family: Avenir;
-
 }
   
 table#users {
@@ -115,3 +119,4 @@ table#users th, table#reviews td {
   padding: 4px;
   text-align: left;
 }
+
