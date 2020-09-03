@@ -228,7 +228,7 @@
                     url: "/artwork_more_infos",
                     data: { "id" : + <%= @artwork.id %> } 
                 }).done(function(result) {
-                    $("#more_infos").html(result)
+                    $("#more_infos").text(result)
                 })                
             })
         })

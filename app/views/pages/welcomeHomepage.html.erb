@@ -46,14 +46,14 @@
 
                     <div class="dropdown-content">
                         <%= link_to "Edit Account", edit_user_registration_path %>
+                        <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                     </div>  
                     </div>
                 </div>
                 
-                <input type="button" class="logo" id='btnHome'>
-                
+                <%= button_to '', destroy_user_session_path, :method => :delete, :class => "logo", :id => 'btnHome'%>
+                                
                 <div class="menu">
-                    <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
                     <a href="/visit/new" class="element">Start visit or come back to your tour! 🗺️</a>
                     <a href ="/find" class="element">Look for an artwork 🔎</a>
                     <a href ="/addAnArtwork" class="element">Add an artwork 🖼️</a>

@@ -1,21 +1,21 @@
 Given /^a registered user$/ do
   password = ENV['TEST_USER_PSW']
-  User.create!(:email => "luca.andolfi03@gmail.com", :name => ENV['TEST_USER_NAME'], :surname => ENV['TEST_USER_SURNAME'],
+  User.create!(:email => ENV['TEST_USER_EMAIL'], :name => ENV['TEST_USER_NAME'], :surname => ENV['TEST_USER_SURNAME'],
   :username => ENV['TEST_USER_SURNAME'] , :category => 'Architecture', :roles_mask => 4, :password => password, 
   :password_confirmation => password, confirmed_at: Time.now.utc)
 end
 
-Given /^a registered base user$/ do
-  password = ENV['TEST_USER_PSW_2']
-  User.create!(:email => "ferrazzivalentina@gmail.com", :name => ENV['TEST_USER_NAME_2'], :surname => ENV['TEST_USER_SURNAME_2'],
-  :username => ENV['TEST_USER_SURNAME_2'] , :category => 'Architecture', :roles_mask => 0, :password => password, 
+Given /^another user with base privileges$/ do
+  password = ENV['TEST_USER_PSW']
+  User.create!(:email => "ferrazzivalentina@gmail.com", :name => ENV['TEST_USER_NAME'], :surname => ENV['TEST_USER_SURNAME'],
+  :username => ENV['TEST_USER_SURNAME'] , :category => 'Architecture', :roles_mask => 0, :password => password, 
   :password_confirmation => password, confirmed_at: Time.now.utc)
 end
 
 Given /^a logged in base user$/ do
   visit new_user_session_path
-  fill_in "Email", :with => ENV['TEST_USER_EMAIL_2']
-  fill_in "Password", :with => ENV['TEST_USER_PSW_2']
+  fill_in "Email", :with => "ferrazzivalentina@gmail.com"
+  fill_in "Password", :with => ENV['TEST_USER_PSW']
   click_button "Log in"
 end
 

@@ -189,7 +189,8 @@ class ArtworksController < ApplicationController
         end_time = DateTime.now()
         elapsed_sec = TimeDifference.between(start_time, end_time).in_seconds.to_i
         if elapsed_sec < 3600
-            render html: 'You have to wait before you can edit this artwork again'
+            left_time = (3600 - elapsed_sec)/60
+            render html: 'Still ' + left_time.to_s + ' minutes before you can update this artwork'
             return
         end
 
