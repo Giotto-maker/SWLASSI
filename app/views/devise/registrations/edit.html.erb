@@ -28,7 +28,6 @@
       <br>
       <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-      <% if current_user.provider == nil %>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -87,7 +86,7 @@
               <%= f.submit "Update" %>
             </div>
           <% end %>
-          <% end %>
+          
            <%= link_to "Back", :back %>
       </div>
       <div class ="delete">
@@ -107,7 +106,7 @@
               <img id="foto_logo_sez" src="../Images/sapienza.png" alt="logo sapienza">
             </div>
             <div class="developers" class="footer_element">
-              <a href="/aboutus">About Us</a>
+              <a href="aboutus">About Us</a>
             </div>       
         </div>
     </body>

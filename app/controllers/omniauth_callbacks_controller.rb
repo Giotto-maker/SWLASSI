@@ -21,19 +21,29 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def google_oauth2
       auth = request.env["omniauth.auth"]
       user = User.find_by(email: auth["info"]["email"])
-      if (!user) 
-        user = User.new(:email => auth["info"]["email"],
+      if (!user)
+        begin 
+          password = Devise.friendly_token
+          ActiveRecord::Base.transaction do
+            user = User.new(:email => auth["info"]["email"],
                  :name  => auth["info"]["name"],
                  :category => 'Star',
-                 :password => Devise.friendly_token,
+                 :password => password,
                  :provider => auth["provider"] , :uid => auth["uid"])
-        user.skip_confirmation!
-        user.save!
+            user.skip_confirmation!
+            user.save!
+
+            ContactMailer.send_psw(password,user.email,user.name).deliver
+          end
+        rescue => error
+          render html: 'An error has occurred while accessing with Google: ' + error.to_s
+          return
+        end
       end
 
       user.remember_me = true
       sign_in(:user, user)
-  
+      
       redirect_to after_sign_in_path_for(user)
     end
 end

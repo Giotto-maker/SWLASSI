@@ -8,6 +8,7 @@ class ContactMailer < ApplicationMailer
     def send_psw(psw,address,name)
         @name = name
         @password_sent = psw
-        mail(to: address , subject: 'Reset password')
+        mail(to: address , subject: 'Temporary password')
+        p 'Sent email to ' +address
     end
 end
