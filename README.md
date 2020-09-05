@@ -1,24 +1,32 @@
 # README
+<h1> Cos'è smARTWandering </h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+smARTWandering è un progetto che ha lo scopo di suggerire degli itinerari di visita all'interno della città di Roma a tutti gli uteni, sulla base delle loro preferenze
 
-Things you may want to cover:
+In più diamo la possibilità agli utenti di ricevere informazioni aggiuntive sulle loro opere preferite, conoscerne i dettagli  e farne delle recensioni, sulla base delle quali faremo suggerimenti migliori 
 
-* Ruby version
+<h1> Requisiti </h1>
 
-* System dependencies
+Questa applicazione gira su Rails 5 e necessita di Ruby almeno alla versione 2.4.
+Usiamo SQLite3 come database.
+Per la lista completa della dipendenze si rimanda al Gemfile
 
-* Configuration
+Per eseguire il codice è sufficiente installare le gemme richieste con il comando
 
-* Database creation
+<h4> bundle install </h4>
 
-* Database initialization
+ed in seguito avviare un'istanza del server rails
 
-* How to run the test suite
+<h4> rails server </h4>
 
-* Services (job queues, cache servers, search engines, etc.)
+Nel caso in cui non si avesse Rails installato sulla propria macchina visitare prima https://gorails.com/setup/ubuntu/20.04
 
-* Deployment instructions
+<h1> Testing </h1>
 
-* ...
+Lanciare i test di accettazione (si consiglia di avere installato Firefox, dato che i nostri test avviano in automatico un bot su quel browser) con il comando
+
+<h4> bundle exec cucumber ./features/* </h4>
+  
+ Per quelli di unità ed integrazione:
+  
+ <h4> bundle exec rpsec </h4>

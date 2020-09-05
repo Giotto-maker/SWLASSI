@@ -65,16 +65,26 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        @artwork = Artwork.find(params[:id])
-        @reviews = Review.where(artwork: params[:id])
+        begin
+            @artwork = Artwork.find(params[:artwork_id])
+        rescue
+            render html: 'No artork was found with the given id'
+            return
+        end
+        @reviews = Review.where(artwork: params[:artwork_id])
         authorize! :read , @reviews[0], :message => 'Forbidden'
     end
 
     def destroy
-        review = Review.find(params[:review_id])
-        authorize! :destroy , review, :message => 'Forbidden'
-        artwork = review.artwork_id
-        review.destroy
+        begin
+            @review = Review.find(params[:id])
+        rescue
+            render html: 'No review was found with the given id'
+            return
+        end
+        authorize! :destroy , @review, :message => 'Forbidden'
+        artwork = @review.artwork_id
+        @review.destroy
         redirect_to artwork_review_path(artwork)
     end
 
