@@ -29,4 +29,4 @@ Lanciare i test di accettazione (si consiglia di avere installato Firefox, dato 
   
  Per quelli di unità ed integrazione:
   
- <h4> bundle exec rpsec </h4>
+ <h4> bundle exec rspec </h4>
