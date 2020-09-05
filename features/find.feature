@@ -25,14 +25,14 @@ Scenario: Find artwork for Artlover user
     Then I should be on the look for an artwork page
     And I should see "Fields"
 
-    And I fill in "searchName" with "Vittoriano"
+    And I fill in "searchName" with "Piazza di Spagna"
 
     And I press "Search_btn"
     Then I should be on the page with the list of artworks
     And I should see "🎨 Search results:"
 
 Scenario: Find artwork for Admin user
-    Given I am an artlover user
+    Given I am an admin user
     When I follow "Look for an artwork 🔎"
     Then I should be on the look for an artwork page
     And I should see "Fields"
