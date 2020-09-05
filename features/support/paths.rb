@@ -25,6 +25,10 @@ module NavigationHelpers
       '/addAnArtwork'
     when /^the users page/
       '/users'
+    when /^the look for an artwork page/
+      '/find'
+    when /^the page with the list of artworks/
+      '/find_artwork'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
