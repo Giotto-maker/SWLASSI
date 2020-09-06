@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
     def new
         user_id = current_user.id
-        artwork_id = params[:id]
+        artwork_id = params[:artwork_id]
         vote = params[:mark]
         comment = params[:comment]
 
@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
         begin
             artwork = Artwork.find(artwork_id)
         rescue => error
-            render html: 'Error : ' + error.to_s
+            render html: 'Error : ' + error.to_s, status: 400
             return
         end
         
@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
             elapsed_sec = TimeDifference.between(start_time, end_time).in_seconds.to_i
             if elapsed_sec < 3600
                 left_time = (3600 - elapsed_sec)/60
-                render html: 'Still ' + left_time.to_s + ' minutes before you can update your review'
+                render html: 'Still ' + left_time.to_s + ' minutes before you can update your review', :status => 401
                 return
             end
                 
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
             review.comment = comment
             begin
                 review.save!
-                render html: 'Your review has been updated!'
+                render html: 'Your review has been updated!', :status => 200
             rescue => error
                 render html: 'Something went wrong : ' + error.to_s
             end
