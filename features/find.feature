@@ -30,6 +30,7 @@ Scenario: Find artwork for Artlover user
     And I press "Search_btn"
     Then I should be on the page with the list of artworks
     And I should see "🎨 Search results:"
+    And I should see "Piazza di Spagna"
 
 Scenario: Find artwork for Admin user
     Given I am an admin user
@@ -37,9 +38,12 @@ Scenario: Find artwork for Admin user
     Then I should be on the look for an artwork page
     And I should see "Fields"
 
-    And I fill in "searchName" with "Vittoriano"
+    And I fill in "searchAuthor" with "Romans"
 
     And I press "Search_btn"
     Then I should be on the page with the list of artworks
     And I should see "🎨 Search results:"
+
+    And I should see "Anfiteatro Flavio"
+    And I should see "Largo Argentina"
    
