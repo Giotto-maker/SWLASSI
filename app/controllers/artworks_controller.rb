@@ -8,9 +8,6 @@ class ArtworksController < ApplicationController
         @name = params['searchName']
         @author = params['searchAuthor']
 
-        #render html: @category.to_s
-        #return;
-
         # search by author
         if @category == 'choose' and @name == '' and @author != '' 
             @artworks = Artwork.where(["autore = ?", @author])
@@ -43,6 +40,15 @@ class ArtworksController < ApplicationController
         else
             @artworks = Artwork.where(["categoria = ? and nome = ? and autore = ?", @category , 
             @name , @author])
+        end
+
+        if @artworks[0].nil?
+            if !current_user.base?
+                render 'index', :status => 404
+                return
+            else
+                raise CanCan::AccessDenied
+            end
         end
 
         authorize! :look_for_artwork, @artworks[0], :message => 'You need to be an artlover to look for artworks'

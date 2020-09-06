@@ -54,7 +54,7 @@ Given /^an artworks collection$/ do
     :foto3=>"https://blog.urbanfile.org/wp-content/uploads/2019/02/2019-Roma_Largo_Argentina_Area_Archeologica_1-1024x576.jpg",
     :foto2=>"https://civitavecchia.portmobility.it/sites/default/files/scavi_di_torre_argentina_2.jpg",
     :foto1=>"https://www.sitiarcheologiciditalia.it/wp-content/uploads/2018/03/TORRE-ARGENTINA1.jpg",
-    :autore=>"Romani",:dimensioni=>"Non disponibile",:categoria=>"star",:latitudine=>41.896081,:longitudine=>12.476803)
+    :autore=>"Romans",:dimensioni=>"Non disponibile",:categoria=>"star",:latitudine=>41.896081,:longitudine=>12.476803)
 
     artwork_arch1 = Artwork.create(:voto=>4,:valutazioni=>38,:periodo=>"2002",:nome=>"Auditorium Parco della Musica",:indirizzo=>"Via Pietro de Coubertin, 30, 00196 Roma RM",
     :foto5=>"https://www.turismoroma.it/sites/default/files/auditorium_0.jpg",
