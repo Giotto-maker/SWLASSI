@@ -120,7 +120,7 @@
                 </div> 
 
             <%= link_to '<input type="button" id="edit_btn" value="Edit artwork">'.html_safe , edit_artwork_path(:id => @artwork.id) %>
-            <%= link_to '<input type="button" id="review_btn" value="Show reviews">'.html_safe , artwork_review_path(@artwork) %>
+            <%= link_to '<input type="button" id="review_btn" value="Show reviews">'.html_safe , artwork_review_path(@artwork), id: 'reviews_link' %>
 
             <div class='infos'>
                 <button type="button" id='btninfo' class="show">
@@ -182,7 +182,7 @@
             $.ajax ({
                 method: "GET",
                 url: '/review_create' ,
-                data: { "id" : + <%= @artwork.id %> , "mark" : mark, "comment" : comment, "authenticity_token": "<%= form_authenticity_token %>" } 
+                data: { "artwork_id" : + <%= @artwork.id %> , "mark" : mark, "comment" : comment, "authenticity_token": "<%= form_authenticity_token %>" } 
             }).done(function(result) {
                 alert(result)
                 if (result != 'Your review has been updated!' && 

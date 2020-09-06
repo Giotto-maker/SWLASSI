@@ -29,6 +29,8 @@ module NavigationHelpers
       '/find'
     when /^the page with the list of artworks/
       '/find_artwork'
+    when /^the reviews page/
+      artwork_review_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

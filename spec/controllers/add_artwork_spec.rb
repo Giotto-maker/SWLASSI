@@ -61,7 +61,7 @@ RSpec.describe ArtworksController do
         get :new_artwork_lover, params: {name: 'Test artwork' , author: 'Test author', category: 'star'}
         new_artwork = Artwork.find_by(nome: 'Test artwork', autore: 'Test author')
 
-        expect(response.status).to be(302)
+        expect(response.status) == 403
         expect(new_artwork).to be_nil
     end
 
@@ -70,7 +70,7 @@ RSpec.describe ArtworksController do
         get :new_artwork_admin, params: {name: 'Test artwork' , author: 'Test author', category: 'star'}
         new_artwork = Artwork.find_by(nome: 'Test artwork', autore: 'Test author')
 
-        expect(response.status).to be(302)
+        expect(response.status) == 403
         expect(new_artwork).to be_nil
     end
 

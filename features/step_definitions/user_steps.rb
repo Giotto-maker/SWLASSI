@@ -28,7 +28,7 @@ end
 
 Given /^I am a base user$/ do
     test_user = User.find_by(email: ENV['TEST_USER_EMAIL'])
-    test_user.roles_mask = 1
+    test_user.roles_mask = 0
     test_user.save
 end
 
