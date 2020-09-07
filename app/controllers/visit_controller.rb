@@ -15,9 +15,9 @@ class VisitController < ApplicationController
         #create a new itinerary to save in the database
         if (user_signed_in?)
             begin
-                Itinerary.create!(artwork1: @artworks[0].id, artwork2: @artworks[1].id, artwork3: @artworks[2].id,
-                artwork4: @artworks[3].id, artwork5: @artworks[4].id, artwork6: @artworks[5].id,
-                artwork7: @artworks[6].id, user_id: current_user.id)
+                Itinerary.create!(artwork1_id: @artworks[0].id, artwork2_id: @artworks[1].id, artwork3_id: @artworks[2].id,
+                artwork4_id: @artworks[3].id, artwork5_id: @artworks[4].id, artwork6_id: @artworks[5].id,
+                artwork7_id: @artworks[6].id, user_id: current_user.id)
             rescue => error
                 render html: 'Error creating a new itinerary' + error.to_s
                 return
