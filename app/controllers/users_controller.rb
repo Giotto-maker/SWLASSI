@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
+        if @users[0].nil? && !current_user.admin?
+            raise CanCan::AccessDenied
+        end
         authorize! :read , @users[0], :message => 'Forbidden'
     end
 

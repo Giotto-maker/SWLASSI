@@ -122,7 +122,11 @@ class ArtworksController < ApplicationController
 
 
     def show
-        @artwork = Artwork.find(params[:id])
+        begin
+            @artwork = Artwork.find(params[:id])
+        rescue 
+            render html: 'Artwork not found'
+        end
     end
 
 
@@ -179,15 +183,27 @@ class ArtworksController < ApplicationController
 
 
     def edit
-        id = params[:id]
-        @artwork = Artwork.find(id)
+
+        begin
+            id = params[:id]
+            @artwork = Artwork.find(id)
+        rescue 
+            render html: "Couldn't find artwork"
+        end
+
         authorize! :update, @artwork, :message => 'Forbidden'
     end
 
 
 
     def update
-        @artwork = Artwork.find(params[:id])
+
+        begin
+            @artwork = Artwork.find(params[:id])
+        rescue 
+            render html: "Couldn't find artwork"
+        end
+
         authorize! :update, @artwork, :message => 'Forbidden'
 
         # check time constraint

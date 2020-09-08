@@ -72,7 +72,12 @@ class ReviewsController < ApplicationController
             return
         end
         @reviews = Review.where(artwork: params[:artwork_id])
-        authorize! :read , @reviews[0], :message => 'Forbidden'
+
+        if (@reviews[0].nil? && current_user.base?)
+            raise CanCan::AccessDenied
+        else
+            authorize! :read , @reviews[0], :message => 'Forbidden'
+        end
     end
 
     def destroy
