@@ -326,3 +326,11 @@ Artwork.create(:voto=>5,:valutazioni=>170,:periodo=>"1818",:nome=>"Piazza del Po
 :foto1=>"https://www.romasegreta.it/images/piazza-del-popolo.jpg",
 :autore=>"Giuseppe Valdier",:dimensioni=>"17.100 metri quadrati",:categoria=>"star",:latitudine=>41.910763,:longitudine=>12.475908)
 
+Artwork.create(:voto=>5,:valutazioni=>172,:periodo=>'360 a.C. circa',:nome=>'Afrodite cnidia', :indirizzo=>'Musei Vaticani, Città del Vaticano',
+:foto5=>'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Cnidus_Aphrodite_Altemps_01.JPG/800px-Cnidus_Aphrodite_Altemps_01.JPG',
+:foto4=>'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Aphrodite_of_Cnidus.Munich.jpg/1024px-Aphrodite_of_Cnidus.Munich.jpg',
+:foto3=>'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Afrodita_sorprendida_desnuda.JPG/1024px-Afrodita_sorprendida_desnuda.JPG',
+:foto2=>'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Aphrodite_head_Ma_421_Louvre.jpg/1024px-Aphrodite_head_Ma_421_Louvre.jpg',
+:foto1=>'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Afrodite_cnidia.jpg/394px-Afrodite_cnidia.jpg',
+:autore=>'Prassitele', :dimensioni=>'altezza 205 cm', :categoria=>'sculpture' , :latitudine=>41.904961  , :longitudine=>12.4546617)
+
