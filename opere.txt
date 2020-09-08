@@ -334,3 +334,49 @@ Artwork.create(:voto=>5,:valutazioni=>172,:periodo=>'360 a.C. circa',:nome=>'Afr
 :foto1=>'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Afrodite_cnidia.jpg/394px-Afrodite_cnidia.jpg',
 :autore=>'Prassitele', :dimensioni=>'altezza 205 cm', :categoria=>'sculpture' , :latitudine=>41.904961  , :longitudine=>12.4546617)
 
+
+
+Artwork.create(:voto=>5,:valutazioni=>202,:periodo=>'1885-1935',:nome=>'Piazza Venezia', :indirizzo=>'Piazza Venezia',
+:foto5=>'https://upload.wikimedia.org/wikipedia/commons/a/a2/Piazza_Venezia_-_Il_Vittoriano.jpg',
+:foto4=>'https://i.ytimg.com/vi/WaCvOKL0dJ0/maxresdefault.jpg',
+:foto3=>'https://upload.wikimedia.org/wikipedia/commons/a/a2/Piazza_Venezia_-_Il_Vittoriano.jpg',
+:foto2=>'https://www.noidiroma.com/wp-content/uploads/2014/04/vittoriano-roma-monumento.jpg',
+:foto1=>'https://3.bp.blogspot.com/-_BEjGWwcfQ4/T__xeYLwyQI/AAAAAAAAGeM/jO0IgDzcR20/s1600/il+vittoriano+altare+della+patria.jpg',
+:autore=>'‎Giuseppe Sacconi', :dimensioni=>'‎81 m; Tetto: 70 m', :categoria=>'star' , :latitudine=>41.8840576  , :longitudine=>12.5730816)
+
+
+Artwork.create(:voto=>4,:valutazioni=>189,:periodo=>'1593-1594',:nome=>'Buona ventura', :indirizzo=>'Pinacoteca Capitolina',
+:foto5=>'https://upload.wikimedia.org/wikipedia/commons/2/2e/Caravaggio_%28Michelangelo_Merisi%29_-_Good_Luck_-_Google_Art_Project.jpg',
+:foto4=>'https://www.arteworld.it/wp-content/uploads/2015/04/Volto-zingara-giovane-nobile-buona-ventura-Caravaggio-Roma-Parigi.jpg',
+:foto3=>'https://upload.wikimedia.org/wikipedia/commons/1/11/La_Diseuse_de_bonne_aventure%2C_Caravaggio_%28Louvre_INV_55%29_02.jpg',
+:foto2=>'https://www.arteworld.it/wp-content/uploads/2015/04/Particolare-volto-giovane-buona-ventura-roma-Caravaggio.jpg',
+:foto1=>'https://www.arteworld.it/wp-content/uploads/2015/04/Particolare-furto-buona-ventura-roma-Caravaggio.jpg',
+:autore=>'Caravaggio', :dimensioni=>'99 cm x 1,31 m', :categoria=>'painting' , :latitudine=>41.8926668  , :longitudine=>12.4822048)
+
+
+Artwork.create(:voto=>5,:valutazioni=>205,:periodo=>'1597–1599',:nome=>'Narciso', :indirizzo=>'Palazzo Barberini',
+:foto5=>'https://www.finestresullarte.info/blog/immagini/2019/1158/narciso-barberini.jpg',
+:foto4=>'https://www.arte.it/foto/orig/d5/101599-Caravaggio_Narciso_Detaglio_Volto.jpg',
+:foto3=>'https://www.ilturista.info/myTurista/files/1006/Narciso_Caravaggio_Mostra_Vicenza_notturni.jpg',
+:foto2=>'https://upload.wikimedia.org/wikipedia/it/d/de/Michelangelo_Caravaggio_065.jpg',
+:foto1=>'https://i.pinimg.com/originals/5c/1b/b9/5c1bb9d4d81c0fd2c7bcb855c277cc07.jpg',
+:autore=>'Caravaggio', :dimensioni=>'112×92 cm', :categoria=>'painting' , :latitudine=>41.9034957  , :longitudine=>12.4901208)
+
+Artwork.create(:voto=>5,:valutazioni=>300,:periodo=>'1514',:nome=>'Trionfo di Galatea', :indirizzo=>'Villa Farnesina',
+:foto5=>'https://upload.wikimedia.org/wikipedia/commons/2/27/Raphael%27s_Triumph_of_Galatea_02.jpg',
+:foto4=>'https://i.ytimg.com/vi/iZyMoUpEzVQ/maxresdefault.jpg',
+:foto3=>'https://cultura.biografieonline.it/wp-content/uploads/2017/09/Trionfo-di-Galatea-Raffaello-dettaglio-centrale.jpg',
+:foto2=>'https://live.staticflickr.com/4846/45436558345_8c20d9067d_b.jpg',
+:foto1=>'https://www.hotelcolosseum.com/data/trionfo-di-galatea-2.jpg',
+:autore=>'Raffaello Sanzio', :dimensioni=>'295×225 cm', :categoria=>'painting' , :latitudine=>41.8936114  , :longitudine=>12.4673208)
+
+Artwork.create(:voto=>5,:valutazioni=>301,:periodo=>'27 a.c.',:nome=>'Pantheon', :indirizzo=>'Piazza della Rotonda',
+:foto5=>'https://services.meteored.com/img/article/pantheon-roma-solstizio-estate-inverno-astronomia-luce-260321-2.jpg',
+:foto4=>'https://www.10cose.it/wp-content/uploads/2016/05/pantheon-roma-696x465.jpg',
+:foto3=>'https://marketingdelterritorio.info/images/pantheon-roma.JPG',
+:foto2=>'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Einblick_Panorama_Pantheon_Rom.jpg/440px-Einblick_Panorama_Pantheon_Rom.jpg',
+:foto1=>'https://www.museumsrome.com/images/headers/ARTICOLI_ESTESI/Pantheon-di-Notte.jpg',
+:autore=>'Romans', :dimensioni=>'larghezza ‎54,5 m', :categoria=>'star' , :latitudine=>41.8986159  , :longitudine=>12.4768334)
+
+
+
