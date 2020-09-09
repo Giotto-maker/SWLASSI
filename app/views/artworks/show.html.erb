@@ -1,4 +1,4 @@
-<% if @artwork.valutazioni && @artwork.voto && @artwork.periodo && @artwork.dimensioni && @artwork.indirizzo && @artwork.latitudine && @artwork.longitudine %>
+<% if ( current_user.admin? || ( @artwork.valutazioni && @artwork.voto && @artwork.periodo && @artwork.dimensioni && @artwork.indirizzo && @artwork.latitudine && @artwork.longitudine) ) %>
 <!DOCTYPE html>
 <html>
 

@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
             elapsed_sec = TimeDifference.between(start_time, end_time).in_seconds.to_i
             if elapsed_sec < 3600
                 left_time = (3600 - elapsed_sec)/60
-                render html: 'Still ' + left_time.to_s + ' minutes before you can update your review', :status => 401
+                render html: 'Still ' + left_time.to_s + ' minutes before you can update your review'
                 return
             end
                 
