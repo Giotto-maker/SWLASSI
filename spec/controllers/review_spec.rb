@@ -13,7 +13,7 @@ RSpec.describe ReviewsController do
         :password_confirmation => ENV['TEST_USER_PSW'], confirmed_at: Time.now.utc)
 
         @test_user_base = User.create!(:email => 'test2.user@testing.com', :name => ENV['TEST_USER_NAME'], :surname => ENV['TEST_USER_SURNAME'],
-        :username => ENV['TEST_USER_USERNAME'] , :category => 'Architecture', :roles_mask => 0, :password => ENV['TEST_USER_PSW'], 
+        :username => ENV['TEST_USER_USERNAME'] , :category => 'Architecture', :roles_mask => 1, :password => ENV['TEST_USER_PSW'], 
         :password_confirmation => ENV['TEST_USER_PSW'], confirmed_at: Time.now.utc, :reviews_number => 9)
 
         @colosseum = Artwork.create!(:voto=>5,:valutazioni=>143,:periodo=>"72 d.C",:nome=>"Anfiteatro Flavio",:indirizzo=>"Via del Colosseo",

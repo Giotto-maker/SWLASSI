@@ -12,7 +12,7 @@ RSpec.describe ArtworksController do
         :password_confirmation => ENV['TEST_USER_PSW'], confirmed_at: Time.now.utc)
 
         @test_user3 = User.create!(:email => 'testing@test.com', :name => ENV['TEST_USER_NAME'], :surname => ENV['TEST_USER_SURNAME'],
-        :username => ENV['TEST_USER_USERNAME'] , :category => 'Architecture', :roles_mask => 0, :password => ENV['TEST_USER_PSW'], 
+        :username => ENV['TEST_USER_USERNAME'] , :category => 'Architecture', :roles_mask => 1, :password => ENV['TEST_USER_PSW'], 
         :password_confirmation => ENV['TEST_USER_PSW'], confirmed_at: Time.now.utc)
 
 

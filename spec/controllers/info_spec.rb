@@ -30,64 +30,19 @@ RSpec.describe ArtworksController do
         Artwork.delete_all
     end
 
-    
-    it "should NOT update the artwork if the user is a base user" do
+    it "should NOT return infos if the user hasn't the right privileges" do
         sign_in @test_user3
-        get :update, params: {id: @colosseum.id}
+        get :more_infos, params: {id: @colosseum.id}
 
         expect(response.status) == 403
-        expect(response.body) == "redirected"
     end
 
-    it "should NOT update the artwork if the user is a base user" do
+    it "should return infos if the user has the right privileges" do
         sign_in @test_user2
-        get :update, params: {id: @colosseum.id}
-
-        expect(response.status) == 403
-        expect(response.body) == "redirected"
-    end
-
-    it "should NOT update the artwork if time constraint is not respected" do
-        sign_in @test_user1
-        @colosseum.updated_at = DateTime.now
-        get :update, params: {id: @colosseum.id}
-
-        expect(response.status) == 400
-        expect(response.body.include? 'minutes before you can update this artwork').to be_truthy
-    end
-
-    it "should update the artwork if the user is an admin and everything went just fine" do
-        sign_in @test_user1
-        get :update, params: {id: @colosseum.id,
-            category: 'star', 
-            name: 'test', 
-            author: 'test',
-            timePeriod: 'test',
-            dimension: 'test',
-            place: 'test',
-            lat: 1.0,
-            long: 1.0,
-            foto1: 'test',
-            foto2: 'test',
-            foto3: 'test',
-            foto4: 'test',
-            foto5: 'test'
-        }
+        get :more_infos, params: {id: @colosseum.id}
 
         expect(response.status) == 200
-        expect(@colosseum.nome) == 'test'
-        expect(@colosseum.categoria)
-        expect(@colosseum.autore) == 'test'
-        expect(@colosseum.periodo) == 'test'
-        expect(@colosseum.dimensioni) == 'test'
-        expect(@colosseum.indirizzo) == 'test'
-        expect(@colosseum.latitudine) == 1.0
-        expect(@colosseum.longitudine) == 1.0
-        expect(@colosseum.foto1) == 'test'
-        expect(@colosseum.foto2) == 'test'
-        expect(@colosseum.foto3) == 'test'
-        expect(@colosseum.foto4) == 'test'
-        expect(@colosseum.foto5) == 'test'
+        expect(response.body.include? 'The Colosseum or Coliseum, also known as the Flavian Amphitheatre').to be_truthy
     end
 
 end

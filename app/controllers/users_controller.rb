@@ -15,7 +15,8 @@ class UsersController < ApplicationController
         begin
             user = User.find(params[:id])
         rescue => error
-            render html: 'No user found : ' + error.to_s
+            render html: 'No user found : ' + error.to_s, status: 404
+            return
         end
 
         authorize! :block , user, :message => 'Forbidden'

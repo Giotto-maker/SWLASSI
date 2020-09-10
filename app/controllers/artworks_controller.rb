@@ -133,6 +133,9 @@ class ArtworksController < ApplicationController
 
     def update_mark
         @artwork = Artwork.find(params[:id])
+        # user must be logged in
+        authorize! :read , @artwork , :message => 'Forbidden'
+
         @mark = Integer(params[:mark])
         
         @nuovoVoto = ((@artwork.voto + @mark)/2.0).ceil 
