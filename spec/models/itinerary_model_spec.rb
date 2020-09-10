@@ -70,127 +70,30 @@ RSpec.describe Itinerary do
         Artwork.delete_all
     end
 
-    subject { described_class.new }
+    subject { described_class.create(:artwork1_id => @artwork1.id,
+    :artwork2_id => @artwork2.id, :artwork3_id => @artwork3.id, :artwork4_id => @artwork4.id,
+    :artwork5_id => @artwork5.id, :artwork6_id => @artwork6.id, :artwork7_id => @artwork7.id,
+    :user_id => @test_user.id) }
 
     describe "instantiation" do
 
         it "is valid with valid attributes" do
-            subject.user_id = @test_user.id
-
-            subject.artwork1_id = @artwork1.id
-            subject.artwork2_id = @artwork2.id
-            subject.artwork3_id = @artwork3.id
-            subject.artwork4_id = @artwork4.id
-            subject.artwork5_id = @artwork5.id
-            subject.artwork6_id = @artwork6.id
-            subject.artwork7_id = @artwork7.id
-            
             expect(subject).to be_valid
         end
 
-        it "is NOT valid without an user" do
-            subject.artwork1_id = @artwork1.id
-            subject.artwork2_id = @artwork2.id
-            subject.artwork3_id = @artwork3.id
-            subject.artwork4_id = @artwork4.id
-            subject.artwork5_id = @artwork5.id
-            subject.artwork6_id = @artwork6.id
-            subject.artwork7_id = @artwork7.id
+        it "is NOT valid if the artworks do not belong to the same category" do
+            @artwork7.categoria = 'sculpture'
+            @artwork7.save!
+
+            model = described_class.create(:artwork1_id => @artwork1.id,
+            :artwork2_id => @artwork2.id, :artwork3_id => @artwork3.id, :artwork4_id => @artwork4.id,
+            :artwork5_id => @artwork5.id, :artwork6_id => @artwork6.id, :artwork7_id => @artwork7.id,
+            :user_id => @test_user.id)
             
-            expect(subject).to_not be_valid
+            expect(model).to_not be_valid
+
         end
 
-        it "is NOT valid without the foreign key towards the first artwork" do
-            subject.user_id = @test_user.id
-
-            subject.artwork2_id = @artwork2.id
-            subject.artwork3_id = @artwork3.id
-            subject.artwork4_id = @artwork4.id
-            subject.artwork5_id = @artwork5.id
-            subject.artwork6_id = @artwork6.id
-            subject.artwork7_id = @artwork7.id
-            
-            expect(subject).to_not be_valid
-        end
-
-        it "is NOT valid without the foreign key towards the second artwork" do
-            subject.user_id = @test_user.id
-            
-            subject.artwork1_id = @artwork1.id
-            subject.artwork3_id = @artwork3.id
-            subject.artwork4_id = @artwork4.id
-            subject.artwork5_id = @artwork5.id
-            subject.artwork6_id = @artwork6.id
-            subject.artwork7_id = @artwork7.id
-            
-            expect(subject).to_not be_valid
-        end
-
-        it "is NOT valid without the foreign key towards the third artwork" do
-            subject.user_id = @test_user.id
-            
-            subject.artwork1_id = @artwork1.id
-            subject.artwork2_id = @artwork2.id
-            subject.artwork4_id = @artwork4.id
-            subject.artwork5_id = @artwork5.id
-            subject.artwork6_id = @artwork6.id
-            subject.artwork7_id = @artwork7.id
-            
-            expect(subject).to_not be_valid
-        end
-
-        it "is NOT valid without the foreign key towards the fourth artwork" do
-            subject.user_id = @test_user.id
-            
-            subject.artwork1_id = @artwork1.id
-            subject.artwork2_id = @artwork2.id
-            subject.artwork3_id = @artwork3.id
-            subject.artwork5_id = @artwork5.id
-            subject.artwork6_id = @artwork6.id
-            subject.artwork7_id = @artwork7.id
-            
-            expect(subject).to_not be_valid
-        end
-
-        it "is NOT valid without the foreign key towards the fifth artwork" do
-            subject.user_id = @test_user.id
-            
-            subject.artwork1_id = @artwork1.id
-            subject.artwork2_id = @artwork2.id
-            subject.artwork3_id = @artwork3.id
-            subject.artwork4_id = @artwork4.id
-            subject.artwork6_id = @artwork6.id
-            subject.artwork7_id = @artwork7.id
-            
-            expect(subject).to_not be_valid
-        end
-
-        it "is NOT valid without the foreign key towards the sixth artwork" do
-            subject.user_id = @test_user.id
-            
-            subject.artwork1_id = @artwork1.id
-            subject.artwork2_id = @artwork2.id
-            subject.artwork3_id = @artwork3.id
-            subject.artwork4_id = @artwork4.id
-            subject.artwork5_id = @artwork5.id
-            subject.artwork7_id = @artwork7.id
-            
-            expect(subject).to_not be_valid
-        end
-
-        it "is NOT valid without the foreign key towards the seventh artwork" do
-            subject.user_id = @test_user.id
-            
-            subject.artwork1_id = @artwork1.id
-            subject.artwork2_id = @artwork2.id
-            subject.artwork3_id = @artwork3.id
-            subject.artwork4_id = @artwork4.id
-            subject.artwork5_id = @artwork5.id
-            subject.artwork6_id = @artwork6.id
-            
-            expect(subject).to_not be_valid
-        end
-    
     end
 
     describe "assosiation" do

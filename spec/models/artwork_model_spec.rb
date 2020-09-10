@@ -4,7 +4,7 @@ RSpec.describe Artwork do
 
     subject { described_class.new }
 
-    describe "artwork" do
+    describe "instantiation" do
 
         it "is valid with valid attributes" do
             subject.nome = 'Test name'
