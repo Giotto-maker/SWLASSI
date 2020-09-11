@@ -238,5 +238,18 @@ RSpec.describe VisitController do
         itineraries = Itinerary.all
         expect(itineraries[0]).not_to be_nil
     end
+
+    it "should discriminate between non logged in user and logged in user (non logged in)" do
+        get :show, params: {id: rand(10)}
+        
+        expect(response.body.include? 'Template of a visit for external user').to be_truthy
+    end
+
+    it "should discriminate between non logged in user and logged in user (logged in)" do
+        sign_in @test_user
+        get :show, params: {id: rand(10)}
+
+        expect(response.body.include? 'Template of a custom visit').to be_truthy
+    end
   
 end

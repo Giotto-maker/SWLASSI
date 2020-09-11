@@ -43,6 +43,10 @@ class VisitController < ApplicationController
 
 
     def show
-        render html: 'Template of a visit'
+        if !user_signed_in?
+            render html: 'Template of a visit for external user'
+        else
+            render html: 'Template of a custom visit'
+        end
     end
 end

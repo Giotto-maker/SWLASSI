@@ -256,6 +256,7 @@ end
 # ADDED (to confirm alerts messages)
 
 Then /^the confirmation box should have been displayed$/ do
+  sleep(1)
   message_displayed = page.driver.browser.switch_to.alert
   if message_displayed.text != 'Artwork successfuly added!'
       message_displayed.dismiss

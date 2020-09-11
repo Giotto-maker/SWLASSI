@@ -47,6 +47,11 @@ RSpec.describe LoverCreation do
             expect(model).to_not be_valid
         end
 
+        it 'should insert into database if the user has artlover privileges' do
+            model = described_class.create(:user_id => @test_user2.id, :artwork_id => @colosseum.id)
+            expect(model).to be_valid
+        end
+
     end
 
     describe "association" do

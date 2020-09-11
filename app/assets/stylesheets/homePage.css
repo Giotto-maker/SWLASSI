@@ -13,7 +13,7 @@ p {
     color:white;
     position: absolute;
     top: 200px;
-    left: 9%; 
+    left: 21%; 
     background-color: #04001b6b;
     border-radius: 10px;
     width: 27cm;
@@ -59,7 +59,7 @@ p {
 .buttons{
     position: absolute;
     text-align: center;
-    left: 40%;
+    left: 35%;
     top: 600px;
 }
 .buttons input[type="button"]{
