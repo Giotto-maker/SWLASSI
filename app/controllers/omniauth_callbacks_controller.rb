@@ -44,6 +44,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user.remember_me = true
       sign_in(:user, user)
       
-      redirect_to after_sign_in_path_for(user)
+      redirect_to "/"
+      # redirect_to after_sign_in_path_for(user)
     end
 end
